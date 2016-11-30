@@ -3,14 +3,14 @@
 
   <br/><br/>
 
-  <div class="form-horizontal form-group form-group-lg row">
-    <div class="col-xs-10 col-xs-offset-1 col-sm-6 col-sm-offset-1 col-md-5 col-md-offset-2">
+  <div class="form-horizontal form-group form-group-lg row {{if isEmailValid 'has-success' 'has-error'}}">
+    <div class="col-xs-10 col-xs-offset-1 col-sm-6 col-sm-offset-3 margin-b-10">
       {{input type="email" value=emailAddress class="form-control" placeholder="Please type your e-mail address." autofocus="autofocus"}}
     </div>
-    <div class="col-xs-10 col-xs-offset-1 col-sm-6 col-sm-offset-1 col-md-5 col-md-offset-2" {{bind-attr class="isMessageValid:enabled:disabled"}}>
+    <div class="col-xs-10 col-xs-offset-1 col-sm-6 col-sm-offset-3 margin-b-10 {{if isMessageValid "has-success" "has-error"}}">
       {{textarea class="form-control" placeholder="Your message. (At least 5 characters.)" rows="7" value=message}}
     </div>
-    <div class="col-xs-10 col-xs-offset-1 col-sm-offset-0 col-sm-4 col-md-3">
+    <div class="col-xs-10 col-xs-offset-1 col-sm-offset-0 col-sm-4 col-md-3 col-md-offset-6">
       <button class="btn btn-primary btn-lg btn-block" disabled={{isDisabled}} {{action 'sendMessage'}}>Send message</button>
     </div>
   </div>

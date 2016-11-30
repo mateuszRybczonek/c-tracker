@@ -4,10 +4,9 @@ const { Controller, computed } = Ember;
 export default Controller.extend({
 
   isEmailValid: computed.match('emailAddress', /^.+@.+\..+$/),
-  messageLength: computed('message', function() {
-    return this.get('message').length
+  isMessageValid: computed('message', function() {
+    return (this.get('message').length >= 5);
   }),
-  isMessageValid: computed.gte('messageLength', 5),
   isFormValid: computed.and('isEmailValid', 'isMessageValid'),
   isDisabled: computed.not('isFormValid'),
 
