@@ -1,9 +1,18 @@
 @import "bootstrap";
 
+html {
+  overflow-y: scroll;
+}
+
 body {
   padding-top: 20px;
 }
 
 .margin-b-10 {
   margin-bottom: 10px;
+}
+
+
+.library-item {
+  min-height: 150px;
 }

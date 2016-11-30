@@ -5,4 +5,5 @@ export default DS.Model.extend({
   description: DS.attr('string'),
   category: DS.attr('string'),
   created_at: DS.attr('date', { defaultValue: new Date()}),
+  updated_at: DS.attr('date', { defaultValue: new Date()}),
 });
