@@ -1,0 +1,13 @@
+{{#each model as |post|}}
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h3 class="panel-title">{{post.title}}</h3>
+      <h4 class="panel-category">{{post.category}}</h4>
+    </div>
+    <div class="panel-body">
+      <p>Description: {{post.description}}</p>
+    </div>
+  </div>
+  {{else}}
+    <p>You have no posts</p>
+{{/each}}

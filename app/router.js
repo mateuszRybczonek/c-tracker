@@ -13,6 +13,10 @@ Router.map(function() {
   this.route('admin', function() {
     this.route('invitations');
   });
+
+  this.route('posts', function() {
+    this.route('new');
+  });
 });
 
 export default Router;
