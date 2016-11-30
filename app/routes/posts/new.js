@@ -6,9 +6,7 @@ export default Route.extend({
   model() {
     return this.store.createRecord('post');
   },
-
-  // post: computed.alias('model'),
-
+  
   actions: {
 
     savePost(newPost) {
