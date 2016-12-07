@@ -6,6 +6,20 @@ export default Ember.Route.extend({
     return this.store.findRecord('post', params.post_id);
   },
 
+  // set controller attributes to be available in the common template
+  // rendered below
+
+  setupController(controller, model) {
+    this._super(controller, model);
+
+    controller.set('title', 'Edit Post');
+    controller.set('buttonLabel', 'Save changes');
+  },
+
+  renderTemplate() {
+    this.render('posts/form');
+  },
+
   actions: {
 
     savePost(newPost) {

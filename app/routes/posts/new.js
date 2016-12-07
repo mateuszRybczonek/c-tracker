@@ -6,7 +6,21 @@ export default Route.extend({
   model() {
     return this.store.createRecord('post');
   },
+
+  // set controller attributes to be available in the common template
+  // rendered below
   
+  setupController: function (controller, model) {
+    this._super(controller, model);
+
+    controller.set('title', 'Add a new post');
+    controller.set('buttonLabel', 'Add');
+  },
+
+  renderTemplate() {
+    this.render('posts/form');
+  },
+
   actions: {
 
     savePost(newPost) {
