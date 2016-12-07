@@ -46,6 +46,7 @@
     "ember-validations": "2.0.0-alpha.5",
     "ember-welcome-page": "^1.0.3",
     "emberfire": "2.0.5",
-    "loader.js": "^4.0.10"
+    "loader.js": "^4.0.10",
+    "torii": "0.8.1"
   }
 }

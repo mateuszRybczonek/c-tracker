@@ -15,6 +15,10 @@ module.exports = function(environment) {
       messagingSenderId: "895197240781"
     },
 
+    torii: {
+      sessionServiceName: 'session',
+    },
+    
     contentSecurityPolicy: {
       'script-src': "'self' 'unsafe-eval' apis.google.com",
       'frame-src': "'self' https://*.firebaseapp.com",
