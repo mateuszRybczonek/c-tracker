@@ -1,0 +1,45 @@
+@mixin border-radius($radius) {
+  -moz-border-radius: $radius+px;
+  -webkit-border-radius: $radius+px;
+  border-radius: $radius+px;
+}
+
+@mixin typo($font-size, $line-height, $font-weight:null) {
+  font-size: $font-size+px;
+  line-height: $line-height+px;
+  @if $font-weight != null {
+    font-weight: $font-weight;
+  }
+}
+@mixin transitions-all {
+  -webkit-transition: all 0.4s ease-in-out;
+  -moz-transition: all 0.4s ease-in-out;
+  -o-transition: all 0.4s ease-in-out;
+  transition: all 0.4s ease-in-out;
+}
+
+@mixin background-gradient {
+  background: -webkit-linear-gradient(to left, #485563 , #29323c);
+  background: linear-gradient(to left, #485563 , #29323c);
+}
+
+@mixin main-background {
+  background: $color-btn-blue !important;
+  color: $color-outer-frame-text !important;
+}
+
+@mixin font-roboto {
+  font-family: Roboto !important;
+}
+
+@mixin font-thin {
+  font-weight: 100;
+}
+
+@mixin font-medium {
+  font-weight: 400;
+}
+
+@mixin  font-bold {
+  font-weight: 800;
+}

@@ -1,4 +1,8 @@
 @import "bootstrap";
+@import "values_importer";
+
+$font-1x: 14px;
+$font-2x: 28px;
 
 html {
   overflow-y: scroll;
@@ -16,3 +20,22 @@ body {
 .library-item {
   min-height: 150px;
 }
+
+.navbar-right {
+  @include transitions-all;
+  float: right;
+  font-size: $font-2x;
+  color: $color-snow;
+  margin: 4px;
+
+  .sign-out {
+    &:hover {
+      transform: scale(1.1);
+    }
+  }
+
+  .user-name {
+    font-size: $font-1x;
+  }
+}
+
