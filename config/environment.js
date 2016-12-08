@@ -18,11 +18,16 @@ module.exports = function(environment) {
     torii: {
       sessionServiceName: 'session',
     },
-    
+
     contentSecurityPolicy: {
       'script-src': "'self' 'unsafe-eval' apis.google.com",
       'frame-src': "'self' https://*.firebaseapp.com",
-      'connect-src': "'self' wss://*.firebaseio.com https://*.googleapis.com"
+      'connect-src': "'self' wss://*.firebaseio.com https://*.googleapis.com",
+      'default-src': "'none'",
+      'style-src': "'self' 'unsafe-inline' https://fonts.googleapis.com",
+      'font-src': "'self' fonts.gstatic.com",
+      'img-src': "'self' data:",
+      'media-src': "'self'"
     },
 
     EmberENV: {
