@@ -14,5 +14,6 @@ export default DS.Model.extend({
   isTitleValid: computed.notEmpty('title'),
   isDescriptionValid: computed.notEmpty('description'),
   isCategoryValid: computed.notEmpty('category'),
-  isValid: computed.and('isTitleValid', 'isDescriptionValid', 'isCategoryValid')
+  isValid: computed.and('isTitleValid', 'isDescriptionValid', 'isCategoryValid'),
+  isInvalid: computed.not('isValid'),
 });

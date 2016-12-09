@@ -2,8 +2,12 @@
   {{#each model as |post|}}
     <div class="col-md-4">
       {{#post-item post=post}}
-        {{#link-to 'posts.edit' post.id class='btn btn-success btn-xs'}}Edit{{/link-to}}
-        <button class="btn btn-danger btn-xs" {{action 'deletePost' post}}>Delete</button>
+        {{#paper-button iconButton=true}}
+          {{#link-to 'posts.edit' post.id}}{{paper-icon "create"}}{{/link-to}}
+        {{/paper-button}}
+        {{#paper-button iconButton=true onClick=(route-action 'deletePost' post)}}
+          {{paper-icon "delete"}}
+        {{/paper-button}}
       {{/post-item}}
     </div>
   {{else}}
