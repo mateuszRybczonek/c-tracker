@@ -1,12 +1,18 @@
-<div class="panel panel-default post-item">
-  <div class="panel-heading">
-    <h3 class="panel-title">{{post.title}}</h3>
-    <h4 class="panel-category">{{post.category}}</h4>
-  </div>
-  <div class="panel-body">
-    <p>Description: {{post.description}}</p>
-  </div>
-  <div class="panel-footer text-right">
-    {{yield}}
+<div class="layout-row flex">
+  <div class="layout-column flex">
+    {{#paper-card as |card|}}
+      {{#card.title as |title|}}
+        {{#title.text as |text|}}
+          {{#text.headline}}{{post.title}}{{/text.headline}}
+          {{#text.subhead}}{{post.category}}{{/text.subhead}}
+        {{/title.text}}
+      {{/card.title}}
+      {{#card.content}}
+        {{post.description}}
+      {{/card.content}}
+      <div class="text-right">
+        {{yield}}
+      </div>
+    {{/paper-card}}
   </div>
 </div>
