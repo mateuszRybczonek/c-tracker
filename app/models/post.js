@@ -7,6 +7,7 @@ export default DS.Model.extend({
   category: DS.attr('string'),
   description: DS.attr('string'),
   title: DS.attr('string'),
+  user: DS.attr('string'),
 
   created_at: DS.attr('date', { defaultValue: new Date()}),
   updated_at: DS.attr('date', { defaultValue: new Date()}),

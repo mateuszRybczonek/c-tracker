@@ -9,12 +9,12 @@ export default Route.extend({
 
   // set controller attributes to be available in the common template
   // rendered below
-  
+
   setupController: function (controller, model) {
     this._super(controller, model);
 
     controller.set('title', 'Add a new post');
-    controller.set('buttonLabel', 'Add');
+    controller.set('model.user', this.get('session.currentUser.email'));
   },
 
   renderTemplate() {

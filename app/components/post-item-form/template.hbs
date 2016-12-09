@@ -1,29 +1,34 @@
 <div class="form-horizontal">
-  <div class="form-group">
-    {{paper-input
-      label="Title"
-      value=post.title
-      onChange=(action (mut post.title))
-      required=true
-      errorMessages=(hash required="Title is required.")
+  {{paper-input
+    class=form-control
+    label="Title"
+    value=post.title
+    onChange=(action (mut post.title))
+    required=true
+    errorMessages=(hash required="Title is required.")
+  }}
+
+  {{paper-input
+    class='form-control hidden'
+    value=post.user
+    required=true
+    onChange=null
+  }}
+
+  {{#paper-select
+    class=form-control
+    label="Category"
+    options=categories
+    selected=post.category
+    required=true
+    errorMessages=(hash required="Category is required.")
+    onChange=(action (mut post.category)) as |category|
     }}
-  </div>
+    {{category}}
+  {{/paper-select}}
 
-  <div class="form-group">
-    {{#paper-select
-      label="Category"
-      options=categories
-      selected=post.category
-      required=true
-      errorMessages=(hash required="Category is required.")
-      onChange=(action (mut post.category)) as |category|
-      }}
-      {{category}}
-    {{/paper-select}}
-  </div>
-
-  <div class="form-group">
-    {{paper-input
+  {{paper-input
+    class=form-control
     textarea=true
     block=true
     label="Description"
@@ -33,10 +38,9 @@
     onChange=(action (mut post.description))
     required=true
     errorMessages=(hash required="Description is required.")
-    }}
-  </div>
+  }}
   <div class="form-group">
-    {{#paper-button iconButton=true onClick=(action 'buttonClicked' post) disabled=post.isInvalid}}
+    {{#paper-button iconButton=true onClick=(action 'savePost' post) disabled=post.isInvalid}}
       {{paper-icon "save"}}
     {{/paper-button}}
   </div>
