@@ -1,8 +1,12 @@
-<div class="well">
-  <ul class="nav nav-pills">
-    {{#link-to 'posts.index' tagName="li"}}<a href="">List all</a>{{/link-to}}
-    {{#link-to 'posts.new' tagName="li"}}<a href="">Add new</a>{{/link-to}}
-  </ul>
-</div>
+{{#paper-toolbar as |toolbar|}}
+  {{#toolbar.tools}}
+    {{#paper-button iconButton=true}}
+      {{#link-to 'posts.index'}}{{paper-icon "list"}}{{/link-to}}
+    {{/paper-button}}
+    {{#paper-button iconButton=true}}
+      {{#link-to 'posts.new'}}{{paper-icon "add"}}{{/link-to}}
+    {{/paper-button}}
+  {{/toolbar.tools}}
+{{/paper-toolbar}}
 
 {{outlet}}

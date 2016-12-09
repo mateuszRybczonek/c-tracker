@@ -13,6 +13,17 @@ body {
   padding-top: 20px;
 }
 
+a {
+  &:hover {
+    text-decoration: none;
+    color: $color-snow;
+  }
+}
+
+.md-toolbar-tools {
+  background-color: #222;
+}
+
 .library-item {
   min-height: 150px;
 }

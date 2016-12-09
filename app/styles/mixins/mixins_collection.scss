@@ -18,16 +18,6 @@
   transition: all 0.4s ease-in-out;
 }
 
-@mixin background-gradient {
-  background: -webkit-linear-gradient(to left, #485563 , #29323c);
-  background: linear-gradient(to left, #485563 , #29323c);
-}
-
-@mixin main-background {
-  background: $color-btn-blue !important;
-  color: $color-outer-frame-text !important;
-}
-
 @mixin font-roboto {
   font-family: Roboto !important;
 }
