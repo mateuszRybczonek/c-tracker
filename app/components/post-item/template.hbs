@@ -10,9 +10,17 @@
       {{#card.content}}
         {{post.description}}
       {{/card.content}}
-      <div class="text-right">
-        {{yield}}
-      </div>
+      {{#if isOwner}}
+        <div class="text-right">
+          {{#paper-button iconButton=true}}
+            {{#link-to 'posts.edit' post.id}}{{paper-icon "create"}}{{/link-to}}
+          {{/paper-button}}
+          {{#paper-button iconButton=true onClick=(action 'deletePost' post)}}
+            {{paper-icon "delete"}}
+          {{/paper-button}}
+          {{yield}}
+        </div>
+      {{/if}}
     {{/paper-card}}
   </div>
 </div>

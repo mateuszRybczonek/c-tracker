@@ -1,14 +1,7 @@
 <div class="row">
   {{#each model as |post|}}
     <div class="col-md-6">
-      {{#post-item post=post session=session}}
-          {{#paper-button iconButton=true}}
-            {{#link-to 'posts.edit' post.id}}{{paper-icon "create"}}{{/link-to}}
-          {{/paper-button}}
-          {{#paper-button iconButton=true onClick=(route-action 'deletePost' post)}}
-            {{paper-icon "delete"}}
-          {{/paper-button}}
-      {{/post-item}}
+      {{post-item post=post session=session}}
     </div>
   {{else}}
     <p>You have no posts</p>
