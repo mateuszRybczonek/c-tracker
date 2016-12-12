@@ -27,7 +27,7 @@ export default Controller.extend({
       newContact.save().then(() => {
         this.set('responseMessage', `Thank you! Your message has been sent`);
         this.set('emailAddress', '');
-        this.set('message', '')
+        this.set('message', '');
       });
     },
 

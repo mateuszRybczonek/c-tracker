@@ -1,10 +1,16 @@
 import Ember from 'ember';
 
-export default Ember.Route.extend({
+const { Route, computed } = Ember;
+
+export default Route.extend({
   beforeModel: function() {
     return this.get('session').fetch().catch(function() {
     });
   },
+
+  isAdmin: computed ('session.currentUser.email', function() {
+    return this.get('session.currentUser.email') === 'm.rybczonek@gmail.com';
+  }),
 
   actions: {
     signIn: function(provider) {

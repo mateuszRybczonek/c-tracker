@@ -1,14 +1,15 @@
-{{#paper-toolbar as |toolbar|}}
-  {{#sticky-container options=stickyOptions }}
-    {{#toolbar.tools}}
-      {{#paper-button iconButton=true}}
-        {{#link-to 'posts.index'}}{{paper-icon "list"}}{{/link-to}}
-      {{/paper-button}}
-      {{#paper-button iconButton=true}}
-        {{#link-to 'posts.new'}}{{paper-icon "add"}}{{/link-to}}
-      {{/paper-button}}
-    {{/toolbar.tools}}
-  {{/sticky-container}}
-{{/paper-toolbar}}
-
+{{#if isAuthenticated}}
+  {{#paper-toolbar as |toolbar|}}
+    {{#sticky-container options=stickyOptions }}
+      {{#toolbar.tools}}
+        {{#paper-button iconButton=true}}
+          {{#link-to 'posts.index'}}{{paper-icon "list"}}{{/link-to}}
+        {{/paper-button}}
+        {{#paper-button iconButton=true}}
+          {{#link-to 'posts.new'}}{{paper-icon "add"}}{{/link-to}}
+        {{/paper-button}}
+      {{/toolbar.tools}}
+    {{/sticky-container}}
+  {{/paper-toolbar}}
+{{/if}}
 {{outlet}}
