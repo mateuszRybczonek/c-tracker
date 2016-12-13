@@ -7,6 +7,4 @@ function convertToLineBreaks(htmlString) {
   return htmlString.replace(/\n/g, '<br>');
 }
 
-export {
-  convertToLineBreaks,
-};
+export { convertToLineBreaks };

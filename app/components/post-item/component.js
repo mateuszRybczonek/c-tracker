@@ -10,7 +10,9 @@ export default Component.extend({
   }),
 
   sanitizedDescription: computed('post.description', function() {
-    return convertToLineBreaks(this.get('post.description')).htmlSafe();
+    if (this.get('post.description')) {
+      return convertToLineBreaks(this.get('post.description')).htmlSafe();
+    }
   }),
 
   actions: {
