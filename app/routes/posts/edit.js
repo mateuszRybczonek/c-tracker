@@ -13,7 +13,6 @@ export default Ember.Route.extend({
     this._super(controller, model);
 
     controller.set('title', 'Edit Post');
-    controller.set('buttonLabel', 'Save changes');
   },
 
   renderTemplate() {
