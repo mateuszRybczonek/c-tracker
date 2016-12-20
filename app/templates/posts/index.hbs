@@ -1,3 +1,16 @@
+{{#paper-toolbar as |toolbar|}}
+  {{#sticky-container options=stickyOptions }}
+    {{#toolbar.tools}}
+      <span class="flex"></span>
+      {{#paper-button onClick=(action "setSorting" "createdAtDesc") iconButton=true}}
+        {{paper-icon "arrow-downward"}}
+      {{/paper-button}}
+      {{#paper-button onClick=(action "setSorting" "createdAtAsc") iconButton=true}}
+        {{paper-icon "arrow-upward"}}
+      {{/paper-button}}
+    {{/toolbar.tools}}
+  {{/sticky-container}}
+{{/paper-toolbar}}
 <div class="row">
   {{#each sortedPosts as |post|}}
     <div class="col-md-6">
