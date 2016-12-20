@@ -12,11 +12,20 @@ export default Controller.extend({
     return options[this.get('sortBy')].split(',');
   }),
 
-  sortedPosts: computed.sort('model', 'sortProperties'),
+  sortedPosts: computed.sort('matchingPosts', 'sortProperties'),
 
   stickyOptions: {
   topSpacing: 65 //px, default: 0
   },
+
+  searchTerm: '',
+
+  matchingPosts: computed('model@each.title', 'searchTerm', function () {
+    let searchTerm = this.get('searchTerm').toLowerCase();
+    return this.get('model').filter(function (post) {
+      return post.get('title').toLowerCase().indexOf(searchTerm) !== -1;
+    });
+  }),
 
   actions: {
     setSorting: function (option) {

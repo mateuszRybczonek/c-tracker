@@ -1,8 +1,7 @@
-$primary: "indigo"; // ember-paper pallette
-
-@import 'ember-paper';
 @import "bootstrap";
+@import "color-palette";
 @import "values_importer";
+@import 'ember-paper';
 @import 'app/components/post-item/styles';
 
 $font-1x: 14px;
