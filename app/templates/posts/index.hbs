@@ -4,12 +4,8 @@
       {{search-input value=searchTerm onChange=(action (mut searchTerm))}}
       <span class="flex"></span>
       Created at
-      {{#paper-button onClick=(action "setSorting" "createdAtDesc") iconButton=true}}
-        {{paper-icon "arrow-downward"}}
-      {{/paper-button}}
-      {{#paper-button onClick=(action "setSorting" "createdAtAsc") iconButton=true}}
-        {{paper-icon "arrow-upward"}}
-      {{/paper-button}}
+      {{ui/action-button onClick=(action "setSorting" "createdAtDesc") iconButton=true icon="arrow-downward"}}
+      {{ui/action-button onClick=(action "setSorting" "createdAtAsc") iconButton=true icon="arrow-upward"}}
     {{/toolbar.tools}}
   {{/sticky-container}}
 {{/paper-toolbar}}
