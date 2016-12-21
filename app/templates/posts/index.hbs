@@ -1,9 +1,7 @@
 {{#paper-toolbar as |toolbar|}}
   {{#sticky-container options=stickyOptions }}
     {{#toolbar.tools}}
-      <div class="search-panel">
-        {{paper-input placeholder="Search" value=searchTerm onChange=(action (mut searchTerm)) icon="search"}}
-      </div>
+      {{search-input value=searchTerm onChange=(action (mut searchTerm))}}
       <span class="flex"></span>
       Created at
       {{#paper-button onClick=(action "setSorting" "createdAtDesc") iconButton=true}}

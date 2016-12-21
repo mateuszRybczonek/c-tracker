@@ -2,6 +2,12 @@ import Ember from 'ember';
 const { Controller, computed } = Ember;
 
 export default Controller.extend({
+
+  queryParams: {
+    sortBy: 'sort',
+    searchTerm: 's',
+  },
+
   sortBy: 'createdAtDesc',
 
   sortProperties: Ember.computed('sortBy', function () {

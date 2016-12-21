@@ -1,0 +1,29 @@
+@import "app/styles/values_importer";
+
+md-input-container {
+  .md-errors-spacer {
+    min-height: 0;
+  }
+}
+
+md-input-container.ember-view.md-default-theme.md-has-icon.md-focused.md-input-focused {
+  md-icon {
+    color: $color-snow;
+    @include transitions-all;
+    transform: scale(1.3) rotate(30deg);
+  }
+  input {
+    color: $color-snow;
+  }
+}
+
+md-input-container.ember-view.md-default-theme.md-has-icon {
+  md-icon {
+    color: $color-snow;
+    @include transitions-all;
+    transform: scale(1.0);
+  }
+  input {
+    color: $color-snow;
+  }
+}
