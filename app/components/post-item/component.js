@@ -18,7 +18,7 @@ export default Component.extend({
     }
   }),
 
-  updatedAtFormatted: format((momentComputed('post.updated_at')), 'MMM DD'),
+  createdAtFormatted: format((momentComputed('post.created_at')), 'MMM DD'),
 
   actions: {
 

@@ -35,6 +35,7 @@
     "ember-cli-qunit": "^3.0.1",
     "ember-cli-release": "^0.2.9",
     "ember-cli-sass": "5.6.0",
+    "ember-cli-showdown": "2.9.0",
     "ember-cli-sri": "^2.1.0",
     "ember-cli-sticky": "0.6.1",
     "ember-cli-test-loader": "^1.1.0",
@@ -51,6 +52,7 @@
     "ember-welcome-page": "^1.0.3",
     "emberfire": "2.0.5",
     "loader.js": "^4.0.10",
+    "showdown": "1.5.3",
     "torii": "0.8.1"
   }
 }
