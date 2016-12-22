@@ -43,13 +43,20 @@ a {
   margin-top: 10px;
   float: right;
   color: $color-snow;
-
-  .sign-out:hover {
-    @include transitions-all;
-    transform: scale(1.1);
-  }
 }
 
 .new-post-form md-input-container {
   display: block;
+}
+
+md-toolbar {
+  min-height: 0;
+}
+
+md-toolbar.md-default-theme:not(.md-menu-toolbar), md-toolbar:not(.md-menu-toolbar) {
+  background-color: transparent;
+}
+
+.md-toolbar-tools {
+  height: 40px;
 }

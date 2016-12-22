@@ -2,8 +2,18 @@
   {{#paper-toolbar as |toolbar|}}
     {{#sticky-container options=stickyOptions }}
       {{#toolbar.tools}}
-        {{ui/link-button destination='posts.index' iconButton=true icon="list"}}
-        {{ui/link-button destination='posts.new' iconButton=true icon="add"}}
+        {{ui/link-button
+          destination='posts.index'
+          iconButton=true
+          icon="list"
+          class='zoom-in-icon'
+        }}
+        {{ui/link-button
+          destination='posts.new'
+          iconButton=true
+          icon="add"
+          class='zoom-in-rotate90-icon'
+        }}
       {{/toolbar.tools}}
     {{/sticky-container}}
   {{/paper-toolbar}}

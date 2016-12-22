@@ -32,11 +32,11 @@
 
         <ul class="nav navbar-nav navbar-right">
           {{#unless session.isAuthenticated}}
-          <i class="sign-out" {{action 'signIn' 'google'}}>{{fa-icon 'sign-out' class='navbar-icon'}}</i>
+          <i class="zoom-in-icon" {{action 'signIn' 'google'}}>{{fa-icon 'sign-out' class='navbar-icon'}}</i>
           {{else}}
             <i>{{fa-icon 'user' class='navbar-icon'}}</i>
             <span class="user-name">{{session.currentUser.displayName}}</span>
-            <i {{action 'signOut'}}>{{fa-icon 'sign-out' class="sign-out navbar-icon"}}</i>
+            <i {{action 'signOut'}}>{{fa-icon 'sign-out' class="zoom-in-icon navbar-icon"}}</i>
           {{/unless}}
         </ul>
       </div>

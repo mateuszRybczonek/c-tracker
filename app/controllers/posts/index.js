@@ -10,7 +10,7 @@ export default Controller.extend({
 
   sortBy: 'createdAtDesc',
 
-  sortProperties: Ember.computed('sortBy', function () {
+  sortProperties: computed('sortBy', function () {
     let options = {
       'createdAtAsc': 'created_at:asc',
       'createdAtDesc': 'created_at:desc',
@@ -21,7 +21,7 @@ export default Controller.extend({
   sortedPosts: computed.sort('matchingPosts', 'sortProperties'),
 
   stickyOptions: {
-  topSpacing: 65 //px, default: 0
+  topSpacing: 40 //px, default: 0
   },
 
   searchTerm: '',

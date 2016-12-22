@@ -1,0 +1,49 @@
+.move-up:hover {
+  animation-duration: 600ms;
+  animation-name: moveUp;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;}
+
+@keyframes moveUp {
+  from {
+    top: 0;
+  }
+
+  to {
+    top: -6px;
+  }
+}
+
+.move-down:hover {
+  animation-duration: 600ms;
+  animation-name: moveDown;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;}
+
+@keyframes moveDown {
+  from {
+    top: 0;
+  }
+
+  to {
+    top: 6px;
+  }
+}
+
+.zoom-in-icon {
+  @include transitions-all;
+  transform: scale(1.0);
+  &:hover {
+    @include transitions-all;
+    transform: scale(1.1);
+  }
+}
+
+.zoom-in-rotate90-icon {
+  @include transitions-all;
+  transform: scale(1.0) rotatee(0deg);
+  &:hover {
+    @include transitions-all;
+    transform: scale(1.1) rotate(90deg);
+  }
+}
