@@ -1,7 +1,7 @@
 {{#paper-toolbar as |toolbar|}}
   {{#sticky-container options=stickyOptions }}
     {{#toolbar.tools}}
-      {{search-input value=searchTerm onChange=(action (mut searchTerm))}}
+      {{ui/search-input value=searchTerm onChange=(action (mut searchTerm))}}
       <span class="flex"></span>
       Created at
       {{ui/action-button onClick=(action "setSorting" "createdAtDesc") iconButton=true icon="arrow-downward"}}
