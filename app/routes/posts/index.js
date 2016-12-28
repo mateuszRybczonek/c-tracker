@@ -1,9 +1,18 @@
 import Ember from 'ember';
 const { Route } = Ember;
 
-export default Route.extend({
+import wait from 'library-app/utils/wait';
 
-  model() {
-    return this.store.findAll('post');
+export default Route.extend({
+  model: function() {
+    var posts = this.store.findAll('post');
+    return wait(posts, 3 * 1000);
   },
 });
+
+// export default Route.extend({
+//
+//   model() {
+//     return this.store.findAll('post');
+//   },
+// });
