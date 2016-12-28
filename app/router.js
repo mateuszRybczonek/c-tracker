@@ -7,7 +7,7 @@ const Router = Ember.Router.extend({
 });
 
 Router.map(function() {
-  this.route('about');
+  this.route('snippets');
   this.route('contact');
 
   this.route('admin', function() {

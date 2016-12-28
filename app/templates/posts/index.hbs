@@ -4,14 +4,14 @@
       {{ui/search-input value=searchTerm onChange=(action (mut searchTerm))}}
       <span class="flex"></span>
       Created at
-      {{ui/action-button
-        onClick=(action "setSorting" "createdAtDesc")
+      {{ui/link-button
+        destination=(query-params sortBy="createdAtDesc")
         iconButton=true
         icon="arrow-downward"
         class='zoom-in-icon'
       }}
-      {{ui/action-button
-        onClick=(action "setSorting" "createdAtAsc")
+      {{ui/link-button
+        destination=(query-params sortBy="createdAtAsc")
         iconButton=true
         icon="arrow-upward"
         class='zoom-in-icon'
