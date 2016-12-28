@@ -51,6 +51,7 @@
     "ember-validations": "2.0.0-alpha.5",
     "ember-welcome-page": "^1.0.3",
     "emberfire": "2.0.5",
+    "liquid-fire": "0.27.0",
     "loader.js": "^4.0.10",
     "showdown": "1.5.3",
     "torii": "0.8.1"
