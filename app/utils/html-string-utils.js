@@ -7,4 +7,8 @@ function convertToLineBreaks(htmlString) {
   return htmlString.replace(/\n/g, '<br>');
 }
 
-export { convertToLineBreaks };
+function addSnippetMarkdown(string) {
+  return "```\n"+string+"\n```"
+}
+
+export { convertToLineBreaks, addSnippetMarkdown };

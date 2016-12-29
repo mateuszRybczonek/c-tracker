@@ -1,0 +1,41 @@
+<div class="form-horizontal">
+
+  {{paper-input
+    class='form-control hidden'
+    value=snippet.user
+    required=true
+    onChange=null
+  }}
+
+  {{#paper-radio-group
+    groupValue=snippet.category
+    onChange=(action (mut snippet.category)) as |group|}}
+      {{#group.radio value="Ember" primary=true}}
+        <img src="/images/ember-js-icon.png"/>
+      {{/group.radio}}
+      {{#group.radio value="Ruby on Rails" primary=true}}
+        <img src="/images/ruby-on-rails-icon.png"/>
+      {{/group.radio}}
+      {{#group.radio value="Other" primary=true}}
+        <img src="/images/other-icon.png"/>
+      {{/group.radio}}
+  {{/paper-radio-group}}
+
+  {{paper-input
+    class=form-control
+    textarea=true
+    block=true
+    label="Description"
+    maxlength=500
+    passThru=(hash rows=5 maxRows=20)
+    value=snippet.description
+    onChange=(action (mut snippet.description))
+    required=true
+    errorMessages=(hash required="Description is required.")
+  }}
+  <div class="form-group">
+    {{#paper-button iconButton=true onClick=(action 'saveSnippet' snippet) disabled=snippet.isInvalid}}
+      {{paper-icon "save"}}
+    {{/paper-button}}
+  </div>
+</div>

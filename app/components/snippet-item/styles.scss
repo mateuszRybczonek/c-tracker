@@ -1,0 +1,34 @@
+$icon-size: 50px;
+
+.snippet {
+  margin-top: 5px;
+}
+
+.snippet-icon {
+  width: $icon-size;
+  height: $icon-size;
+  background-size: $icon-size $icon-size;
+  background-repeat: no-repeat;
+  margin-top: 3px;
+}
+
+.ember {
+  background-image: url("/images/ember-js-icon.png");
+}
+
+.ruby-on-rails {
+  background-image: url("/images/ruby-on-rails-icon.png");
+}
+
+.other {
+  background-image: url("/images/other-icon.png");
+}
+
+.snippet-description {
+  margin-top: 10px;
+  margin-left: 3px;
+}
+
+.snippet-buttons {
+  margin-top: 10px;
+}

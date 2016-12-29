@@ -1,0 +1,18 @@
+<div class="layout-row flex snippet">
+  <div class="snippet-icon flex-xs-15 flex-sm-10 {{snippetIconClass}}">
+  </div>
+  <div class="snippet-description flex">
+    {{markdown-to-html sanitizedDescription}}
+  </div>
+  {{#if isOwner}}
+    <div class="snippet-buttons flex-xs-0 flex-sm-20 flex-md-15 flex-lg-5 text-right">
+        {{#paper-button iconButton=true}}
+          {{#link-to 'snippets.edit' snippet.id}}{{paper-icon "create"}}{{/link-to}}
+        {{/paper-button}}
+        {{#paper-button iconButton=true onClick=(action 'deleteSnippet' snippet)}}
+          {{paper-icon "delete"}}
+        {{/paper-button}}
+        {{yield}}
+    </div>
+  {{/if}}
+</div>

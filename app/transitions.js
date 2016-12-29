@@ -12,4 +12,11 @@ export default function() {
     this.use('toLeft', { duration: 500, easing: 'easeInOut' }),
     this.reverse('toRight', { duration: 500, easing: 'easeInOut' })
   );
+
+  this.transition(
+    this.fromRoute('posts.index'),
+    this.toRoute('posts.new'),
+    this.use('crossFade'),
+    this.reverse('crossFade')
+  );
 }

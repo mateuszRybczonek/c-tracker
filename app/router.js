@@ -7,7 +7,6 @@ const Router = Ember.Router.extend({
 });
 
 Router.map(function() {
-  this.route('snippets');
   this.route('contact');
 
   this.route('admin', function() {
@@ -18,6 +17,10 @@ Router.map(function() {
   this.route('posts', function() {
     this.route('new');
     this.route('edit', { path: '/:post_id/edit' });
+  });
+  this.route('snippets', function() {
+    this.route('new');
+    this.route('edit', { path: '/:snippet_id/edit' });
   });
 });
 

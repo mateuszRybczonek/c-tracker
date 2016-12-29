@@ -4,6 +4,7 @@
 @import 'ember-paper';
 @import 'app/components/post-item/styles';
 @import 'app/components/ui/search-input/styles';
+@import 'app/components/snippet-item/styles';
 
 $font-1x: 14px;
 $font-2x: 28px;
@@ -25,6 +26,11 @@ a {
 
 .md-toolbar-tools {
   background-color: $dark-grey;
+}
+
+.row {
+  margin-left: 0;
+  margin-right: 0;
 }
 
 .library-item {
@@ -82,8 +88,5 @@ md-toolbar.md-default-theme:not(.md-menu-toolbar), md-toolbar:not(.md-menu-toolb
 }
 
 .spinner {
-  background: url('/images/ajax-loader.gif') repeat;
-  height: 31px;
-  width: 31px;
   margin: 0 auto;
 }
