@@ -12,15 +12,17 @@ export default Route.extend({
     signIn: function(provider) {
       this.get('session').open('firebase', {
         provider: provider,
-      }).then(function(data) {
+      }).then((data) => {
         console.log(data.currentUser);
         this.transitionTo('posts');
       });
     },
 
     signOut: function() {
-      this.get('session').close();
-      this.transitionTo('index');
+      this.get('session').close().then(() => {
+        console.log('from then');
+        this.transitionTo('index');
+      });
     },
   },
 });
