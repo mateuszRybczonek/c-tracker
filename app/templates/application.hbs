@@ -13,31 +13,20 @@
 
       <div class="collapse navbar-collapse" id="main-navbar">
         <ul class="nav navbar-nav">
-          {{#nav-link-to 'index'}}Home{{/nav-link-to}}
-          {{#nav-link-to 'posts'}}Posts{{/nav-link-to}}
-          {{#nav-link-to 'snippets'}}Snippets{{/nav-link-to}}
-          {{#nav-link-to 'contact'}}Contact{{/nav-link-to}}
-          {{#if isAdmin}}
-            <li class="dropdown">
-              <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-                Admin<span class="caret"></span>
-              </a>
-              <ul class="dropdown-menu">
-                {{#nav-link-to 'admin.invitations'}}Invitations{{/nav-link-to}}
-                {{#nav-link-to 'admin.contacts'}}Contacts{{/nav-link-to}}
-              </ul>
-            </li>
+          {{#if session.isAuthenticated}}
+            {{#nav-link-to 'posts'}}Posts{{/nav-link-to}}
+            {{#nav-link-to 'snippets'}}Snippets{{/nav-link-to}}
+          {{else}}
+            {{#nav-link-to 'index'}}Log in{{/nav-link-to}}
           {{/if}}
         </ul>
 
         <ul class="nav navbar-nav navbar-right">
-          {{#unless session.isAuthenticated}}
-          <i class="zoom-in-icon" {{action 'signIn' 'google'}}>{{fa-icon 'sign-out' class='navbar-icon'}}</i>
-          {{else}}
-            <i>{{fa-icon 'user' class='navbar-icon'}}</i>
+          {{#if session.isAuthenticated}}
+            <img src={{session.currentUser.photoURL }} height="30" width="30">
             <span class="user-name">{{session.currentUser.displayName}}</span>
             <i {{action 'signOut'}}>{{fa-icon 'sign-out' class="zoom-in-icon navbar-icon"}}</i>
-          {{/unless}}
+          {{/if}}
         </ul>
       </div>
     </div>

@@ -9,11 +9,6 @@ const Router = Ember.Router.extend({
 Router.map(function() {
   this.route('contact');
 
-  this.route('admin', function() {
-    this.route('invitations');
-    this.route('contacts');
-  });
-
   this.route('posts', function() {
     this.route('new');
     this.route('edit', { path: '/:post_id/edit' });
