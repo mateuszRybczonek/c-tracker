@@ -1,6 +1,23 @@
 {
   "rules": {
-    ".read": true,
-    ".write": true
+    ".read": "auth != null",
+    ".write": "auth != null",
+    "posts":{
+      "$post": {
+        "category":{".validate": "newData.val().length > 0"},
+        "description":{".validate": "newData.val().length > 0"},
+        "title":{".validate": "newData.val().length > 0"},
+        "user":{".validate": "newData.val().length > 0"},
+        ".validate": "newData.hasChildren(['category', 'description', 'title', 'user', 'created_at', 'updated_at'])"
+      }
+    },
+    "snippets":{
+      "$snippet": {
+        "category":{".validate": "newData.val().length > 0"},
+        "description":{".validate": "newData.val().length > 0"},
+        "user":{".validate": "newData.val().length > 0"},
+        ".validate": "newData.hasChildren(['category', 'description', 'user', 'created_at', 'updated_at'])"
+      }
+    }
   }
 }
