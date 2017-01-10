@@ -2,17 +2,17 @@
 
 module.exports = function(environment) {
   var ENV = {
-    modulePrefix: 'library-app',
+    modulePrefix: 'c-tracker',
     environment: environment,
     rootURL: '/',
     locationType: 'auto',
 
     firebase: {
-      apiKey: "AIzaSyCTS7CCqEE5c9Z91cTpriIx_jEwJybeLU0",
-      authDomain: "ember2-til.firebaseapp.com",
-      databaseURL: "https://ember2-til.firebaseio.com",
-      storageBucket: "ember2-til.appspot.com",
-      messagingSenderId: "895197240781"
+      apiKey: "AIzaSyADhIX_X6IN6J15OnXRar9YubXmoAk4cKA",
+      authDomain: "c-tracker-323f8.firebaseapp.com",
+      databaseURL: "https://c-tracker-323f8.firebaseio.com",
+      storageBucket: "c-tracker-323f8.appspot.com",
+      messagingSenderId: "345601965952"
     },
 
     torii: {
