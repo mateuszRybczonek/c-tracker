@@ -22,7 +22,7 @@ export default Component.extend({
 
   actions: {
 
-    deletePost(certificate) {
+    deleteCertificate(certificate) {
       let confirmation = confirm('Are you sure?');
 
       if (confirmation) {

@@ -12,8 +12,8 @@ export default Controller.extend({
 
   sortProperties: computed('sortBy', function () {
     let options = {
-      'createdAtAsc': 'created_at:asc',
-      'createdAtDesc': 'created_at:desc',
+      'createdAtAsc': 'createdAt:asc',
+      'createdAtDesc': 'createdAt:desc',
     };
     return options[this.get('sortBy')].split(',');
   }),
@@ -26,10 +26,10 @@ export default Controller.extend({
 
   searchTerm: '',
 
-  matchingCertificates: computed('model@each.title', 'searchTerm', function () {
+  matchingCertificates: computed('model@each.name', 'searchTerm', function () {
     let searchTerm = this.get('searchTerm').toLowerCase();
     return this.get('model').filter(function (certificate) {
-      return certificate.get('title').toLowerCase().indexOf(searchTerm) !== -1;
+      return certificate.get('name').toLowerCase().indexOf(searchTerm) !== -1;
     });
   }),
 

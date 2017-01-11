@@ -18,17 +18,19 @@
   }}
 
   {{paper-input
-    class=form-control
+    flex=true
     label="Issue Date"
+    type="date"
     value=certificate.issueDate
     onChange=(action (mut certificate.issueDate))
   }}
 
   {{paper-input
-    class=form-control
+    flex=true
     label="Expiry Date"
+    type="date"
     value=certificate.expiryDate
-    onChange=(action (mut certificate.issueDate))
+    onChange=(action (mut certificate.expiryDate))
   }}
 
   {{paper-input
