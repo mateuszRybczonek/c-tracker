@@ -7,6 +7,7 @@ export default DS.Model.extend({
   name: DS.attr('string'),
   number: DS.attr('string'),
   user: DS.attr('string'),
+  type: DS.attr('string'),
 
   issueDate: DS.attr('date', { defaultValue: new Date()}),
   expiryDate: DS.attr('date', { defaultValue: new Date()}),

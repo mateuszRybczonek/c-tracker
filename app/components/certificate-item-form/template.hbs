@@ -1,4 +1,16 @@
 <div class="form-horizontal">
+  {{#paper-select
+    class=form-control
+    label="Type"
+    options=types
+    selected=certificate.type
+    required=true
+    errorMessages=(hash required="Type is required.")
+    onChange=(action (mut certificate.type)) as |type|
+  }}
+    {{type}}
+  {{/paper-select}}
+
   {{paper-input
     class=form-control
     label="Name"
