@@ -2,7 +2,7 @@
 @import "color-palette";
 @import "values_importer";
 @import 'ember-paper';
-@import 'app/components/post-item/styles';
+@import 'app/components/certificate-item/styles';
 @import 'app/components/ui/search-input/styles';
 @import 'app/components/snippet-item/styles';
 
@@ -51,7 +51,7 @@ a {
   color: $color-snow;
 }
 
-.new-post-form md-input-container {
+.new-certificate-form md-input-container {
   display: block;
 }
 

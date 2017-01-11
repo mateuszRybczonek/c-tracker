@@ -2,13 +2,12 @@
   "rules": {
     ".read": "auth != null",
     ".write": "auth != null",
-    "posts":{
-      "$post": {
-        "category":{".validate": "newData.val().length > 0"},
-        "description":{".validate": "newData.val().length > 0"},
-        "title":{".validate": "newData.val().length > 0"},
+    "certificates":{
+      "$certificate": {
+        "name":{".validate": "newData.val().length > 0"},
+        "number":{".validate": "newData.val().length > 0"},
         "user":{".validate": "newData.val().length > 0"},
-        ".validate": "newData.hasChildren(['category', 'description', 'title', 'user', 'created_at', 'updated_at'])"
+        ".validate": "newData.hasChildren(['name', 'number', 'comment', 'user', 'issueDate', 'expiryDate', 'updatedAt'])"
       }
     },
     "snippets":{

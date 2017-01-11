@@ -1,0 +1,11 @@
+<h4>{{title}}</h4>
+
+<div class="col-md-6 new-certificate-form">
+  {{certificate-item-form certificate=model session=session buttonLabel=buttonLabel action='saveCertificate'}}
+</div>
+
+<div class="col-md-6">
+  {{#certificate-item certificate=model}}
+    <br/>
+  {{/certificate-item}}
+</div>

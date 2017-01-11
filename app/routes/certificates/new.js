@@ -4,7 +4,7 @@ const { Route } = Ember;
 export default Route.extend({
 
   model() {
-    return this.store.createRecord('post');
+    return this.store.createRecord('certificate');
   },
 
   // set controller attributes to be available in the common template
@@ -13,18 +13,18 @@ export default Route.extend({
   setupController: function (controller, model) {
     this._super(controller, model);
 
-    controller.set('title', 'Add a new post');
+    controller.set('title', 'Add a new certificate');
     controller.set('model.user', this.get('session.currentUser.email'));
   },
 
   renderTemplate() {
-    this.render('posts/form');
+    this.render('certificates/form');
   },
 
   actions: {
 
-    savePost(newPost) {
-      newPost.save().then(() => this.transitionTo('posts'));
+    saveCertificate(newCertificate) {
+      newCertificate.save().then(() => this.transitionTo('certificates'));
     },
 
     willTransition() {

@@ -2,7 +2,7 @@
 
 module.exports = function(environment) {
   var ENV = {
-    modulePrefix: 'c-tracker',
+    modulePrefix: 'library-app',
     environment: environment,
     rootURL: '/',
     locationType: 'auto',

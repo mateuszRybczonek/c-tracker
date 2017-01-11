@@ -19,11 +19,11 @@
   {{/sticky-container}}
 {{/paper-toolbar}}
 <div class="row">
-  {{#each sortedPosts as |post|}}
+  {{#each sortedCertificates as |certificate|}}
     <div>
-      {{post-item post=post session=session}}
+      {{certificate-item certificate=certificate session=session}}
     </div>
   {{else}}
-    <p>You have no posts</p>
+    <p>You have no certificates</p>
   {{/each}}
 </div>

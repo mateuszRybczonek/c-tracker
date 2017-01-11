@@ -18,7 +18,7 @@ export default Controller.extend({
     return options[this.get('sortBy')].split(',');
   }),
 
-  sortedPosts: computed.sort('matchingPosts', 'sortProperties'),
+  sortedCertificates: computed.sort('matchingCertificates', 'sortProperties'),
 
   stickyOptions: {
   topSpacing: 40 //px, default: 0
@@ -26,10 +26,10 @@ export default Controller.extend({
 
   searchTerm: '',
 
-  matchingPosts: computed('model@each.title', 'searchTerm', function () {
+  matchingCertificates: computed('model@each.title', 'searchTerm', function () {
     let searchTerm = this.get('searchTerm').toLowerCase();
-    return this.get('model').filter(function (post) {
-      return post.get('title').toLowerCase().indexOf(searchTerm) !== -1;
+    return this.get('model').filter(function (certificate) {
+      return certificate.get('title').toLowerCase().indexOf(searchTerm) !== -1;
     });
   }),
 

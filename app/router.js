@@ -7,11 +7,9 @@ const Router = Ember.Router.extend({
 });
 
 Router.map(function() {
-  this.route('contact');
-
-  this.route('posts', function() {
+  this.route('certificates', function() {
     this.route('new');
-    this.route('edit', { path: '/:post_id/edit' });
+    this.route('edit', { path: '/:certificate_id/edit' });
   });
   this.route('snippets', function() {
     this.route('new');
