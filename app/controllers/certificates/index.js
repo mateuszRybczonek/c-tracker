@@ -20,8 +20,8 @@ export default Controller.extend({
     });
   }),
 
-  stcwCertificates: computed.filterBy('model', 'type', 'STCW'),
-  passports: computed.filterBy('model', 'type', 'Passport'),
-  medicalCertificates: computed.filterBy('model', 'type', 'Medical'),
-  endorsements: computed.filterBy('model', 'type', 'Endorsement'),
+  stcwCertificates: computed.filterBy('matchingCertificates', 'type', 'STCW'),
+  passports: computed.filterBy('matchingCertificates', 'type', 'Passport'),
+  medicalCertificates: computed.filterBy('matchingCertificates', 'type', 'Medical'),
+  endorsements: computed.filterBy('matchingCertificates', 'type', 'Endorsement'),
 });
