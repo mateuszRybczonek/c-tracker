@@ -4,13 +4,13 @@
       {{ui/search-input value=searchTerm onChange=(action (mut searchTerm))}}
       <span class="flex"></span>
       {{ui/link-button
-        destination=(query-params sortBy="createdAtDesc")
+        destination=(query-params sortBy="expiryDateDesc")
         iconButton=true
         icon="arrow-downward"
         class='zoom-in-icon'
       }}
       {{ui/link-button
-        destination=(query-params sortBy="createdAtAsc")
+        destination=(query-params sortBy="expiryDateAsc")
         iconButton=true
         icon="arrow-upward"
         class='zoom-in-icon'

@@ -8,12 +8,12 @@ export default Controller.extend({
     searchTerm: 's',
   },
 
-  sortBy: 'createdAtDesc',
+  sortBy: 'expiryDateDesc',
 
   sortProperties: computed('sortBy', function () {
     let options = {
-      'createdAtAsc': 'createdAt:asc',
-      'createdAtDesc': 'createdAt:desc',
+      'expiryDateAsc': 'expiryDate:asc',
+      'expiryDateDesc': 'expiryDate:desc',
     };
     return options[this.get('sortBy')].split(',');
   }),
