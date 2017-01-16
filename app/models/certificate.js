@@ -9,10 +9,10 @@ export default DS.Model.extend({
   user: DS.attr('string'),
   type: DS.attr('string'),
 
-  issueDate: DS.attr('date', { defaultValue: new Date()}),
-  expiryDate: DS.attr('date', { defaultValue: new Date()}),
+  issueDate: DS.attr(),
+  expiryDate: DS.attr(),
   updatedAt: DS.attr('date', { defaultValue: new Date()}),
-  
+
   comment: DS.attr('string'),
 
   isNameValid: computed.notEmpty('name'),

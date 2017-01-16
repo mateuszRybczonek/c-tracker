@@ -4,21 +4,8 @@ const { Controller, computed } = Ember;
 export default Controller.extend({
 
   queryParams: {
-    sortBy: 'sort',
     searchTerm: 's',
   },
-
-  sortBy: 'expiryDateDesc',
-
-  sortProperties: computed('sortBy', function () {
-    let options = {
-      'expiryDateAsc': 'expiryDate:asc',
-      'expiryDateDesc': 'expiryDate:desc',
-    };
-    return options[this.get('sortBy')].split(',');
-  }),
-
-  sortedCertificates: computed.sort('matchingCertificates', 'sortProperties'),
 
   stickyOptions: {
   topSpacing: 40 //px, default: 0
@@ -33,9 +20,8 @@ export default Controller.extend({
     });
   }),
 
-  actions: {
-    setSorting: function (option) {
-      this.set('sortBy', option);
-    },
-  },
+  stcwCertificates: computed.filterBy('model', 'type', 'STCW'),
+  passports: computed.filterBy('model', 'type', 'Passport'),
+  medicalCertificates: computed.filterBy('model', 'type', 'Medical'),
+  endorsements: computed.filterBy('model', 'type', 'Endorsement'),
 });
