@@ -3,25 +3,17 @@ import Ember from 'ember';
 const { Component, computed } = Ember;
 
 export default Component.extend({
+  
+  sortBy: 'expiryDate:desc',
 
-  queryParams: {
-    sortBy: 'sort',
-  },
+  sortedCertificates: computed.sort('certificates', 'sortDefinition'),
 
-  sortBy: 'expiryDateDesc',
-
-  sortProperties: computed('sortBy', function () {
-    let options = {
-      'expiryDateAsc': 'expiryDate:asc',
-      'expiryDateDesc': 'expiryDate:desc',
-    };
-    return options[this.get('sortBy')].split(',');
+  sortDefinition: computed('sortBy', function() {
+    return [ this.get('sortBy') ];
   }),
-
-  sortedCertificates: computed.sort('matchingCertificates', 'sortProperties'),
-
+  
   actions: {
-    setSorting: function (option) {
+    updateSorting: function (option) {
       this.set('sortBy', option);
     },
   },
