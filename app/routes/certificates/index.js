@@ -4,6 +4,6 @@ const { Route } = Ember;
 export default Route.extend({
 
   model() {
-    return this.store.findAll('snippet');
+    return this.store.findAll('certificate');
   },
 });

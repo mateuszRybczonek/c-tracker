@@ -1,5 +1,6 @@
 {
   "projects": {
-    "default": "ember2-til"
+    "default": "c-tracker",
+    "c-tracker": "c-tracker-323f8"
   }
 }

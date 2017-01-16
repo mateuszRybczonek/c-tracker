@@ -4,7 +4,7 @@ const { Route } = Ember;
 export default Route.extend({
 
   model() {
-    return this.store.createRecord('snippet');
+    return this.store.createRecord('certificate');
   },
 
   // set controller attributes to be available in the common template
@@ -13,18 +13,18 @@ export default Route.extend({
   setupController: function (controller, model) {
     this._super(controller, model);
 
-    controller.set('title', 'Create new snippet');
+    controller.set('title', 'Add a new certificate');
     controller.set('model.user', this.get('session.currentUser.email'));
   },
 
   renderTemplate() {
-    this.render('snippets/form');
+    this.render('certificates/form');
   },
 
   actions: {
 
-    saveSnippet(newSnippet) {
-      newSnippet.save().then(() => this.transitionTo('snippets'));
+    saveCertificate(newCertificate) {
+      newCertificate.save().then(() => this.transitionTo('certificates'));
     },
 
     willTransition() {

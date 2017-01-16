@@ -1,0 +1,47 @@
+{{#paper-toolbar as |toolbar|}}
+  {{#sticky-container options=stickyOptions }}
+    {{#toolbar.tools}}
+      {{ui/search-input value=searchTerm onChange=(action (mut searchTerm))}}
+      <span class="flex"></span>
+      {{ui/link-button
+        destination=(query-params sortBy="expiryDateDesc")
+        iconButton=true
+        icon="arrow-downward"
+        class='zoom-in-icon'
+      }}
+      {{ui/link-button
+        destination=(query-params sortBy="expiryDateAsc")
+        iconButton=true
+        icon="arrow-upward"
+        class='zoom-in-icon'
+      }}
+    {{/toolbar.tools}}
+  {{/sticky-container}}
+{{/paper-toolbar}}
+<section>
+  <h1>Certificates</h1>
+  <div class="tbl-header">
+    <table cellpadding="0" cellspacing="0" border="0">
+      <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Number</th>
+        <th>Issue date</th>
+        <th>Expiry Date</th>
+      </tr>
+      </thead>
+    </table>
+  </div>
+  <div class="tbl-content">
+    <table cellpadding="0" cellspacing="0" border="0">
+      <tbody>
+      {{#each sortedCertificates as |certificate|}}
+          {{certificate-item certificate=certificate session=session}}
+      {{else}}
+        <p>You have no certificates</p>
+      {{/each}}
+      </tbody>
+    </table>
+  </div>
+</section>

@@ -1,0 +1,74 @@
+<div class="form-horizontal">
+  {{#paper-select
+    class=form-control
+    label="Type"
+    options=types
+    selected=certificate.type
+    required=true
+    errorMessages=(hash required="Type is required.")
+    onChange=(action (mut certificate.type)) as |type|
+  }}
+    {{type}}
+  {{/paper-select}}
+
+  {{paper-input
+    class=form-control
+    label="Name"
+    value=certificate.name
+    onChange=(action (mut certificate.name))
+    required=true
+    errorMessages=(hash required="Name is required.")
+  }}
+
+  {{paper-input
+    class=form-control
+    label="Number"
+    value=certificate.number
+    onChange=(action (mut certificate.number))
+    required=true
+    errorMessages=(hash required="Number is required.")
+  }}
+
+  {{paper-input
+    flex=true
+    label="Issue Date"
+    type="date"
+    value=certificate.issueDate
+    onChange=(action (mut certificate.issueDate))
+  }}
+
+  {{paper-input
+    flex=true
+    label="Expiry Date"
+    type="date"
+    value=certificate.expiryDate
+    onChange=(action (mut certificate.expiryDate))
+  }}
+
+  {{paper-input
+    class='form-control hidden'
+    value=certificate.user
+    required=true
+    onChange=null
+  }}
+
+  {{paper-input
+    class=form-control
+    textarea=true
+    block=true
+    label="Comment (optional)"
+    maxlength=300
+    passThru=(hash rows=1 maxRows=5)
+    value=certificate.comment
+    onChange=(action (mut certificate.comment))
+  }}
+  <div class="form-group">
+    {{#paper-button
+      iconButton=true
+      onClick=(action 'saveCertificate' certificate)
+      disabled=certificate.isInvalid
+    }}
+      {{paper-icon "save"}}
+    {{/paper-button}}
+  </div>
+</div>

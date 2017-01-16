@@ -3,7 +3,7 @@ import Ember from 'ember';
 export default Ember.Route.extend({
 
   model(params) {
-    return this.store.findRecord('post', params.post_id);
+    return this.store.findRecord('certificate', params.certificate_id);
   },
 
   // set controller attributes to be available in the common template
@@ -12,18 +12,18 @@ export default Ember.Route.extend({
   setupController(controller, model) {
     this._super(controller, model);
 
-    controller.set('title', 'Edit Post');
+    controller.set('title', 'Edit Certificate');
   },
 
   renderTemplate() {
-    this.render('posts/form');
+    this.render('certificate/form');
   },
 
   actions: {
 
-    savePost(newPost) {
-      newPost.updated_at = new Date();
-      newPost.save().then(() => this.transitionTo('posts'));
+    saveCertificate(newCertificate) {
+      newCertificate.updated_at = new Date();
+      newCertificate.save().then(() => this.transitionTo('certificates'));
     },
 
     willTransition(transition) {

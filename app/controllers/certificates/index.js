@@ -8,17 +8,17 @@ export default Controller.extend({
     searchTerm: 's',
   },
 
-  sortBy: 'createdAtDesc',
+  sortBy: 'expiryDateDesc',
 
   sortProperties: computed('sortBy', function () {
     let options = {
-      'createdAtAsc': 'created_at:asc',
-      'createdAtDesc': 'created_at:desc',
+      'expiryDateAsc': 'expiryDate:asc',
+      'expiryDateDesc': 'expiryDate:desc',
     };
     return options[this.get('sortBy')].split(',');
   }),
 
-  sortedPosts: computed.sort('matchingPosts', 'sortProperties'),
+  sortedCertificates: computed.sort('matchingCertificates', 'sortProperties'),
 
   stickyOptions: {
   topSpacing: 40 //px, default: 0
@@ -26,10 +26,10 @@ export default Controller.extend({
 
   searchTerm: '',
 
-  matchingPosts: computed('model@each.title', 'searchTerm', function () {
+  matchingCertificates: computed('model@each.name', 'searchTerm', function () {
     let searchTerm = this.get('searchTerm').toLowerCase();
-    return this.get('model').filter(function (post) {
-      return post.get('title').toLowerCase().indexOf(searchTerm) !== -1;
+    return this.get('model').filter(function (certificate) {
+      return certificate.get('name').toLowerCase().indexOf(searchTerm) !== -1;
     });
   }),
 

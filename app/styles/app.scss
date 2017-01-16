@@ -2,9 +2,9 @@
 @import "color-palette";
 @import "values_importer";
 @import 'ember-paper';
-@import 'app/components/post-item/styles';
+@import 'app/components/certificate-item/styles';
 @import 'app/components/ui/search-input/styles';
-@import 'app/components/snippet-item/styles';
+@import 'app/styles/certificates';
 
 $font-1x: 14px;
 $font-2x: 28px;
@@ -15,6 +15,8 @@ html {
 
 body {
   padding-top: 20px;
+  background: -webkit-linear-gradient(left, #e2dddd, #b2b2b2);
+  background: linear-gradient(to right, #e2dddd, #b2b2b2);
 }
 
 a {
@@ -33,10 +35,6 @@ a {
   margin-right: 0;
 }
 
-.library-item {
-  min-height: 150px;
-}
-
 .navbar-icon {
   font-size: $font-2x;
   margin: 0 8px;
@@ -51,7 +49,7 @@ a {
   color: $color-snow;
 }
 
-.new-post-form md-input-container {
+.new-certificate-form md-input-container {
   display: block;
 }
 
