@@ -11,10 +11,6 @@ Router.map(function() {
     this.route('new');
     this.route('edit', { path: '/:certificate_id/edit' });
   });
-  this.route('snippets', function() {
-    this.route('new');
-    this.route('edit', { path: '/:snippet_id/edit' });
-  });
 });
 
 export default Router;

@@ -9,14 +9,6 @@
         "user":{".validate": "newData.val().length > 0"},
         ".validate": "newData.hasChildren(['name', 'number', 'comment', 'user', 'issueDate', 'expiryDate', 'updatedAt'])"
       }
-    },
-    "snippets":{
-      "$snippet": {
-        "category":{".validate": "newData.val().length > 0"},
-        "description":{".validate": "newData.val().length > 0"},
-        "user":{".validate": "newData.val().length > 0"},
-        ".validate": "newData.hasChildren(['category', 'description', 'user', 'created_at', 'updated_at'])"
-      }
     }
   }
 }
