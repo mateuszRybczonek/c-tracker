@@ -1,7 +1,7 @@
 import { moduleForComponent, test } from 'ember-qunit';
 import hbs from 'htmlbars-inline-precompile';
 
-moduleForComponent('post-item-form', 'Integration | Component | post item form', {
+moduleForComponent('certificates-table-form', 'Integration | Component | certificates table', {
   integration: true
 });
 
@@ -9,15 +9,15 @@ test('it renders', function(assert) {
   // Set any properties with this.set('myProperty', 'value');
   // Handle any actions with this.on('myAction', function(val) { ... });
 
-  this.render(hbs`{{post-item-form}}`);
+  this.render(hbs`{{certificates-table}}`);
 
   assert.equal(this.$().text().trim(), '');
 
   // Template block usage:
   this.render(hbs`
-    {{#post-item-form}}
+    {{#certificates-table}}
       template block text
-    {{/post-item-form}}
+    {{/certificates-table}}
   `);
 
   assert.equal(this.$().text().trim(), 'template block text');
