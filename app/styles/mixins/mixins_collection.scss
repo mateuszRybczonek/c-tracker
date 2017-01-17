@@ -4,13 +4,19 @@
   border-radius: $radius+px;
 }
 
-@mixin typo($font-size, $line-height, $font-weight:null) {
-  font-size: $font-size+px;
-  line-height: $line-height+px;
+@mixin font($font-size, $font-weight:null, $line-height:null, $font-family:null) {
+  font-size: $font-size;
   @if $font-weight != null {
     font-weight: $font-weight;
   }
+  @if $font-family != null {
+    font-family: $font-family;
+  }
+  @if $line-height != null {
+    line-height: $line-height;
+  }
 }
+
 @mixin transitions-all {
   -webkit-transition: all 0.4s ease-in-out;
   -moz-transition: all 0.4s ease-in-out;
@@ -27,9 +33,9 @@
 }
 
 @mixin font-medium {
-  font-weight: 400;
+  font-weight: 300;
 }
 
-@mixin  font-bold {
+@mixin font-bold {
   font-weight: 800;
 }

@@ -1,0 +1,7 @@
+@import "../../styles/values_importer";
+
+.no-cert {
+  @include font(20px, 300);
+  text-align: center;
+  padding-top: 50px;
+}

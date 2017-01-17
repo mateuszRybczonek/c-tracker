@@ -1,14 +1,6 @@
 {
   "rules": {
     ".read": "auth != null",
-    ".write": "auth != null",
-    "certificates":{
-      "$certificate": {
-        "name":{".validate": "newData.val().length > 0"},
-        "number":{".validate": "newData.val().length > 0"},
-        "user":{".validate": "newData.val().length > 0"},
-        ".validate": "newData.hasChildren(['name', 'number', 'comment', 'user', 'issueDate', 'expiryDate', 'updatedAt'])"
-      }
-    }
+    ".write": "auth != null"
   }
 }
