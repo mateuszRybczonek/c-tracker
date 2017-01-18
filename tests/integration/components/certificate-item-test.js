@@ -1,3 +1,4 @@
+import Ember from 'ember';
 import { moduleForComponent, test } from 'ember-qunit';
 import hbs from 'htmlbars-inline-precompile';
 
@@ -5,20 +6,33 @@ moduleForComponent('certificate-item', 'Integration | Component | certificate it
   integration: true
 });
 
-test('it renders', function(assert) {
+test('it renders certificate properly', function(assert) {
   // Set any properties with this.set('myProperty', 'value');
   // Handle any actions with this.on('myAction', function(val) { ... });
 
-  this.render(hbs`{{certificate-item}}`);
+  let certificate = Ember.Object.create({
+    name: 'Test Cert',
+    number: 'GUM-123',
+    user: 'test@gmail.com',
+    type: 'STCW',
+    issueDate: new Date(2017, 1, 17),
+    expiryDate: new Date(2027, 1, 17),
+    updatedAt: new Date(2017, 1, 17),
+    comment: 'let the force be with you',
+  });
 
-  assert.equal(this.$().text().trim(), '');
+  let session = {
+    session: {
+      currentUser: {
+        email: 'test@gmail.com'
+      }
+    }
+  };
 
-  // Template block usage:
-  this.render(hbs`
-    {{#certificate-item}}
-      template block text
-    {{/certificate-item}}
-  `);
+  this.set('certificate', certificate);
+  this.set('session', session);
 
-  assert.equal(this.$().text().trim(), 'template block text');
+  this.render(hbs`{{certificate-item certificate=certificate session=nil}}`);
+
+  assert.equal(this.$('td').length, 4, 'The right amount of cells is rendered');
 });
