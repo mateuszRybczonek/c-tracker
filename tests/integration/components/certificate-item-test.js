@@ -7,9 +7,6 @@ moduleForComponent('certificate-item', 'Integration | Component | certificate it
 });
 
 test('it renders certificate properly', function(assert) {
-  // Set any properties with this.set('myProperty', 'value');
-  // Handle any actions with this.on('myAction', function(val) { ... });
-
   let certificate = Ember.Object.create({
     name: 'Test Cert',
     number: 'GUM-123',
