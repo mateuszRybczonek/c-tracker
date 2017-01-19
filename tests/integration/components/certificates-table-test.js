@@ -53,7 +53,7 @@ test('it renders certificates table', function(assert) {
       `${testCase.length} certificate is rendered`
     );
     assert.equal(
-      this.$('#jediCerts .no-cert:contains("You have no documents of that type")').length == 1,
+      this.$('#jediCerts .no-cert:contains("You have no documents of that type")').length === 1,
       testCase.noCertificateNotice,
       `No certificate notice is ${testCase.noCertificateNoticeMessage}`
     );
