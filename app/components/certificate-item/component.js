@@ -26,7 +26,7 @@ export default Component.extend({
       return this.get('expiryDateFormatted');
     }
   }),
-  
+
   actions: {
 
     deleteCertificate(certificate) {

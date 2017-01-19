@@ -16,7 +16,7 @@ export default Ember.Route.extend({
   },
 
   renderTemplate() {
-    this.render('certificate/form');
+    this.render('certificates/form');
   },
 
   actions: {

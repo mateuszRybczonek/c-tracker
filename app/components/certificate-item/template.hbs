@@ -2,3 +2,15 @@
   <td>{{certificate.number}}</td>
   <td>{{issueDateFormatted}}</td>
   <td>{{expiryDate}}</td>
+
+  <td class="text-right">
+    {{#if isOwner}}
+      {{#paper-button iconButton=true}}
+        {{#link-to 'certificates.edit' certificate.id}}{{paper-icon "create"}}{{/link-to}}
+      {{/paper-button}}
+      {{#paper-button iconButton=true onClick=(action 'deleteCertificate' certificate)}}
+        {{paper-icon "delete"}}
+      {{/paper-button}}
+    {{/if}}
+  </td>
+
