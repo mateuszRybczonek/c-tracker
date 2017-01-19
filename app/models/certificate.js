@@ -10,7 +10,7 @@ export default DS.Model.extend({
   type: DS.attr('string'),
 
   issueDate: DS.attr(),
-  expiryDate: DS.attr(),
+  expiryDate: DS.attr({ defaultValue: 'n/a' }),
   updatedAt: DS.attr('date', { defaultValue: new Date()}),
 
   comment: DS.attr('string'),
