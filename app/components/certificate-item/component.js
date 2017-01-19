@@ -8,6 +8,8 @@ export default Component.extend({
 
   tagName: 'tr',
 
+  classNames: ['certificate'],
+
   moment: Ember.inject.service(),
 
   isOwner: computed('certificate.user', 'session.currentUser.email', function() {

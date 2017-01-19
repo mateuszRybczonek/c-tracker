@@ -18,6 +18,7 @@ export default DS.Model.extend({
   isNameValid: computed.notEmpty('name'),
   isNumberValid: computed.notEmpty('number'),
   isIssueDateValid: computed.notEmpty('issueDate'),
-  isValid: computed.and('isNameValid', 'isNumberValid', 'isIssueDateValid'),
+  isTypeValid: computed.notEmpty('type'),
+  isValid: computed.and('isNameValid', 'isNumberValid', 'isIssueDateValid', 'isTypeValid'),
   isInvalid: computed.not('isValid'),
 });
