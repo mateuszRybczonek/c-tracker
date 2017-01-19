@@ -1,11 +1,10 @@
 import Ember from 'ember';
 
-const { Route, computed } = Ember;
+const { Route } = Ember;
 
 export default Route.extend({
   beforeModel: function() {
-    return this.get('session').fetch().catch(function() {
-    });
+    return this.get('session').fetch().catch(function() {});
   },
 
   actions: {
