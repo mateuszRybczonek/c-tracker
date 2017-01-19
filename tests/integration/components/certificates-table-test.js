@@ -7,19 +7,8 @@ moduleForComponent('certificates-table-form', 'Integration | Component | certifi
 });
 
 test('it renders certificates table', function(assert) {
-  // Set any properties with this.set('myProperty', 'value');
-  // Handle any actions with this.on('myAction', function(val) { ... });
-
-  let session = {
-    session: {
-      currentUser: {
-        email: 'test@gmail.com'
-      }
-    }
-  };
-
   let certificate = Ember.Object.create({
-    name: 'Test Cert',
+    name: 'Jedi master license',
     number: 'GUM-123',
     user: 'test@gmail.com',
     type: 'STCW',
@@ -54,14 +43,17 @@ test('it renders certificates table', function(assert) {
     this.render(hbs`
       {{certificates-table certificates=certificates title='My Jedi Certificates' id='jediCerts'}}
     `);
-    assert.equal(this.$('#jediCerts').length > 0, true , `For ${testCase.titleMessage} - Table is rendered`);
+    assert.equal(
+      this.$('#jediCerts').length > 0, true , `For ${testCase.titleMessage} - Table is rendered`
+    );
     assert.equal(this.$('h2').text(), 'My Jedi Certificates', 'Proper title is rendered');
     assert.equal(this.$('.tbl-header').length > 0, true, 'Table header is rendered');
     assert.equal(this.$('.certificate').length,
       testCase.length,
       `${testCase.length} certificate is rendered`
     );
-    assert.equal(this.$('#jediCerts .no-cert:contains("You have")').length == 1,
+    assert.equal(
+      this.$('#jediCerts .no-cert:contains("You have no documents of that type")').length == 1,
       testCase.noCertificateNotice,
       `No certificate notice is ${testCase.noCertificateNoticeMessage}`
     );
