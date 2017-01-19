@@ -7,6 +7,7 @@ const { Component, computed, inject: { service } } = Ember;
 export default Component.extend({
 
   tagName: 'tr',
+  classNames: ['certificate'],
 
   moment: service(),
 
