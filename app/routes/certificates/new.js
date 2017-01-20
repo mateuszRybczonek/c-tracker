@@ -14,7 +14,7 @@ export default Route.extend({
     this._super(controller, model);
 
     controller.set('title', 'Add a new certificate');
-    controller.set('model.user', this.get('session.currentUser.email'));
+    controller.set('model.user', this.get('session.currentUser.uid'));
   },
 
   renderTemplate() {
