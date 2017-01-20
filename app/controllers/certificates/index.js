@@ -15,11 +15,13 @@ export default Controller.extend({
 
   certificates: computed.alias('model'),
 
-  matchingCertificates: computed('certificates@each.name', 'searchTerm', function () {
+  matchingCertificates: computed('certificates.@each.name', 'searchTerm', function () {
     let searchTerm = this.get('searchTerm').toLowerCase();
-    return this.get('certificates').filter(function (certificate) {
-      return certificate.get('name').toLowerCase().indexOf(searchTerm) !== -1;
-    });
+    if (this.get('certificates')) {
+      return this.get('certificates').filter(function (certificate) {
+        return certificate.get('name').toLowerCase().indexOf(searchTerm) !== -1;
+      });
+    }
   }),
 
   stcwCertificates: computed.filterBy('matchingCertificates', 'type', 'STCW'),
