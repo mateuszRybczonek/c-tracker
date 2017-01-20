@@ -1,7 +1,7 @@
 export default function() {
   this.transition(
-    this.fromRoute('snippets'),
-    this.toRoute('contact'),
+    this.fromRoute('dashboard'),
+    this.toRoute('certificates'),
     this.use('toLeft', { duration: 500, easing: 'easeInOut' }),
     this.reverse('toRight', { duration: 500, easing: 'easeInOut' })
   );

@@ -13,7 +13,7 @@ export default Route.extend({
         provider: provider,
       }).then((data) => {
         console.log(data.currentUser);
-        this.transitionTo('certificates');
+        this.transitionTo('dashboard');
       });
     },
 

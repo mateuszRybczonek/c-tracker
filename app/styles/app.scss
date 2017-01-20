@@ -7,6 +7,7 @@
 @import 'app/components/ui/action-button/styles';
 @import 'app/components/certificates-table/styles';
 @import 'app/styles/certificates';
+@import 'app/styles/mixins/common-tables-mixin';
 
 $font-1x: 14px;
 $font-2x: 28px;
@@ -43,6 +44,15 @@ h2 {
   text-transform: uppercase;
   text-align: left;
   margin-bottom: 5px;
+}
+
+h3 {
+  @include font(15px, 200);
+  color: $dark-grey;
+  text-transform: uppercase;
+  text-align: left;
+  margin-bottom: 5px;
+  margin-left: 5px;
 }
 
 .md-toolbar-tools {

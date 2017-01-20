@@ -1,6 +1,12 @@
 {
   "rules": {
     ".read": "auth != null",
-    ".write": "auth != null"
+    ".write": "auth != null",
+    "certificates": {
+      "$user": {
+        ".write": "$user === auth.uid",
+        ".read": "$user === auth.uid"
+      }
+    }
   }
 }
