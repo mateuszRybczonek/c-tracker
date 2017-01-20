@@ -13,9 +13,11 @@ export default Controller.extend({
 
   searchTerm: '',
 
-  matchingCertificates: computed('model@each.name', 'searchTerm', function () {
+  certificates: computed.alias('model'),
+
+  matchingCertificates: computed('certificates@each.name', 'searchTerm', function () {
     let searchTerm = this.get('searchTerm').toLowerCase();
-    return this.get('model').filter(function (certificate) {
+    return this.get('certificates').filter(function (certificate) {
       return certificate.get('name').toLowerCase().indexOf(searchTerm) !== -1;
     });
   }),
