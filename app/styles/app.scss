@@ -6,6 +6,7 @@
 @import 'app/components/ui/search-input/styles';
 @import 'app/components/ui/action-button/styles';
 @import 'app/components/certificates-table/styles';
+@import 'app/components/dashboard/expiring-certificates-table/styles';
 @import 'app/styles/certificates';
 @import 'app/styles/mixins/common-tables-mixin';
 
@@ -53,6 +54,28 @@ h3 {
   text-align: left;
   margin-bottom: 5px;
   margin-left: 5px;
+}
+
+.flex-container {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+
+  -webkit-flex-flow: row wrap;
+  justify-content: space-around;
+}
+
+.flex-item {
+  padding: 10px;
+  width: 300px;
+  height: auto;
+  margin-top: 10px;
 }
 
 .md-toolbar-tools {

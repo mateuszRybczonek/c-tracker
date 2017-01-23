@@ -12,10 +12,6 @@ export default Component.extend({
 
   moment: service(),
 
-  isOwner: computed('certificate.user', 'session.currentUser.uid', function() {
-    return this.get('certificate.user') === this.get('session.currentUser.uid');
-  }),
-
   createdAtFormatted: format((momentComputed('certificate.createdAt')), 'YYYY-MM-DD'),
   issueDateFormatted: format((momentComputed('certificate.issueDate')), 'YYYY-MM-DD'),
   expiryDateFormatted: format((momentComputed('certificate.expiryDate')), 'YYYY-MM-DD'),

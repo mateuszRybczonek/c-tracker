@@ -13,6 +13,7 @@ export default Ember.Route.extend({
     this._super(controller, model);
 
     controller.set('title', 'Edit Certificate');
+    controller.set('certificate', model);
   },
 
   renderTemplate() {
@@ -22,7 +23,7 @@ export default Ember.Route.extend({
   actions: {
 
     saveCertificate(newCertificate) {
-      newCertificate.updated_at = new Date();
+      newCertificate.updatedAt = new Date();
       newCertificate.save().then(() => this.transitionTo('users.certificates'));
     },
 

@@ -17,6 +17,8 @@ export default Route.extend({
     this._super(controller, model);
 
     controller.set('title', 'Add a new certificate');
+    controller.set('certificate', model.newCertificate);
+
   },
 
   renderTemplate() {
@@ -37,7 +39,7 @@ export default Route.extend({
 
     willTransition() {
       this._super();
-      this.controller.get('model.newCertificate').rollbackAttributes(); //remove record from the store
+      this.controller.get('certificate').rollbackAttributes(); //remove record from the store
     }
   }
 });
