@@ -12,6 +12,7 @@ Router.map(function() {
     this.route('edit', { path: '/:certificate_id/edit' });
   });
   this.route('dashboard');
+  this.route('users');
 });
 
 export default Router;
