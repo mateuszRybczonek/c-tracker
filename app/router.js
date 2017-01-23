@@ -7,12 +7,14 @@ const Router = Ember.Router.extend({
 });
 
 Router.map(function() {
-  this.route('certificates', function() {
-    this.route('new');
-    this.route('edit', { path: '/:certificate_id/edit' });
+  this.route('users', function() {
+    this.route('certificates', function() {
+      this.route('new');
+      this.route('edit', { path: '/:certificate_id/edit' });
+    });
+    this.route('dashboard');
+
   });
-  this.route('dashboard');
-  this.route('users');
   this.route('login');
 });
 

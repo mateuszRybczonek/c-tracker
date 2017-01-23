@@ -16,14 +16,14 @@ export default Ember.Route.extend({
   },
 
   renderTemplate() {
-    this.render('certificates/form');
+    this.render('users/certificates/form');
   },
 
   actions: {
 
     saveCertificate(newCertificate) {
       newCertificate.updated_at = new Date();
-      newCertificate.save().then(() => this.transitionTo('certificates'));
+      newCertificate.save().then(() => this.transitionTo('users.certificates'));
     },
 
     willTransition(transition) {

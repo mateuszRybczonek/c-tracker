@@ -7,7 +7,7 @@ export default Route.extend({
 
     return this.store.findAll('certificate')
       .then(results => results.filter((certificate) => {
-        return certificate.get('user') === currentUserUID;
+        return certificate.get('user.googleId') === currentUserUID;
       }));
   },
 });

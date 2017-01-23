@@ -3,4 +3,5 @@ import { hasMany } from 'ember-data/relationships';
 
 export default DS.Model.extend({
   certificates: hasMany('certificate', { async: false }),
+  email: DS.attr('string'),
 });
