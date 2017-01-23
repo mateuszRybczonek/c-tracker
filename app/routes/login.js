@@ -16,7 +16,7 @@ export default Route.extend({
           });
           user.save();
         }
-        this.transitionTo('users');
+        this.transitionTo('users.dashboard');
       });
     },
   },

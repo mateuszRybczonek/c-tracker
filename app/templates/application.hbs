@@ -14,6 +14,7 @@
       <div class="collapse navbar-collapse" id="main-navbar">
         <ul class="nav navbar-nav">
           {{#if session.isAuthenticated}}
+            {{#nav-link-to 'users.dashboard'}}Dashboard{{/nav-link-to}}
             {{#nav-link-to 'users.certificates'}}Certificates{{/nav-link-to}}
           {{else}}
             {{#nav-link-to 'login'}}Log in{{/nav-link-to}}
