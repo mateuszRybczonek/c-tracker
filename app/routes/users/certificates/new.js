@@ -4,7 +4,6 @@ const { Route, RSVP } = Ember;
 export default Route.extend({
 
   model() {
-
     return RSVP.hash({
       user: this.store.findRecord('user', this.get('session.currentUser.uid')),
       newCertificate: this.store.createRecord('certificate'),
@@ -27,10 +26,9 @@ export default Route.extend({
   actions: {
 
     saveCertificate(newCertificate) {
+      let user = this.controller.get('model.user');
+      newCertificate.set('user', user);
       newCertificate.save().then(() => {
-        let user = this.controller.get('model.user');
-        console.log(user);
-        debugger;
         user.get('certificates').pushObject(newCertificate);
         user.save();
         this.transitionTo('users.certificates');
