@@ -9,6 +9,8 @@ export default Component.extend({
 
   tagName: 'tr',
   classNames: ['certificate'],
+  classNameBindings: ['expired'],
+
 
   moment: service(),
 
@@ -27,4 +29,6 @@ export default Component.extend({
       return this.get('expiryDateFormatted');
     }
   }),
+
+  expired: computed.equal('daysLeft', 'Expired'),
 });
