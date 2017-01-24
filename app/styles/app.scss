@@ -6,7 +6,9 @@
 @import 'app/components/ui/search-input/styles';
 @import 'app/components/ui/action-button/styles';
 @import 'app/components/certificates-table/styles';
+@import 'app/components/dashboard/expiring-certificates-table/styles';
 @import 'app/styles/certificates';
+@import 'app/styles/mixins/common-tables-mixin';
 
 $font-1x: 14px;
 $font-2x: 28px;
@@ -20,6 +22,16 @@ body {
   padding-top: 20px;
   background: -webkit-linear-gradient(left, #e2dddd, #b2b2b2);
   background: linear-gradient(to right, #e2dddd, #b2b2b2);
+}
+
+.col-xs-1, .col-sm-1, .col-md-1, .col-lg-1, .col-xs-2, .col-sm-2, .col-md-2, .col-lg-2, .col-xs-3,
+.col-sm-3, .col-md-3, .col-lg-3, .col-xs-4, .col-sm-4, .col-md-4, .col-lg-4, .col-xs-5, .col-sm-5,
+.col-md-5, .col-lg-5, .col-xs-6, .col-sm-6, .col-md-6, .col-lg-6, .col-xs-7, .col-sm-7, .col-md-7,
+.col-lg-7, .col-xs-8, .col-sm-8, .col-md-8, .col-lg-8, .col-xs-9, .col-sm-9, .col-md-9, .col-lg-9,
+.col-xs-10, .col-sm-10, .col-md-10, .col-lg-10, .col-xs-11, .col-sm-11, .col-md-11, .col-lg-11,
+.col-xs-12, .col-sm-12, .col-md-12, .col-lg-12  {
+  padding-left: 5px;
+  padding-right: 5px;
 }
 
 a {
@@ -43,6 +55,36 @@ h2 {
   text-transform: uppercase;
   text-align: left;
   margin-bottom: 5px;
+}
+
+h3 {
+  @include font(15px, 200);
+  color: $dark-grey;
+  text-transform: uppercase;
+  text-align: left;
+  margin-bottom: 5px;
+  margin-left: 5px;
+}
+
+.flex-container {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+
+  -webkit-flex-flow: row wrap;
+  justify-content: space-around;
+}
+
+.flex-item {
+  padding: 10px;
+  height: auto;
+  margin-top: 10px;
 }
 
 .md-toolbar-tools {

@@ -1,0 +1,23 @@
+<h3>Expiring certificates</h3>
+<div class="tbl-header col-xs-12">
+  <table cellpadding="0" cellspacing="0" border="0">
+    <thead>
+    <tr class='header-row col-xs-12'>
+      <th class='col-xs-6'>Name</th>
+      <th class='col-xs-4'>Expiry Date</th>
+      <th class='col-xs-2'>Days left</th>
+    </tr>
+    </thead>
+  </table>
+</div>
+<div class="tbl-content col-xs-12">
+  <table cellpadding="0" cellspacing="0" border="0">
+    <tbody>
+    {{#each sortedCertificates as |certificate|}}
+      {{dashboard/expiring-certificate-item certificate=certificate session=session}}
+    {{else}}
+      <p class='no-cert'>No certificates expire within 60 days.</p>
+    {{/each}}
+    </tbody>
+  </table>
+</div>

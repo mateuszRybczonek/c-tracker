@@ -8,12 +8,9 @@ export default Component.extend({
 
   tagName: 'tr',
   classNames: ['certificate'],
+  classNameBindings: ['closeToExpiry'],
 
   moment: service(),
-
-  isOwner: computed('certificate.user', 'session.currentUser.email', function() {
-    return this.get('certificate.user') === this.get('session.currentUser.email');
-  }),
 
   createdAtFormatted: format((momentComputed('certificate.createdAt')), 'YYYY-MM-DD'),
   issueDateFormatted: format((momentComputed('certificate.issueDate')), 'YYYY-MM-DD'),
@@ -26,7 +23,13 @@ export default Component.extend({
       return this.get('expiryDateFormatted');
     }
   }),
-  
+
+  daysToExpiry: computed('certificate.expiryDate', function() {
+    return Math.floor((new Date(this.get('certificate.expiryDate')) - new Date()) / (1000 * 3600 * 24));
+  }),
+
+  closeToExpiry: computed.lt('daysToExpiry', 60),
+
   actions: {
 
     deleteCertificate(certificate) {

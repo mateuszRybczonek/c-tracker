@@ -1,12 +1,14 @@
 import DS from 'ember-data';
 import Ember from 'ember';
+import { belongsTo } from 'ember-data/relationships';
 
 const { computed } = Ember;
 
 export default DS.Model.extend({
+  user: belongsTo('user'),
+
   name: DS.attr('string'),
   number: DS.attr('string'),
-  user: DS.attr('string'),
   type: DS.attr('string'),
 
   issueDate: DS.attr(),

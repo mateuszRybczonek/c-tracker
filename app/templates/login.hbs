@@ -1,0 +1,8 @@
+{{#if session.isAuthenticated}}
+  {{outlet}}
+{{else}}
+  <div class="jumbotron text-center">
+    <p>Please log in to continue</p>
+    <a {{action "signIn" "google"}} class="btn">{{fa-icon "google"}}</a>
+  </div>
+{{/if}}
