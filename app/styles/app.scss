@@ -64,6 +64,16 @@ h3 {
   text-align: left;
   margin-bottom: 5px;
   margin-left: 5px;
+  a {
+      text-transform: lowercase;
+      color: $dark-grey;
+      @include font(12px, 200);
+      @include transitions-all;
+      &:hover {
+        text-decoration: none;
+        color: $color-snow;
+      }
+  }
 }
 
 .flex-container {
