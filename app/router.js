@@ -12,6 +12,10 @@ Router.map(function() {
       this.route('new');
       this.route('edit', { path: '/:certificate_id/edit' });
     });
+    this.route('seaservice', function() {
+      this.route('new');
+      this.route('edit', { path: '/:seaservice_id/edit' });
+    });
     this.route('dashboard');
 
   });
