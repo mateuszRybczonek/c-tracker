@@ -1,0 +1,16 @@
+<span id="pop-over{{item.id}}" class="pop-over-wrapper">
+  <span class="btn"
+     tabindex="0"
+     role="button"
+     data-toggle="popover"
+     data-trigger="manual"
+     data-placement="bottom"
+     data-html="true"
+     data-container="#pop-over{{item.id}}"
+     data-popover-item-id={{item.id}}>
+    see details
+  </span>
+  <div class="hidden popover-content">
+    {{yield}}
+  </div>
+</span>

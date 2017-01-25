@@ -6,4 +6,8 @@ function calculateDaysLeft(date) {
   return result;
 }
 
-export { calculateDaysLeft };
+function calculateDaysBetweenDates(finishDate, startDate) {
+  return Math.floor(new Date(finishDate) - new Date(startDate)) / (1000 * 3600 * 24);
+}
+
+export { calculateDaysLeft, calculateDaysBetweenDates };

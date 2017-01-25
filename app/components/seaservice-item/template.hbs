@@ -5,9 +5,15 @@
   <td>{{seaservice.position}}</td>
   <td>{{seaservice.signOn}}</td>
   <td>{{seaservice.signOff}}</td>
-  <td>{{seaservice.timeOnDP}}</td>
-  <td>{{seaservice.vesselDetails}}</td>
-  <td>{{seaservice.vesselActivities}}</td>
+  <td>{{daysOfService}} days<br>{{seaservice.timeOnDP}} hrs</td>
+  <td>
+    {{#popover-component
+      item=seaservice
+    }}
+      {{seaservice.vesselDetails}}
+      {{seaservice.vesselActivities}}
+    {{/popover-component}}
+  </td>
 
   <td class="text-right">
     {{#paper-button iconButton=true}}
