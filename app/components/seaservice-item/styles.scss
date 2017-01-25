@@ -1,0 +1,17 @@
+@import "../../styles/values_importer";
+
+.close-to-expiry {
+  td {
+    color: $color-brand-alert;
+    background-color: $color-brand-alert-light;
+  }
+}
+
+td{
+  @include font(12px, 300);
+  padding: 15px;
+  text-align: left;
+  vertical-align:middle;
+  color: $dark-grey;
+  border-bottom: solid 1px rgba(255,255,255,0.4);
+}

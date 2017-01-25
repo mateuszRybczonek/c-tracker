@@ -1,0 +1,20 @@
+  <td>{{seaservice.employer}}</td>
+  <td>{{seaservice.vesselName}}</td>
+  <td>{{seaservice.vesselType}}</td>
+  <td>{{seaservice.vesselGT}}</td>
+  <td>{{seaservice.position}}</td>
+  <td>{{seaservice.signOn}}</td>
+  <td>{{seaservice.signOff}}</td>
+  <td>{{seaservice.timeOnDP}}</td>
+  <td>{{seaservice.vesselDetails}}</td>
+  <td>{{seaservice.vesselActivities}}</td>
+
+  <td class="text-right">
+    {{#paper-button iconButton=true}}
+      {{#link-to 'users.seaservice.edit' seaservice.id}}{{paper-icon "create"}}{{/link-to}}
+    {{/paper-button}}
+    {{#paper-button iconButton=true onClick=(action 'deleteSeaservice' seaservice)}}
+      {{paper-icon "delete"}}
+    {{/paper-button}}
+  </td>
+
