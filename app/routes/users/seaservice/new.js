@@ -30,7 +30,7 @@ export default Route.extend({
       newSeaservice.save().then(() => {
         user.get('seaservices').pushObject(newSeaservice);
         user.save();
-        this.transitionTo('users.seaservices');
+        this.transitionTo('users.seaservice');
       });
     },
 
