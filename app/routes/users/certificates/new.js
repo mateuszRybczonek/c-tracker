@@ -7,7 +7,7 @@ export default Route.extend({
     return RSVP.hash({
       user: this.store.findRecord('user', this.get('session.currentUser.uid')),
       newCertificate: this.store.createRecord('certificate'),
-    })
+    });
   },
 
   // set controller attributes to be available in the common template

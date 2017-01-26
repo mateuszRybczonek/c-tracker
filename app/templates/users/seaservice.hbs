@@ -1,0 +1,21 @@
+{{#if isAuthenticated}}
+  {{#paper-toolbar as |toolbar|}}
+    {{#sticky-container options=stickyOptions}}
+      {{#toolbar.tools}}
+        {{ui/link-button
+          destination='users.seaservice.index'
+          iconButton=true
+          icon="list"
+          class='zoom-in-icon'
+        }}
+        {{ui/link-button
+          destination='users.seaservice.new'
+          iconButton=true
+          icon="add"
+          class='zoom-in-rotate90-icon'
+        }}
+      {{/toolbar.tools}}
+    {{/sticky-container}}
+  {{/paper-toolbar}}
+{{/if}}
+{{outlet}}

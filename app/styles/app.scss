@@ -3,6 +3,8 @@
 @import "values_importer";
 @import 'ember-paper';
 @import 'app/components/certificate-item/styles';
+@import 'app/components/vessel-details/styles';
+@import 'app/components/popover-component/styles';
 @import 'app/components/ui/search-input/styles';
 @import 'app/components/ui/action-button/styles';
 @import 'app/components/certificates-table/styles';
@@ -19,6 +21,7 @@ html {
 }
 
 body {
+  font-family: Roboto, "Helvetica Neue", sans-serif;
   height: auto;
   padding-top: 20px;
   background: -webkit-linear-gradient(left, #e2dddd, #b2b2b2);

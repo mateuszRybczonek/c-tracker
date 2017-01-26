@@ -1,0 +1,112 @@
+<div class="form-horizontal">
+  {{paper-input
+    class=form-control
+    label="Employer"
+    value=seaservice.employer
+    onChange=(action (mut seaservice.employer))
+    required=true
+    errorMessages=(hash required="Employer is required.")
+  }}
+
+  {{paper-input
+    class=form-control
+    label="Vessel's Name"
+    value=seaservice.vesselName
+    onChange=(action (mut seaservice.vesselName))
+    required=true
+    errorMessages=(hash required="Vessel's name is required.")
+  }}
+
+  {{paper-input
+    class=form-control
+    label="Vessel's Type"
+    value=seaservice.vesselType
+    onChange=(action (mut seaservice.vesselType))
+    required=true
+    errorMessages=(hash required="Vessel's type is required.")
+  }}
+
+  {{paper-input
+    class=form-control
+    label="GT"
+    value=seaservice.vesselGT
+    onChange=(action (mut seaservice.vesselGT))
+    required=true
+    errorMessages=(hash required="Vessel's GT is required.")
+  }}
+
+  {{paper-input
+    class=form-control
+    label="Position"
+    value=seaservice.position
+    onChange=(action (mut seaservice.position))
+    required=true
+    errorMessages=(hash required="Position is required.")
+  }}
+
+  {{paper-input
+    class=form-control
+    label="Time on DP"
+    value=seaservice.timeOnDP
+    onChange=(action (mut seaservice.timeOnDP))
+  }}
+
+  {{paper-input
+    flex=true
+    label="Sign on"
+    type="date"
+    value=seaservice.signOn
+    onChange=(action (mut seaservice.signOn))
+    required=true
+    errorMessages=(hash required="Sign on date is required.")
+  }}
+
+  {{paper-input
+    flex=true
+    label="Sign off"
+    type="date"
+    value=seaservice.signOff
+    onChange=(action (mut seaservice.signOff))
+    required=true
+    errorMessages=(hash required="Sign off date is required.")
+  }}
+
+  {{paper-input
+    class=form-control
+    textarea=true
+    block=true
+    label="Vessel's Details"
+    maxlength=300
+    passThru=(hash rows=1 maxRows=5)
+    value=seaservice.vesselDetails
+    onChange=(action (mut seaservice.vesselDetails))
+  }}
+
+  {{paper-input
+    class=form-control
+    textarea=true
+    block=true
+    label="Vessel's Activities"
+    maxlength=300
+    passThru=(hash rows=1 maxRows=5)
+    value=seaservice.vesselActivities
+    onChange=(action (mut seaservice.vesselActivities))
+  }}
+
+  {{paper-input
+    class='form-control hidden'
+    value=certificate.user
+    required=true
+    onChange=null
+  }}
+
+  <div class="form-group">
+    {{#paper-button
+      iconButton=true
+      onClick=(action 'saveSeaservice' seaservice)
+      disabled=seaservice.isInvalid
+    }}
+      {{paper-icon "save"}}
+    {{/paper-button}}
+  </div>
+</div>
