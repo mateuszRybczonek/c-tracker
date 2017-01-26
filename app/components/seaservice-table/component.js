@@ -3,8 +3,8 @@ import Ember from 'ember';
 const { Component, computed } = Ember;
 
 export default Component.extend({
-  
-  sortBy: 'signOffDate:desc',
+
+  sortBy: 'signOff:desc',
 
   sortedSeaservice: computed.sort('seaservice', 'sortDefinition'),
 
