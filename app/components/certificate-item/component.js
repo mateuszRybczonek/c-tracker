@@ -12,6 +12,7 @@ export default Component.extend({
 
   moment: service(),
 
+  showPromptDialog: false,
   createdAtFormatted: format((momentComputed('certificate.createdAt')), 'YYYY-MM-DD'),
   issueDateFormatted: format((momentComputed('certificate.issueDate')), 'YYYY-MM-DD'),
   expiryDateFormatted: format((momentComputed('certificate.expiryDate')), 'YYYY-MM-DD'),
@@ -32,12 +33,16 @@ export default Component.extend({
 
   actions: {
 
-    deleteCertificate(certificate) {
-      let confirmation = confirm('Are you sure?');
+    showPrompt() {
+      this.set('showPromptDialog', true);
+    },
 
-      if (confirmation) {
-        certificate.destroyRecord();
-      }
+    deleteCertificate(certificate) {
+      certificate.destroyRecord();
+    },
+
+    closePromptDialog() {
+      this.set('showPromptDialog', false);
     }
   }
 });

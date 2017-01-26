@@ -7,8 +7,26 @@
     {{#paper-button iconButton=true}}
       {{#link-to 'users.certificates.edit' certificate.id}}{{paper-icon "create"}}{{/link-to}}
     {{/paper-button}}
-    {{#paper-button iconButton=true onClick=(action 'deleteCertificate' certificate)}}
+    {{#paper-button iconButton=true onClick=(action 'showPrompt' certificate)}}
       {{paper-icon "delete"}}
     {{/paper-button}}
+
+    {{#if showPromptDialog}}
+      {{#paper-dialog fullscreen=fullscreen onClose=(action "closePromptDialog" certificate) origin=dialogOrigin}}
+
+        {{#paper-dialog-content}}
+          <h2 class="md-title">Are you sure you want to delete the certificate?</h2>
+          <h3>Certificate name: {{certificate.name}}</h3>
+          <h3>Number: {{certificate.number}}</h3>
+        {{/paper-dialog-content}}
+
+        {{#paper-dialog-actions class="layout-row"}}
+          <span class="flex"></span>
+          {{#paper-button primary=true onClick=(action "closePromptDialog" "cancel")}}Cancel{{/paper-button}}
+          {{#paper-button primary=true onClick=(action "deleteCertificate" certificate)}}Delete{{/paper-button}}
+        {{/paper-dialog-actions}}
+
+      {{/paper-dialog}}
+    {{/if}}
   </td>
 
