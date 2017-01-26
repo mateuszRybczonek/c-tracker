@@ -1,5 +1,5 @@
 <h3>
-  Expiring certificates
+  First expiring certificate
   {{#link-to 'users.certificates' class='zoom-in-icon'}}(go to certificates){{/link-to}}
 </h3>
 <div class='tbl-header'>
@@ -16,11 +16,7 @@
 <div class='tbl-content col-xs-12'>
   <table cellpadding="0" cellspacing="0" border="0">
     <tbody>
-    {{#each sortedCertificates as |certificate|}}
       {{dashboard/expiring-certificate-item certificate=certificate session=session}}
-    {{else}}
-      <p class='no-cert'>No certificates expire within 60 days.</p>
-    {{/each}}
     </tbody>
   </table>
 </div>

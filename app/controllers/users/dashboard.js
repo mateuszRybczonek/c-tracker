@@ -17,4 +17,11 @@ export default Controller.extend({
     });
     return expiringCertificates;
   }),
+
+  firstExpiringCertificate: computed('expiringCertificates', function() {
+    const sortedExpiringCerts = this.get('expiringCertificates').sort(function(a, b) {
+      return a.expiryDate > b.expiryDate;
+    });
+    return sortedExpiringCerts[0];
+  }),
 });
