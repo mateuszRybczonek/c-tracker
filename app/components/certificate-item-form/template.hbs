@@ -1,4 +1,11 @@
 <div class="form-horizontal">
+  {{#paper-switch
+  value=certificate.mainLicense
+  onChange=(action (mut certificate.mainLicense))
+  }}
+    Main license
+  {{/paper-switch}}
+
   {{#paper-select
     class=form-control
     label="Type"

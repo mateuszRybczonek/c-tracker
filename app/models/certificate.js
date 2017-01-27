@@ -10,6 +10,7 @@ export default DS.Model.extend({
   name: DS.attr('string'),
   number: DS.attr('string'),
   type: DS.attr('string'),
+  mainLicense: DS.attr('string', { defaultValue: false }),
 
   issueDate: DS.attr(),
   expiryDate: DS.attr({ defaultValue: 'n/a' }),

@@ -44,6 +44,24 @@
     errorMessages=(hash required="Position is required.")
   }}
 
+  {{#paper-select
+    class=form-control
+    label="DP Class"
+    options=dpClasses
+    selected=seaservice.dpClass
+    required=false
+    onChange=(action (mut seaservice.dpClass)) as |class|
+  }}
+    {{class}}
+  {{/paper-select}}
+
+  {{paper-input
+    class=form-control
+    label="DP System"
+    value=seaservice.dpSystem
+    onChange=(action (mut seaservice.dpSystem))
+  }}
+
   {{paper-input
     class=form-control
     label="Time on DP"

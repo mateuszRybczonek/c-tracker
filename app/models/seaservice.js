@@ -13,6 +13,8 @@ export default DS.Model.extend({
   vesselGT: DS.attr('number'),
   vesselDetails: DS.attr('string'),
   vesselActivities: DS.attr('string'),
+  dpClass: DS.attr('number'),
+  dpSystem: DS.attr('string'),
   timeOnDP: DS.attr('number'),
   position: DS.attr('string'),
   signOn: DS.attr(),
