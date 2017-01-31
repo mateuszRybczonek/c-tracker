@@ -1,0 +1,25 @@
+<h3>
+  Certificates renewed based on seaservice
+  {{#link-to 'users.certificates' class='zoom-in-icon'}}(go to certificates){{/link-to}}
+</h3>
+<div class='tbl-header'>
+  <table cellpadding="0" cellspacing="0" border="0">
+    <thead>
+    <tr class='header-row'>
+      <th class='col-xs-6'>Name</th>
+      <th class='col-xs-4'>Days required to renew</th>
+    </tr>
+    </thead>
+  </table>
+</div>
+<div class='tbl-content col-xs-12'>
+  <table cellpadding="0" cellspacing="0" border="0">
+    <tbody>
+    {{#each sortedCertificates as |certificate|}}
+      {{dashboard/certificates-renewed-seaservice-item certificate=certificate session=session}}
+    {{else}}
+      <p class='no-cert'>No certificates to be renwed based on seaservice.</p>
+    {{/each}}
+    </tbody>
+  </table>
+</div>

@@ -24,4 +24,14 @@ export default Controller.extend({
     });
     return sortedExpiringCerts[0];
   }),
+
+  certificatesRenewedBasedOnSeaservice: computed('certificates', function() {
+    let certificatesRenewedBasedOnSeaservice = [];
+    this.get('certificates').map(function(certificate) {
+      if (certificate.get('renewedBasedOnSeaservice')) {
+        certificatesRenewedBasedOnSeaservice.push(certificate);
+      }
+    });
+    return certificatesRenewedBasedOnSeaservice;
+  }),
 });
