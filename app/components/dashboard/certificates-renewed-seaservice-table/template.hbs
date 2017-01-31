@@ -6,8 +6,16 @@
   <table cellpadding="0" cellspacing="0" border="0">
     <thead>
     <tr class='header-row'>
-      <th class='col-xs-6'>Name</th>
-      <th class='col-xs-4'>Days required to renew</th>
+      <th rowspan=2 class='col-xs-3'>Name</th>
+      <th rowspan=2 class='col-xs-3'>Expiry Date</th>
+      <tr>
+        <th class='double-row' colspan=3>Days</th>
+      </tr>
+      <tr>
+        <th class='col-xs-2 double-row'>Required</th>
+        <th class='col-xs-2 double-row'>Since issued</th>
+        <th class='col-xs-2 double-row'>Missing</th>
+      </tr>
     </tr>
     </thead>
   </table>
@@ -16,7 +24,7 @@
   <table cellpadding="0" cellspacing="0" border="0">
     <tbody>
     {{#each sortedCertificates as |certificate|}}
-      {{dashboard/certificates-renewed-seaservice-item certificate=certificate session=session}}
+      {{dashboard/certificates-renewed-seaservice-item certificate=certificate seaservices=seaservices session=session}}
     {{else}}
       <p class='no-cert'>No certificates to be renwed based on seaservice.</p>
     {{/each}}
