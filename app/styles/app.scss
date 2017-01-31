@@ -14,6 +14,10 @@
 @import 'app/styles/certificates';
 @import 'app/styles/mixins/common-tables-mixin';
 
+$break-phone: 480px;
+$break-tablet: 768px;
+$break-desktop: 1024px;
+
 $font-1x: 14px;
 $font-2x: 28px;
 
@@ -89,11 +93,11 @@ h3 {
   display: -webkit-box;
   display: -moz-box;
   display: -ms-flexbox;
-  display: -webkit-flex;
-  display: flex;
+  display: -webkit-inline-flex;
+  display: inline-flex;
 
   -webkit-flex-flow: row wrap;
-  justify-content: space-around;
+  justify-content: center;
 }
 
 .flex-item {
@@ -101,6 +105,10 @@ h3 {
   width: 400px;
   height: auto;
   margin-top: 10px;
+}
+
+.flex-item-big {
+  width: 600px;
 }
 
 .md-toolbar-tools {
@@ -168,4 +176,23 @@ md-toolbar.md-default-theme:not(.md-menu-toolbar), md-toolbar:not(.md-menu-toolb
 
 .user-name {
   padding-left: 10px;
+}
+
+@media screen and (max-width: $break-tablet) {
+  .flex-item {
+    width: 100%;
+    height: auto;
+    margin-top: 10px;
+  }
+
+  .flex-item-big {
+    width: 100%;
+  }
+
+  h3 {
+    text-align: center;
+    a {
+      display: block;
+    }
+  }
 }

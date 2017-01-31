@@ -1,21 +1,23 @@
 <h1 class="flex-100">Dashboard</h1>
 
-<ul class="flex-container">
-  <li class="flex-item">
-    {{dashboard/first-expiring-certificates-table certificate=firstExpiringCertificate id='firstExpiringCert' session=session}}
-  </li>
-</ul>
+<div class="flex-container">
+  <ul class="flex-container">
+    <li class="flex-item">
+      {{dashboard/first-expiring-certificates-table certificate=firstExpiringCertificate id='firstExpiringCert' session=session}}
+    </li>
+  </ul>
 
-<ul class="flex-container">
-  <li class="flex-item">
-    {{dashboard/expiring-certificates-table certificates=expiringCertificates id='expiringCerts' session=session}}
-  </li>
-</ul>
+  <ul class="flex-container">
+    <li class="flex-item">
+      {{dashboard/expiring-certificates-table certificates=expiringCertificates id='expiringCerts' session=session}}
+    </li>
+  </ul>
 
-<ul class="flex-container">
-  <li class="flex-item">
-    {{dashboard/certificates-renewed-seaservice-table certificates=certificatesRenewedBasedOnSeaservice seaservices=seaservices id='rennwedBasedOnSeaservice' session=session}}
-  </li>
-</ul>
+  <ul class="flex-container">
+    <li class="flex-item flex-item-big">
+      {{dashboard/certificates-renewed-seaservice-table certificates=certificatesRenewedBasedOnSeaservice seaservices=seaservices id='rennwedBasedOnSeaservice' session=session}}
+    </li>
+  </ul>
 
-{{outlet}}
+  {{outlet}}
+</div>
