@@ -10,8 +10,7 @@ export default Component.extend({
   tagName: 'tr',
   classNames: ['certificate'],
   classNameBindings: ['expired'],
-
-
+  
   moment: service(),
 
   expiryDateFormatted: format((momentComputed('certificate.expiryDate')), 'YYYY-MM-DD'),

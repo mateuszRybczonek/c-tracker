@@ -17,4 +17,21 @@ export default Controller.extend({
     });
     return expiringCertificates;
   }),
+
+  firstExpiringCertificate: computed('expiringCertificates', function() {
+    const sortedExpiringCerts = this.get('expiringCertificates').sort(function(a, b) {
+      return a.expiryDate > b.expiryDate;
+    });
+    return sortedExpiringCerts[0];
+  }),
+
+  certificatesRenewedBasedOnSeaservice: computed('certificates', function() {
+    let certificatesRenewedBasedOnSeaservice = [];
+    this.get('certificates').map(function(certificate) {
+      if (certificate.get('renewedBasedOnSeaservice')) {
+        certificatesRenewedBasedOnSeaservice.push(certificate);
+      }
+    });
+    return certificatesRenewedBasedOnSeaservice;
+  }),
 });

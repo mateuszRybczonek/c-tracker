@@ -28,4 +28,5 @@ export default Controller.extend({
   passports: computed.filterBy('matchingCertificates', 'type', 'Passport'),
   medicalCertificates: computed.filterBy('matchingCertificates', 'type', 'Medical'),
   endorsements: computed.filterBy('matchingCertificates', 'type', 'Endorsement'),
+  other: computed.filterBy('matchingCertificates', 'type', 'Other'),
 });

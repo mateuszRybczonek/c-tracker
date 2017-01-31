@@ -1,0 +1,14 @@
+@import "../../../styles/mixins/common-tables-mixin";
+
+.tbl-header {
+  table {
+    tr {
+      tr {
+        .double-row {
+          padding: 5px;
+          text-align: center;
+        }
+      }
+    }
+  }
+}
