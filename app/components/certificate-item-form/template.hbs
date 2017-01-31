@@ -1,10 +1,21 @@
 <div class="form-horizontal">
   {{#paper-switch
-  value=certificate.mainLicense
-  onChange=(action (mut certificate.mainLicense))
+  value=certificate.renewedBasedOnSeaservice
+  onChange=(action (mut certificate.renewedBasedOnSeaservice))
   }}
-    Main license
+    Renewed based on Seaservice
   {{/paper-switch}}
+
+  {{#if certificate.renewedBasedOnSeaservice}}
+    {{paper-input
+      class=form-control
+      label="Days of seaservice to renew (12 months => 365 days)"
+      value=certificate.daysOfServiceToRenew
+      onChange=(action (mut certificate.daysOfServiceToRenew))
+      required=true
+      errorMessages=(hash required="Name is required.")
+    }}
+  {{/if}}
 
   {{#paper-select
     class=form-control
