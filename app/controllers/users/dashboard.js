@@ -18,11 +18,11 @@ export default Controller.extend({
     return expiringCertificates;
   }),
 
-  firstExpiringCertificate: computed('expiringCertificates', function() {
-    const sortedExpiringCerts = this.get('expiringCertificates').sort(function(a, b) {
-      return a.expiryDate > b.expiryDate;
-    });
-    return sortedExpiringCerts[0];
+  expiringCertificateSortingDef: ['expiryDate:asc'],
+  sortedExpiringCertificates: computed.sort('expiringCertificates', 'expiringCertificateSortingDef'),
+
+  firstExpiringCertificate: computed('sortedExpiringCertificates', function() {
+    return this.get('sortedExpiringCertificates')[0];
   }),
 
   certificatesRenewedBasedOnSeaservice: computed('certificates', function() {
@@ -33,5 +33,12 @@ export default Controller.extend({
       }
     });
     return certificatesRenewedBasedOnSeaservice;
+  }),
+
+  seaserviceSortingDef: ['signOff:desc'],
+  sortedSeaservices: computed.sort('seaservices', 'seaserviceSortingDef'),
+
+  lastSeaservice: computed('sortedSeaservices', function() {
+    return this.get('sortedSeaservices')[0];
   }),
 });
