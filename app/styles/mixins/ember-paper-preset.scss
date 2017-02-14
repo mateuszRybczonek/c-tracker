@@ -15,4 +15,12 @@ $custom-grey: (
   'A700': $dark-grey,
   'contrast': $color-snow
 );
+
 $primary: ($custom-grey); // ember-paper pallette
+
+$custom-grey: (
+  'A200': $color-snow-light,
+  'contrast': $color-snow
+);
+
+$accent: ($custom-grey); // ember-paper pallette

@@ -2,6 +2,7 @@
 @import "color-palette";
 @import "values_importer";
 @import 'ember-paper';
+@import 'app/styles/login';
 @import 'app/components/certificate-item/styles';
 @import 'app/components/vessel-details/styles';
 @import 'app/components/popover-component/styles';
@@ -14,10 +15,6 @@
 @import 'app/styles/certificates';
 @import 'app/styles/mixins/common-tables-mixin';
 
-$break-phone: 480px;
-$break-tablet: 768px;
-$break-desktop: 1024px;
-
 $font-1x: 14px;
 $font-2x: 28px;
 
@@ -28,7 +25,6 @@ html {
 body {
   font-family: Roboto, "Helvetica Neue", sans-serif;
   height: auto;
-  padding-top: 20px;
   background: -webkit-linear-gradient(left, #e2dddd, #b2b2b2);
   background: linear-gradient(to right, #e2dddd, #b2b2b2);
 }
@@ -120,17 +116,29 @@ h3 {
   margin-right: 0;
 }
 
+.container {
+  padding-left: 0;
+  padding-right: 0;
+  margin-left: 0;
+  margin-right: 0;
+  width: 100%;
+}
+
+.navbar {
+  @include border-radius(0);
+  margin-bottom: 0;
+}
+
 .navbar-icon {
   font-size: $font-2x;
   margin: 0 8px;
 }
 
 .navbar-right {
+  margin-top: 10px;
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-top: 10px;
-  float: right;
   color: $color-snow;
 }
 
@@ -176,6 +184,11 @@ md-toolbar.md-default-theme:not(.md-menu-toolbar), md-toolbar:not(.md-menu-toolb
 
 .user-name {
   padding-left: 10px;
+}
+
+.user-icon {
+  width: $font-2x;
+  height: $font-2x;
 }
 
 @media screen and (max-width: $break-tablet) {
