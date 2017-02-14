@@ -127,19 +127,50 @@ h3 {
 .navbar {
   @include border-radius(0);
   margin-bottom: 0;
+  border-color: rgba(9, 9, 9, 0.15);
+  background-color: transparent;
 }
 
-.navbar-icon {
+.navbar-inverse.navbar-logged-out .navbar-brand {
+  color: $color-snow;
+  border-color: transparent;
+  &:hover {
+    color: $color-snow;
+    cursor: default;
+  }
+}
+
+.navbar-inverse.navbar-logged-in .navbar-brand {
+  color: $dark-grey;
+  &:hover {
+    color: $dark-grey;
+    cursor: default;
+  }
+}
+
+.navbar-inverse.navbar-logged-in .navbar-icon {
   font-size: $font-2x;
   margin: 0 8px;
 }
 
-.navbar-right {
+.navbar-inverse.navbar-logged-in .navbar-right {
   margin-top: 10px;
   display: flex;
   justify-content: center;
   align-items: center;
-  color: $color-snow;
+  color: $dark-grey;
+}
+
+.navbar-inverse .navbar-nav > li > a {
+  color: $dark-grey;
+  border-left: solid 1px transparent;
+  border-right: solid 1px transparent;
+  @include transitions-all;
+  &:hover {
+    text-decoration: none;
+    color: $color-snow;
+    border-color: rgba(9, 9, 9, 0.15);
+  }
 }
 
 .new-certificate-form md-input-container {

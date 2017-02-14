@@ -1,6 +1,7 @@
 @import "values_importer";
 
 .title-pic {
+  margin-top: -52px;
   width: 100%;
   background-image: url('../images/world.jpg');
   background-size:     cover;
@@ -27,6 +28,12 @@
   .login-btn {
     min-width: 300px;
     height: 50px;
+    @include border-radius(0)
+    &:hover {
+      -webkit-box-shadow: 0 0 20px 5px rgba(255,255,255,0.8);
+      -moz-box-shadow: 0 0 20px 5px rgba(255,255,255,0.8);
+      box-shadow: 0 0 20px 5px rgba(255,255,255,0.8);
+    }
   }
 }
 
