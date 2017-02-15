@@ -1,0 +1,22 @@
+@import "values_importer";
+
+.sticky-container {
+  background: linear-gradient(to right, #e2dddd, #b2b2b2);
+  border-bottom: solid 1px rgba(9, 9, 9, 0.15);
+}
+
+md-toolbar {
+  min-height: 0;
+}
+
+md-toolbar.md-default-theme:not(.md-menu-toolbar), md-toolbar:not(.md-menu-toolbar) {
+  background-color: transparent;
+}
+
+md-toolbar.md-default-theme:not(.md-menu-toolbar) md-icon, md-toolbar:not(.md-menu-toolbar) md-icon {
+  color: $dark-grey;
+}
+
+.toolbar-tools {
+  height: 40px;
+}

@@ -4,6 +4,8 @@
 @import 'ember-paper';
 @import 'app/styles/login';
 @import 'app/styles/nav';
+@import 'app/styles/loading';
+@import 'app/styles/toolbar';
 @import 'app/components/certificate-item/styles';
 @import 'app/components/vessel-details/styles';
 @import 'app/components/popover-component/styles';
@@ -105,10 +107,6 @@ h3 {
   width: 600px;
 }
 
-.sticky-container {
-  background: linear-gradient(to right, #e2dddd, #b2b2b2);
-}
-
 .row {
   margin-left: 0;
   margin-right: 0;
@@ -124,51 +122,6 @@ h3 {
 
 .new-certificate-form md-input-container {
   display: block;
-}
-
-md-toolbar {
-  min-height: 0;
-}
-
-md-toolbar.md-default-theme:not(.md-menu-toolbar), md-toolbar:not(.md-menu-toolbar) {
-  background-color: transparent;
-}
-
-.md-toolbar-tools {
-  height: 40px;
-}
-
-.loading-pane {
-  margin: 25px auto;
-}
-
-.loading-message {
-  text-align: center;
-  color: #aaa;
-}
-
-.error-pane {
-  margin: 25px auto;
-  background-color: rgba(255, 176, 176, 0.33);
-}
-
-.error-message {
-  text-align: center;
-  color: #e22626;
-  line-height: 100px;
-}
-
-.spinner {
-  margin: 0 auto;
-}
-
-.user-name {
-  padding-left: 10px;
-}
-
-.user-icon {
-  width: $font-2x;
-  height: $font-2x;
 }
 
 @media screen and (max-width: $break-tablet) {

@@ -1,7 +1,16 @@
 {{#paper-toolbar as |toolbar|}}
-  {{#sticky-container options=stickyOptions }}
-    {{#toolbar.tools}}
-      {{ui/search-input value=searchTerm onChange=(action (mut searchTerm))}}
+  {{#sticky-container
+    options=stickyOptions
+    class='sticky-container'
+  }}
+    {{#toolbar.tools
+      class='toolbar-tools'
+    }}
+      {{ui/search-input
+        class='toolbar-search'
+        value=searchTerm
+        onChange=(action (mut searchTerm))
+      }}
     {{/toolbar.tools}}
   {{/sticky-container}}
 {{/paper-toolbar}}
