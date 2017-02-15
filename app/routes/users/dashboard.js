@@ -8,7 +8,7 @@ export default Ember.Route.extend({
     return Ember.RSVP.hash({
       certificates: user.get('certificates'),
       seaservices: user.get('seaservices'),
-    })
+    });
   },
 
   setupController(controller, model) {

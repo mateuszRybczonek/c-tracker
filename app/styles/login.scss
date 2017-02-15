@@ -37,6 +37,18 @@
   }
 }
 
+.explore-section {
+  background-color: $color-snow;
+}
+
+.explore-item {
+  text-align: center;
+  border-left: solid 1px $color-snow-light;
+  border-right: solid 1px $color-snow-light;
+  padding: 0 50px;
+  min-height: 370px;
+}
+
 @media screen and (max-width: $break-tablet) and (orientation: portrait) {
   .title-text {
     top: 20%;
