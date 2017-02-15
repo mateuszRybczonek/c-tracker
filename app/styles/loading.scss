@@ -1,0 +1,25 @@
+@import "values_importer";
+
+.loading-pane {
+  margin: 25px auto;
+}
+
+.loading-message {
+  text-align: center;
+  color: #aaa;
+}
+
+.error-pane {
+  margin: 25px auto;
+  background-color: rgba(255, 176, 176, 0.33);
+}
+
+.error-message {
+  text-align: center;
+  color: #e22626;
+  line-height: 100px;
+}
+
+.spinner {
+  margin: 0 auto;
+}

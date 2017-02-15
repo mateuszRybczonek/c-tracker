@@ -1,21 +1,24 @@
-{{#if isAuthenticated}}
-  {{#paper-toolbar as |toolbar|}}
-    {{#sticky-container options=stickyOptions}}
-      {{#toolbar.tools}}
-        {{ui/link-button
-          destination='users.certificates.index'
-          iconButton=true
-          icon="list"
-          class='zoom-in-icon'
-        }}
-        {{ui/link-button
-          destination='users.certificates.new'
-          iconButton=true
-          icon="add"
-          class='zoom-in-rotate90-icon'
-        }}
-      {{/toolbar.tools}}
-    {{/sticky-container}}
-  {{/paper-toolbar}}
-{{/if}}
+{{#paper-toolbar as |toolbar|}}
+  {{#sticky-container
+    options=stickyOptions
+    class='sticky-container'
+  }}
+    {{#toolbar.tools
+      class='toolbar-tools'
+    }}
+      {{ui/link-button
+        destination='users.certificates.index'
+        iconButton=true
+        icon="list"
+        class='zoom-in-icon'
+      }}
+      {{ui/link-button
+        destination='users.certificates.new'
+        iconButton=true
+        icon="add"
+        class='zoom-in-rotate90-icon'
+      }}
+    {{/toolbar.tools}}
+  {{/sticky-container}}
+{{/paper-toolbar}}
 {{outlet}}

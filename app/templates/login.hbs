@@ -1,8 +1,50 @@
-{{#if session.isAuthenticated}}
-  {{outlet}}
-{{else}}
-  <div class="jumbotron text-center">
-    <p>Please log in to continue</p>
-    <a {{action "signIn" "google"}} class="btn">{{fa-icon "google"}}</a>
+<div class='title-pic'>
+  <div class='title-text'>
+    <p class='main-text'>
+      Have your certificates always with you anywhere you are
+    </p>
+    <p class='subtitle-text'>
+      Free app to manage your certificates and seaservice
+    </p>
+    {{#unless session.isAuthenticated}}
+      {{#paper-button
+        class='login-btn'
+        raised=true
+        onClick=(route-action 'signIn' 'google')
+        accent=true
+      }}
+        Login with {{fa-icon 'google'}}
+      {{/paper-button}}
+    {{/unless}}
   </div>
-{{/if}}
+</div>
+<div class='explore-section'>
+  {{#login/explore-item
+    icon='backup'
+  }}
+    <h2 class="title">Access</h2>
+    <div class="description">
+      <p>Have access to your data anywhere you are.</p>
+      <p>Use your mobile or desktop to access the data.</p>
+    </div>
+  {{/login/explore-item}}
+  {{#login/explore-item
+    icon='assignment'}}
+    <h2 class="title">Control</h2>
+    <div class="description">
+      <p>Keep track of your certificates and seaservice in simple and clear way.</p>
+      <p>Get information about expiring certificates before it's too late.</p>
+      <p>Know how many days more you need to renew your license based on seaservice.</p>
+    </div>
+  {{/login/explore-item}}
+  {{#login/explore-item
+    icon='assessment'}}
+    <h2 class="title">Statistics</h2>
+    <div class="description">
+      <p>Know how many days you spent onboard in the last year.</p>
+      <p>Let the application calculate your DP hours, day on board, etc.</p>
+      <p>Compare the amount of time spent onboard.</p>
+    </div>
+  {{/login/explore-item}}
+</div>
+{{outlet}}
