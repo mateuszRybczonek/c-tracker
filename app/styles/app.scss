@@ -3,6 +3,7 @@
 @import "values_importer";
 @import 'ember-paper';
 @import 'app/styles/login';
+@import 'app/styles/nav';
 @import 'app/components/certificate-item/styles';
 @import 'app/components/vessel-details/styles';
 @import 'app/components/popover-component/styles';
@@ -14,9 +15,6 @@
 @import 'app/components/dashboard/certificates-renewed-seaservice-table/styles';
 @import 'app/styles/certificates';
 @import 'app/styles/mixins/common-tables-mixin';
-
-$font-1x: 14px;
-$font-2x: 28px;
 
 html {
   overflow-y: scroll;
@@ -107,8 +105,8 @@ h3 {
   width: 600px;
 }
 
-.md-toolbar-tools {
-  background-color: $dark-grey;
+.sticky-container {
+  background: linear-gradient(to right, #e2dddd, #b2b2b2);
 }
 
 .row {
@@ -122,55 +120,6 @@ h3 {
   margin-left: 0;
   margin-right: 0;
   width: 100%;
-}
-
-.navbar {
-  @include border-radius(0);
-  margin-bottom: 0;
-  border-color: rgba(9, 9, 9, 0.15);
-  background-color: transparent;
-}
-
-.navbar-inverse.navbar-logged-out .navbar-brand {
-  color: $color-snow;
-  border-color: transparent;
-  &:hover {
-    color: $color-snow;
-    cursor: default;
-  }
-}
-
-.navbar-inverse.navbar-logged-in .navbar-brand {
-  color: $dark-grey;
-  &:hover {
-    color: $dark-grey;
-    cursor: default;
-  }
-}
-
-.navbar-inverse.navbar-logged-in .navbar-icon {
-  font-size: $font-2x;
-  margin: 0 8px;
-}
-
-.navbar-inverse.navbar-logged-in .navbar-right {
-  margin-top: 10px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  color: $dark-grey;
-}
-
-.navbar-inverse .navbar-nav > li > a {
-  color: $dark-grey;
-  border-left: solid 1px transparent;
-  border-right: solid 1px transparent;
-  @include transitions-all;
-  &:hover {
-    text-decoration: none;
-    color: $color-snow;
-    border-color: rgba(9, 9, 9, 0.15);
-  }
 }
 
 .new-certificate-form md-input-container {
