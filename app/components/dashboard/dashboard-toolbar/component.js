@@ -15,9 +15,9 @@ export default Component.extend({
         seaserviceLast12Months.push(
           calculateDaysBetweenDates(seaservice.get('signOff'), seaservice.get('signOn'))
         );
-      } else if (startDate <= new Date(seaservice.get('signOff'))
-        && (startDate => new Date(seaservice.get('signOn')))) {
-        seaserviceLast12Months.push(
+      } else if (startDate <= new Date(seaservice.get('signOff')) &&
+        (startDate >= new Date(seaservice.get('signOn')))) {
+          seaserviceLast12Months.push(
           calculateDaysBetweenDates(seaservice.get('signOff'), startDate)
         );
       }
@@ -27,5 +27,26 @@ export default Component.extend({
 
   workHomeRatio: computed('seaserviceLast12Months', function() {
     return ((this.get('seaserviceLast12Months')/3.65).toFixed(0) + "%");
+  }),
+
+  totalDPHours: computed('seaservices', function() {
+    let dpHoursArray = [];
+    this.get('seaservices').map((seaservice) => {
+      if(seaservice.timeOnDP) {
+        dpHoursArray.push(seaservice.get('timeOnDP'));
+      }
+    });
+    return dpHoursArray.reduce((a, b) => a + b, 0);
+  }),
+
+  firstExpiringCert: computed('firstExpiringCertificate', function() {
+    let certificateName = this.get('firstExpiringCertificate.name');
+    let truncatedName = (function() {if (certificateName.length > 10)
+      return certificateName.substring(0,10)+'...';
+    else
+      return certificateName;
+    })();
+
+    return `${this.get('firstExpiringCertificate.expiryDate')} (${truncatedName})`;
   }),
 });

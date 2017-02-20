@@ -4,4 +4,3 @@ const { Component } = Ember;
 
 export default Component.extend({
 });
-

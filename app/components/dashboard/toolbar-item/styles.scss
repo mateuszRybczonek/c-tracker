@@ -13,3 +13,33 @@
 .toolbar-item-value {
   @include font(30px, 200);
 }
+
+.small-value-text {
+  .toolbar-item {
+    .toolbar-item-value {
+      font-size: 18px;
+      padding-top: 10px;
+      padding-bottom: 5px;
+    }
+  }
+}
+
+@media screen and (max-width: $break-desktop) {
+  .small-value-text {
+    .toolbar-item {
+      .toolbar-item-value {
+        font-size: 14px;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: $break-phone) {
+  .small-value-text {
+    .toolbar-item {
+      .toolbar-item-value {
+        font-size: 10px;
+      }
+    }
+  }
+}
