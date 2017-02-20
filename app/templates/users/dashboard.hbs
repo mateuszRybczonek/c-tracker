@@ -1,29 +1,41 @@
 <h1 class="flex-100">Dashboard</h1>
 
-<div class="flex-container">
-  <ul class="flex-container">
-    <li class="flex-item">
-      {{dashboard/first-expiring-certificates-table certificate=firstExpiringCertificate id='firstExpiringCert' session=session}}
+<div class="dashboard-toolbar">
+  {{dashboard/dashboard-toolbar
+    seaservices=seaservices
+    firstExpiringCertificate=firstExpiringCertificate
+  }}
+</div>
+
+<div class="flex-container dashboard-main">
+  <ul class="flex-xs-100 flex-sm-100 flex-60 dashboard-table">
+    <li class="dashboard-table-item">
+      {{dashboard/certificates-renewed-seaservice-table
+      certificates=certificatesRenewedBasedOnSeaservice
+      seaservices=seaservices
+      id='renewedBasedOnSeaservice'
+      session=session
+      }}
+    </li>
+  </ul>
+
+  <ul class="flex-xs-100 flex-sm-100 flex-40 dashboard-table">
+    <li class="dashboard-table-item">
+      {{dashboard/expiring-certificates-table
+        certificates=expiringCertificates
+        id='expiringCerts'
+        session=session
+      }}
     </li>
   </ul>
 
   <ul class="flex-container">
-    <li class="flex-item">
-      {{dashboard/expiring-certificates-table certificates=expiringCertificates id='expiringCerts' session=session}}
+    <li class="dashboard-table-item">
+      {{dashboard/last-seaservice-table
+        seaservice=lastSeaservice
+        id='lastSeaservice'
+        session=session
+      }}
     </li>
   </ul>
-
-  <ul class="flex-container">
-    <li class="flex-item flex-item-big">
-      {{dashboard/certificates-renewed-seaservice-table certificates=certificatesRenewedBasedOnSeaservice seaservices=seaservices id='rennwedBasedOnSeaservice' session=session}}
-    </li>
-  </ul>
-
-  <ul class="flex-container">
-    <li class="flex-item flex-item">
-      {{dashboard/last-seaservice-table seaservice=lastSeaservice id='lastSeaservice' session=session}}
-    </li>
-  </ul>
-
-  {{outlet}}
 </div>

@@ -4,7 +4,6 @@ import { calculateDaysBetweenDates } from '../../../utils/date-utils';
 const { Component, computed } = Ember;
 
 export default Component.extend({
-
   tagName: 'tr',
   classNames: ['certificate'],
 
@@ -21,7 +20,7 @@ export default Component.extend({
     });
     return seaserviceSinceIssue.reduce((a, b) => a + b, 0);
   }),
-  
+
   missingSeaservice: computed('certificate', 'seaserviceSinceIssue', function() {
     return this.get('certificate.daysOfServiceToRenew') - this.get('seaserviceSinceIssue');
   }),

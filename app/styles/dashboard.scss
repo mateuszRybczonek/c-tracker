@@ -1,0 +1,44 @@
+@import "app/styles/values_importer";
+
+.dashboard-toolbar {
+  width: 100%;
+  .flex-container {
+    width: 100%
+  }
+}
+
+.flex-container.dashboard-main {
+  padding: 0 20px;
+
+  .dashboard-table {
+    padding: 0;
+  }
+}
+
+.dashboard-table-item {
+  list-style-type: none;
+  padding: 10px;
+  height: auto;
+  margin-top: 10px;
+}
+
+.dashboard-toolbar-item {
+  width: 21%;
+  margin: 15px;
+}
+
+@media screen and (max-width: $break-tablet) {
+  .dashboard-toolbar-item {
+    width: 40%;
+    margin: 15px;
+  }
+}
+
+@media screen and (max-width: $break-desktop) {
+  .dashboard-toolbar-item {
+
+    .toolbar-item {
+      height: 80px;
+    }
+  }
+}

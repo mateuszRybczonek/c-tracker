@@ -15,8 +15,11 @@
 @import 'app/components/dashboard/expiring-certificates-table/styles';
 @import 'app/components/dashboard/expiring-certificate-item/styles';
 @import 'app/components/dashboard/certificates-renewed-seaservice-table/styles';
+@import 'app/components/dashboard/dashboard-toolbar/styles';
+@import 'app/components/dashboard/toolbar-item/styles';
 @import 'app/components/login/explore-item/styles';
 @import 'app/styles/certificates';
+@import 'app/styles/dashboard';
 @import 'app/styles/mixins/common-tables-mixin';
 
 html {
@@ -97,17 +100,6 @@ h3 {
   justify-content: center;
 }
 
-.flex-item {
-  padding: 10px;
-  width: 400px;
-  height: auto;
-  margin-top: 10px;
-}
-
-.flex-item-big {
-  width: 600px;
-}
-
 .row {
   margin-left: 0;
   margin-right: 0;
@@ -126,16 +118,6 @@ h3 {
 }
 
 @media screen and (max-width: $break-tablet) {
-  .flex-item {
-    width: 100%;
-    height: auto;
-    margin-top: 10px;
-  }
-
-  .flex-item-big {
-    width: 100%;
-  }
-
   h3 {
     text-align: center;
     a {
