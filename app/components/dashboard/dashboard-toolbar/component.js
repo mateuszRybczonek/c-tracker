@@ -6,6 +6,8 @@ const { Component, computed } = Ember;
 export default Component.extend({
   tagName: 'ul',
   classNames: ['flex-container'],
+  
+  firstExpiringCertificatePresent: computed.notEmpty('firstExpiringCertificate'),
 
   seaserviceLast12Months: computed('seaservices', function() {
     let seaserviceLast12Months = [];
