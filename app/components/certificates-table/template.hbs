@@ -36,7 +36,12 @@
       {{#each sortedCertificates as |certificate|}}
         {{certificate-item certificate=certificate session=session}}
       {{else}}
-        <p class='no-cert'>You have no documents of that type</p>
+        <p class='no-data'>
+          You have no documents of that type
+          {{#link-to 'users.certificates.new' class='link-item'}}
+            Add new certificate
+          {{/link-to}}
+        </p>
       {{/each}}
       </tbody>
     </table>

@@ -6,6 +6,8 @@ const { Component, computed } = Ember;
 export default Component.extend({
   tagName: 'ul',
   classNames: ['flex-container'],
+  
+  firstExpiringCertificatePresent: computed.notEmpty('firstExpiringCertificate'),
 
   seaserviceLast12Months: computed('seaservices', function() {
     let seaserviceLast12Months = [];
@@ -40,13 +42,15 @@ export default Component.extend({
   }),
 
   firstExpiringCert: computed('firstExpiringCertificate', function() {
-    let certificateName = this.get('firstExpiringCertificate.name');
-    let truncatedName = (function() {if (certificateName.length > 10)
-      return certificateName.substring(0,10)+'...';
-    else
-      return certificateName;
-    })();
+    if (this.get('firstExpiringCertificate')) {
+      let certificateName = this.get('firstExpiringCertificate.name');
+      let truncatedName = (function() {if (certificateName.length > 10)
+        return certificateName.substring(0,10)+'...';
+      else
+        return certificateName;
+      })();
 
-    return `${this.get('firstExpiringCertificate.expiryDate')} (${truncatedName})`;
+      return `${this.get('firstExpiringCertificate.expiryDate')} (${truncatedName})`;
+    }
   }),
 });

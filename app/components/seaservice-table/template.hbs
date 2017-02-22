@@ -24,7 +24,12 @@
       {{#each sortedSeaservice as |seaservice|}}
         {{seaservice-item seaservice=seaservice session=session}}
       {{else}}
-        <p class='no-seaservice'>You have no seaservice registered</p>
+        <p class='no-data'>
+          You have no seaservice registered
+          {{#link-to 'users.seaservice.new' class='link-item'}}
+            Add new seaservice
+          {{/link-to}}
+        </p>
       {{/each}}
       </tbody>
     </table>

@@ -4,13 +4,16 @@
     value=seaserviceLast12Months
   }}
 </li>
-<li class="dashboard-toolbar-item">
-  {{dashboard/toolbar-item
-  class='small-value-text'
-  title='First expiring certificate'
-  value=firstExpiringCert
-  }}
-</li>
+{{#if firstExpiringCertificatePresent}}
+  <li class="dashboard-toolbar-item">
+    {{dashboard/toolbar-item
+    class='small-value-text'
+    title='First expiring certificate'
+    value=firstExpiringCert
+    }}
+  </li>
+{{/if}}
+
 <li class="dashboard-toolbar-item">
   {{dashboard/toolbar-item
     title='Work/home ratio'

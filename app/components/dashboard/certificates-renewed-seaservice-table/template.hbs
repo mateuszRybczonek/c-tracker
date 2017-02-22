@@ -33,7 +33,12 @@
     {{#each sortedCertificates as |certificate|}}
       {{dashboard/certificates-renewed-seaservice-item certificate=certificate seaservices=seaservices session=session}}
     {{else}}
-      <p class='no-cert'>No certificates to be renwed based on seaservice.</p>
+      <p class='no-data'>
+        No certificates to be renewed based on seaservice
+        {{#link-to 'users.certificates.new' class='link-item'}}
+          Add new certificate
+        {{/link-to}}
+      </p>
     {{/each}}
     </tbody>
   </table>
