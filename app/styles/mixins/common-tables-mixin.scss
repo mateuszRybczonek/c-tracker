@@ -1,5 +1,9 @@
 @import "../../styles/values_importer";
 
+.common-table {
+  padding: 25px 50px;
+}
+
 .close-to-expiry {
   td {
     color: $color-brand-alert;
@@ -47,4 +51,10 @@ td {
 
 .new-form {
   margin: 0 20px;
+}
+
+@media screen and (max-width: $break-tablet) {
+  .common-table {
+    padding: 15px 10px;
+  }
 }
