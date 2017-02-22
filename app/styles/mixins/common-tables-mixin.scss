@@ -44,3 +44,7 @@ td {
   @include font(15px, 500);
   @include transitions-all;
 }
+
+.new-form {
+  margin: 0 20px;
+}
