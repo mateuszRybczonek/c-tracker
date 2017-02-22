@@ -4,7 +4,7 @@ const { Controller, computed } = Ember;
 
 export default Controller.extend({
 
-  certificates: computed.alias('model'),
+  certificatesPresent: computed.notEmpty('certificates'),
 
   expiringCertificates: computed('certificates', function() {
     let expiringCertificates = [];
@@ -27,7 +27,7 @@ export default Controller.extend({
 
   certificatesRenewedBasedOnSeaservice: computed('certificates', function() {
     let certificatesRenewedBasedOnSeaservice = [];
-    this.get('certificates').map(function(certificate) {
+    this.get('certificates').map(function (certificate) {
       if (certificate.get('renewedBasedOnSeaservice')) {
         certificatesRenewedBasedOnSeaservice.push(certificate);
       }

@@ -19,7 +19,9 @@
     {{#each sortedCertificates as |certificate|}}
       {{dashboard/expiring-certificate-item certificate=certificate session=session}}
     {{else}}
-      <p class='no-cert'>No certificates expire within 60 days.</p>
+      <p class='no-data'>
+        No certificates expires within 60 days.
+      </p>
     {{/each}}
     </tbody>
   </table>
