@@ -6,7 +6,39 @@ const { Component, computed } = Ember;
 export default Component.extend({
   tagName: 'ul',
   classNames: ['flex-container'],
-  
+
+  dashboardToolbarItems: computed(
+    'seaserviceLast12Months',
+    'firstExpiringCert',
+    'firstExpiringCertificatePresent',
+    'workHomeRatio',
+    'totalDPHours', function() {
+      return [
+        {
+          class: '',
+          title: 'Days on board last 12 months',
+          value: this.get('seaserviceLast12Months'),
+        },
+        {
+          class: 'small-value-text',
+          title: 'First expiring certificate',
+          value: this.get('firstExpiringCert'),
+          visible: this.get('firstExpiringCertificatePresent'),
+        },
+        {
+          class: '',
+          title: 'Work/home ratio',
+          value: this.get('workHomeRatio'),
+        },
+        {
+          class: '',
+          title: 'Total DP hours',
+          value: this.get('totalDPHours'),
+        },
+      ]
+    }) ,
+
+
   firstExpiringCertificatePresent: computed.notEmpty('firstExpiringCertificate'),
 
   seaserviceLast12Months: computed('seaservices', function() {
