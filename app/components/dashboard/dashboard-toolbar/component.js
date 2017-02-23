@@ -35,7 +35,7 @@ export default Component.extend({
           title: 'Total DP hours',
           value: this.get('totalDPHours'),
         },
-      ]
+      ];
     }) ,
 
 
@@ -76,10 +76,12 @@ export default Component.extend({
   firstExpiringCert: computed('firstExpiringCertificate', function() {
     if (this.get('firstExpiringCertificate')) {
       let certificateName = this.get('firstExpiringCertificate.name');
-      let truncatedName = (function() {if (certificateName.length > 10)
-        return certificateName.substring(0,10)+'...';
-      else
-        return certificateName;
+      let truncatedName = (function() {
+        if (certificateName.length > 10) {
+          return certificateName.substring(0, 10) + '...';
+        } else {
+          return certificateName;
+        }
       })();
 
       return `${this.get('firstExpiringCertificate.expiryDate')} (${truncatedName})`;

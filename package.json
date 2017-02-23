@@ -43,6 +43,7 @@
     "ember-cli-sticky": "0.6.1",
     "ember-cli-test-loader": "^1.1.0",
     "ember-cli-uglify": "^1.2.0",
+    "ember-component-css": "0.2.11",
     "ember-composability": "0.3.7",
     "ember-data": "^2.9.0",
     "ember-export-application-global": "^1.0.5",
