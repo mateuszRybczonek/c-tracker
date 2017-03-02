@@ -7,7 +7,7 @@
         <th class='hidden-xs'>Number</th>
         <th class='hidden-xs'>Issue date</th>
         <th>Expiry Date
-          <span>
+          <span class='hidden-xs'>
             {{ui/action-button
               onClick=(action 'updateSorting' 'expiryDate:desc')
               iconButton=true
@@ -24,7 +24,24 @@
             }}
           </span>
         </th>
-        <th></th>
+        <th>
+          <span class='hidden-sm hidden-md hidden-lg hidden-xl'>
+            {{ui/action-button
+              onClick=(action 'updateSorting' 'expiryDate:desc')
+              iconButton=true
+              icon="arrow-downward"
+              class='small'
+              size=12
+            }}
+            {{ui/action-button
+              onClick=(action 'updateSorting' 'expiryDate:asc')
+              iconButton=true
+              icon="arrow-upward"
+              class='small'
+              size=12
+            }}
+          </span>
+        </th>
       </tr>
     </thead>
   </table>

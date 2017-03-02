@@ -3,7 +3,6 @@
     Issue date:
   </tr>
 </thead>
-<br><br>
 <tbody>
   <tr>
     {{certificate.issueDate}}
@@ -15,9 +14,23 @@
     Number:
   </tr>
 </thead>
-<br><br>
+<br>
 <tbody>
   <tr>
     {{certificate.number}}
   </tr>
 </tbody>
+{{#if certificate.comment}}
+  <br><br>
+  <thead class="head">
+    <tr>
+      Comment:
+    </tr>
+  </thead>
+  <br>
+  <tbody>
+    <tr>
+      {{certificate.comment}}
+    </tr>
+  </tbody>
+{{/if}}
