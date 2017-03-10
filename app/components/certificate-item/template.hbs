@@ -21,7 +21,11 @@
     {{/paper-button}}
 
     {{#if showPromptDialog}}
-      {{#paper-dialog fullscreen=fullscreen onClose=(action "closePromptDialog" certificate) origin=dialogOrigin}}
+      {{#paper-dialog
+        fullscreen=fullscreen
+        onClose=(action "closePromptDialog" certificate)
+        origin=dialogOrigin
+      }}
 
         {{#paper-dialog-content}}
           <h2 class="md-title">Are you sure you want to delete the certificate?</h2>

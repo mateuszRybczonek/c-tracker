@@ -20,8 +20,29 @@
     {{#paper-button iconButton=true}}
       {{#link-to 'users.seaservice.edit' seaservice.id}}{{paper-icon "create"}}{{/link-to}}
     {{/paper-button}}
-    {{#paper-button iconButton=true onClick=(action 'deleteSeaservice' seaservice)}}
+
+    {{#paper-button iconButton=true onClick=(action 'showPrompt' seaservice)}}
       {{paper-icon "delete"}}
     {{/paper-button}}
+
+    {{#if showPromptDialog}}
+      {{#paper-dialog
+        fullscreen=fullscreen
+        onClose=(action "closePromptDialog"seaservice)
+        origin=dialogOrigin
+      }}
+
+        {{#paper-dialog-content}}
+          <h2 class="md-title">Are you sure you want to delete the seaservice?</h2>
+        {{/paper-dialog-content}}
+
+        {{#paper-dialog-actions class="layout-row"}}
+          <span class="flex"></span>
+          {{#paper-button primary=true onClick=(action "closePromptDialog" "cancel")}}Cancel{{/paper-button}}
+          {{#paper-button primary=true onClick=(action "deleteSeaservice" seaservice)}}Delete{{/paper-button}}
+        {{/paper-dialog-actions}}
+
+      {{/paper-dialog}}
+    {{/if}}
   </td>
 
