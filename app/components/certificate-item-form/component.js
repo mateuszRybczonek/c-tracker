@@ -20,17 +20,32 @@ export default Component.extend({
     },
 
     didSelectImage(files) {
-      console.log(files);
+      const certificate = this.get('certificate');
 
-      let reader = new FileReader();
+      const reader = new FileReader();
 
-      reader.onloadend = run.bind(this, function(){
-        let dataURL = reader.result;
-        let output = document.getElementById('output');
-        output.src = dataURL;
-        this.set('file', files[0]);
-      });
+      reader.onloadend = () => {
+        $('.upload-successful').show(1000);
+      };
       reader.readAsDataURL(files[0]);
+
+      this.set('file', files[0]);
+
+      const metadata = {
+        contentType: 'image/png',
+      };
+      const storageRef = this.get('firebaseApp').storage().ref();
+      const path = 'images/certificates/' + certificate.get('id') + '.png';
+
+      const uploadTask = storageRef.child(path).put(this.get('file'), metadata);
+
+      uploadTask.on('state_changed', function(snapshot) {
+        let progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
+      }, function(error) {
+      }, function() {
+        const downloadURL = uploadTask.snapshot.downloadURL;
+        certificate.set('imageUrl', downloadURL);
+      });
 
       // const storageRef = this.get('firebaseApp').storage().ref();
       // let file = data;

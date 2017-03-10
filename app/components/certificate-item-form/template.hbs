@@ -1,18 +1,15 @@
 <div class="form-horizontal">
 
   <div class='form-group'>
-    <label class='col-sm-2 control-label'>Image<br>(200x200)</label>
-    <div class='col-sm-10'>
-      <img id='output' height='200' width='200' hidden={{shouldHideImage}}>
-      <p></p>
-      {{x-file-input
-        class='custom-class'
-        multiple=false name='files'
-        action=(action 'didSelectImage')
-        accept='image/*'
-        alt='Upload Image'
-      }}
-    </div>
+    {{x-file-input
+      class='custom-class'
+      multiple=false
+      name='files'
+      action=(action 'didSelectImage')
+      accept='image/*'
+      alt='Upload scan'
+    }}
+    {{paper-icon 'done' class='upload-successful'}}
   </div>
 
   {{#paper-switch
