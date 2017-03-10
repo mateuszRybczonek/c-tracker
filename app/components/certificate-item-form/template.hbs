@@ -1,6 +1,6 @@
 <div class="form-horizontal">
 
-  <div class='form-group'>
+  <div class='form-group file-upload'>
     {{#x-file-input
       class='custom-class'
       multiple=false
@@ -10,12 +10,12 @@
     }}
       {{paper-icon 'backup'}}
       <span>Upload file</span>
+      {{paper-progress-linear value=progressBarValue}}
     {{/x-file-input}}
 
-    <div class="upload-successful">
-      <span>File succesfully uploaded</span>
+    <span class="upload-successful">
       {{paper-icon 'done'}}
-    </div>
+    </span>
   </div>
 
   {{#paper-switch

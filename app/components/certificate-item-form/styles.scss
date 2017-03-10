@@ -2,3 +2,7 @@
   color: $color-brand-success;
   display: none;
 }
+
+md-progress-linear.md-default-theme .md-container, md-progress-linear .md-container {
+  background-color: transparent;
+}
