@@ -1,15 +1,21 @@
 <div class="form-horizontal">
 
   <div class='form-group'>
-    {{x-file-input
+    {{#x-file-input
       class='custom-class'
       multiple=false
       name='files'
       action=(action 'didSelectImage')
-      accept='image/*'
-      alt='Upload scan'
+      accept='image/png, image/jpg, application/pdf'
     }}
-    {{paper-icon 'done' class='upload-successful'}}
+      {{paper-icon 'backup'}}
+      <span>Upload file</span>
+    {{/x-file-input}}
+
+    <div class="upload-successful">
+      <span>File succesfully uploaded</span>
+      {{paper-icon 'done'}}
+    </div>
   </div>
 
   {{#paper-switch
