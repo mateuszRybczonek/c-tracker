@@ -4,6 +4,8 @@ const { Component, computed } = Ember;
 
 export default Component.extend({
 
+  classNames: ['common-table'],
+
   sortBy: 'signOff:desc',
 
   sortedSeaservice: computed.sort('seaservice', 'sortDefinition'),

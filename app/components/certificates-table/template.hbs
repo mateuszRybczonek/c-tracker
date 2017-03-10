@@ -1,49 +1,64 @@
-<section>
-  <h2>{{title}}</h2>
-  <div class="tbl-header">
-    <table cellpadding="0" cellspacing="0" border="0">
-      <thead>
-        <tr class='header-row'>
-          <th>Name</th>
-          <th>Number</th>
-          <th>Issue date</th>
-          <th>Expiry Date
-            <span>
-              {{ui/action-button
-                onClick=(action 'updateSorting' 'expiryDate:desc')
-                iconButton=true
-                icon="arrow-downward"
-                class='small'
-                size=12
-              }}
-              {{ui/action-button
-                onClick=(action 'updateSorting' 'expiryDate:asc')
-                iconButton=true
-                icon="arrow-upward"
-                class='small'
-                size=12
-              }}
-            </span>
-          </th>
-          <th></th>
-        </tr>
-      </thead>
-    </table>
-  </div>
-  <div class="tbl-content">
-    <table cellpadding="0" cellspacing="0" border="0">
-      <tbody>
-      {{#each sortedCertificates as |certificate|}}
-        {{certificate-item certificate=certificate session=session}}
-      {{else}}
-        <p class='no-data'>
-          You have no documents of that type
-          {{#link-to 'users.certificates.new' class='link-item'}}
-            Add new certificate
-          {{/link-to}}
-        </p>
-      {{/each}}
-      </tbody>
-    </table>
-  </div>
-</section>
+<h2>{{title}}</h2>
+<div class="tbl-header">
+  <table cellpadding="0" cellspacing="0" border="0">
+    <thead>
+      <tr class='header-row'>
+        <th>Name</th>
+        <th class='hidden-xs'>Number</th>
+        <th class='hidden-xs'>Issue date</th>
+        <th>Expiry Date
+          <span class='hidden-xs'>
+            {{ui/action-button
+              onClick=(action 'updateSorting' 'expiryDate:desc')
+              iconButton=true
+              icon="arrow-downward"
+              class='small'
+              size=12
+            }}
+            {{ui/action-button
+              onClick=(action 'updateSorting' 'expiryDate:asc')
+              iconButton=true
+              icon="arrow-upward"
+              class='small'
+              size=12
+            }}
+          </span>
+        </th>
+        <th>
+          <span class='hidden-sm hidden-md hidden-lg hidden-xl'>
+            {{ui/action-button
+              onClick=(action 'updateSorting' 'expiryDate:desc')
+              iconButton=true
+              icon="arrow-downward"
+              class='small'
+              size=12
+            }}
+            {{ui/action-button
+              onClick=(action 'updateSorting' 'expiryDate:asc')
+              iconButton=true
+              icon="arrow-upward"
+              class='small'
+              size=12
+            }}
+          </span>
+        </th>
+      </tr>
+    </thead>
+  </table>
+</div>
+<div class="tbl-content">
+  <table cellpadding="0" cellspacing="0" border="0">
+    <tbody>
+    {{#each sortedCertificates as |certificate|}}
+      {{certificate-item certificate=certificate session=session}}
+    {{else}}
+      <p class='no-data'>
+        You have no documents of that type
+        {{#link-to 'users.certificates.new' class='link-item'}}
+          Add new certificate
+        {{/link-to}}
+      </p>
+    {{/each}}
+    </tbody>
+  </table>
+</div>

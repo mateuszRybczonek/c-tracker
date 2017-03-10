@@ -1,18 +1,31 @@
   <td>{{certificate.name}}</td>
-  <td>{{certificate.number}}</td>
-  <td>{{issueDateFormatted}}</td>
+  <td class='hidden-xs'>{{certificate.number}}</td>
+  <td class='hidden-xs'>{{issueDateFormatted}}</td>
   <td>{{expiryDate}}</td>
 
   <td class="text-right">
+    {{#popover-component
+      class='hidden-sm hidden-md hidden-lg hidden-xl'
+      item=certificate
+      icon='info-outline'
+    }}
+      {{certificate-item-details certificate=certificate}}
+    {{/popover-component}}
+
     {{#paper-button iconButton=true}}
       {{#link-to 'users.certificates.edit' certificate.id}}{{paper-icon "create"}}{{/link-to}}
     {{/paper-button}}
+
     {{#paper-button iconButton=true onClick=(action 'showPrompt' certificate)}}
       {{paper-icon "delete"}}
     {{/paper-button}}
 
     {{#if showPromptDialog}}
-      {{#paper-dialog fullscreen=fullscreen onClose=(action "closePromptDialog" certificate) origin=dialogOrigin}}
+      {{#paper-dialog
+        fullscreen=fullscreen
+        onClose=(action "closePromptDialog" certificate)
+        origin=dialogOrigin
+      }}
 
         {{#paper-dialog-content}}
           <h2 class="md-title">Are you sure you want to delete the certificate?</h2>

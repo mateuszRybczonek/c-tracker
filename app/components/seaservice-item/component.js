@@ -21,12 +21,16 @@ export default Component.extend({
 
   actions: {
 
-    deleteSeaservice(seaservice) {
-      let confirmation = confirm('Are you sure?');
+    showPrompt() {
+      this.set('showPromptDialog', true);
+    },
 
-      if (confirmation) {
-        seaservice.destroyRecord();
-      }
-    }
+    deleteSeaservice(seaservice) {
+      seaservice.destroyRecord();
+    },
+
+    closePromptDialog() {
+      this.set('showPromptDialog', false);
+    },
   }
 });

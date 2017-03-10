@@ -2,6 +2,7 @@
 @import "color-palette";
 @import "values_importer";
 @import 'ember-paper';
+@import "pod-styles";
 @import 'app/styles/login';
 @import 'app/styles/nav';
 @import 'app/styles/loading';
@@ -16,7 +17,7 @@
 @import 'app/components/dashboard/expiring-certificate-item/styles';
 @import 'app/components/dashboard/certificates-renewed-seaservice-table/styles';
 @import 'app/components/dashboard/dashboard-toolbar/styles';
-@import 'app/components/dashboard/toolbar-item/styles';
+@import 'app/components/dashboard/dashboard-toolbar-item/styles';
 @import 'app/components/login/explore-item/styles';
 @import 'app/styles/certificates';
 @import 'app/styles/dashboard';
@@ -113,7 +114,7 @@ h3 {
   width: 100%;
 }
 
-.new-certificate-form md-input-container {
+.new-form md-input-container {
   display: block;
 }
 

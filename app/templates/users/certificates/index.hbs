@@ -15,8 +15,33 @@
   {{/sticky-container}}
 {{/paper-toolbar}}
 <h1>Certificates</h1>
-{{certificates-table certificates=stcwCertificates title='STCW certificates' id='stcwCerts' session=session}}
-{{certificates-table certificates=passports title="Passports and Seaman's books" id='passports' session=session}}
-{{certificates-table certificates=medicalCertificates title='Medical certificates' id='medicalCerts' session=session}}
-{{certificates-table certificates=endorsements title='Endorsements' id='endorsements' session=session}}
-{{certificates-table certificates=other title='Other' id='other' session=session}}
+{{certificates-table
+  certificates=stcwCertificates
+  title='STCW certificates'
+  id='stcwCerts'
+  session=session
+}}
+{{certificates-table
+  certificates=passports
+  title="Passports and Seaman's books"
+  id='passports'
+  session=session
+}}
+{{certificates-table
+  certificates=medicalCertificates
+  title='Medical certificates'
+  id='medicalCerts'
+  session=session
+}}
+{{certificates-table
+  certificates=endorsements
+  title='Endorsements'
+  id='endorsements'
+  session=session
+}}
+{{certificates-table
+  certificates=other
+  title='Other'
+  id='other'
+  session=session
+}}

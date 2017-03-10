@@ -4,6 +4,8 @@ const { Component, computed } = Ember;
 
 export default Component.extend({
 
+  classNames: ['common-table'],
+
   sortBy: 'expiryDate:asc',
 
   sortedCertificates: computed.sort('certificates', 'sortDefinition'),

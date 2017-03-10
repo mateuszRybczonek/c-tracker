@@ -3,6 +3,8 @@ const { Component, $ } = Ember;
 
 export default Component.extend({
 
+  tagName: ['span'],
+  
   didInsertElement() {
     this._super(...arguments);
     this.set('$popover', this.$('[data-toggle="popover"]'));

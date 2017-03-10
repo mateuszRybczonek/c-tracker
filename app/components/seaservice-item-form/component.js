@@ -4,6 +4,8 @@ const { Component } = Ember;
 
 export default Component.extend({
 
+  classNames: ['new-form'],
+
   dpClasses: [1, 2, 3],
 
   actions: {
