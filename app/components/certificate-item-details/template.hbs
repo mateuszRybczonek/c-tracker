@@ -1,36 +1,4 @@
-<thead class="head">
-  <tr>
-    Issue date:
-  </tr>
-</thead>
-<tbody>
-  <tr>
-    {{certificate.issueDate}}
-  </tr>
-</tbody>
-<br><br>
-<thead class="head">
-  <tr>
-    Number:
-  </tr>
-</thead>
-<br>
-<tbody>
-  <tr>
-    {{certificate.number}}
-  </tr>
-</tbody>
-{{#if certificate.comment}}
-  <br><br>
-  <thead class="head">
-    <tr>
-      Comment:
-    </tr>
-  </thead>
-  <br>
-  <tbody>
-    <tr>
-      {{certificate.comment}}
-    </tr>
-  </tbody>
-{{/if}}
+{{details-item title='Issue date:' content=certificate.issueDate}}
+{{details-item title='Number:' content=certificate.number}}
+{{details-item title='Comment:' content=certificate.comment}}
+

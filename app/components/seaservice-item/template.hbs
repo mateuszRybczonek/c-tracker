@@ -1,12 +1,12 @@
-  <td>{{seaservice.employer}}</td>
+  <td class='hidden-xs'>{{seaservice.employer}}</td>
   <td>{{seaservice.vesselName}}</td>
-  <td>{{seaservice.vesselType}}</td>
-  <td>{{seaservice.vesselGT}}</td>
+  <td class='hidden-xs'>{{seaservice.vesselType}}</td>
+  <td class='hidden-xs'>{{seaservice.vesselGT}}</td>
   <td>{{seaservice.position}}</td>
   <td>{{seaservice.signOn}}</td>
   <td>{{seaservice.signOff}}</td>
   <td>{{daysOfService}} days<br>{{seaservice.timeOnDP}} hrs</td>
-  <td>{{seaservice.dpClass}}</td>
+  <td class='hidden-xs'>{{seaservice.dpClass}}</td>
   <td>
     {{#popover-component
       item=seaservice
@@ -28,7 +28,7 @@
     {{#if showPromptDialog}}
       {{#paper-dialog
         fullscreen=fullscreen
-        onClose=(action "closePromptDialog"seaservice)
+        onClose=(action "closePromptDialog" seaservice)
         origin=dialogOrigin
       }}
 

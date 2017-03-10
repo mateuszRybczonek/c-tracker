@@ -1,35 +1,3 @@
-<thead class="head">
-<tr>
-  DP System:
-</tr>
-</thead>
-<br><br>
-<tbody>
-<tr>
-  {{seaservice.dpSystem}}
-</tr>
-</tbody>
-<br><br>
-<thead class="head">
-  <tr>
-    Vessel details:
-  </tr>
-</thead>
-<br><br>
-<tbody>
-  <tr>
-    {{sanitizedVesselDetails}}
-  </tr>
-</tbody>
-<br><br>
-<thead class="head">
-  <tr>
-    Vessel activities:
-  </tr>
-</thead>
-<br><br>
-<tbody>
-  <tr>
-    {{sanitizedVesselActivities}}
-  </tr>
-</tbody>
+{{details-item title='DP System:' content=seaservice.dpSystem}}
+{{details-item title='Vessel details:' content=sanitizedVesselDetails}}
+{{details-item title='Vessel activities:' content=sanitizedVesselActivities}}
