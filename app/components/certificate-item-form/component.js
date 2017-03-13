@@ -22,17 +22,19 @@ export default Component.extend({
 
     didSelectImage(files) {
       const certificate = this.get('certificate');
+      const certificateId = certificate.get('id');
+      const userId = this.get('session.currentUser.uid');
       const reader = new FileReader();
 
       reader.readAsDataURL(files[0]);
       this.set('file', files[0]);
       const file = this.get('file');
-      const fileExtension = file.name.split('.')[1];
+      const fileExtension = file.name.split('.')[1].toLowerCase();
       const metadata = {
         contentType: file.type,
       };
       const storageRef = this.get('firebaseApp').storage().ref();
-      const path = 'images/certificates/' + certificate.get('id') + '.' + fileExtension.toLowerCase();
+      const path = `${userId}/certificates/${certificateId}.${fileExtension}`;
 
       const uploadTask = storageRef.child(path).put(file, metadata);
 
