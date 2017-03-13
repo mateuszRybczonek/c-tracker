@@ -6,16 +6,17 @@
       multiple=false
       name='files'
       action=(action 'didSelectImage')
-      accept='image/png, image/jpg, application/pdf'
+      accept='image/jpg'
     }}
       {{paper-icon 'backup'}}
       <span>Upload file</span>
       {{paper-progress-linear value=progressBarValue}}
     {{/x-file-input}}
 
-    <span class="upload-successful">
+    <div class="upload-successful">
+      <span>File succesfully uploaded</span>
       {{paper-icon 'done'}}
-    </span>
+    </div>
   </div>
 
   {{#paper-switch

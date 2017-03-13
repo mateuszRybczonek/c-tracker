@@ -1,6 +1,6 @@
 import Ember from 'ember';
 
-const { Component, computed, inject: { service }, $ } = Ember;
+const { Component, computed, inject: { service }, $, isPresent } = Ember;
 
 export default Component.extend({
 
@@ -32,7 +32,7 @@ export default Component.extend({
         contentType: file.type,
       };
       const storageRef = this.get('firebaseApp').storage().ref();
-      const path = 'images/certificates/' + certificate.get('id') + '.' + fileExtension;
+      const path = 'images/certificates/' + certificate.get('id') + '.' + fileExtension.toLowerCase();
 
       const uploadTask = storageRef.child(path).put(file, metadata);
 
@@ -40,8 +40,6 @@ export default Component.extend({
         this.set('progress', (snapshot.bytesTransferred / snapshot.totalBytes) * 100);
       }, function(error) {
       }, function() {
-        const downloadURL = uploadTask.snapshot.downloadURL;
-        certificate.set('imageUrl', downloadURL);
         $('.upload-successful').show(1000);
       });
     }
