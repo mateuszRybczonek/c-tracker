@@ -60,6 +60,12 @@ export default Component.extend({
 
     closePromptDialog() {
       this.set('showPromptDialog', false);
+    },
+
+    showModal() {
+      let imagePath = this.get('imageUrl');
+      $('.image-preview').attr('src', imagePath);
+      $('#previewModal').modal('show');
     }
   }
 });

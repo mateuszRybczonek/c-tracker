@@ -12,6 +12,13 @@
       </a>
     {{/paper-button}}
 
+    {{#paper-button
+      iconButton=true
+      onClick=(action 'showModal')
+    }}
+      {{paper-icon 'insert-photo'}}
+    {{/paper-button}}
+
     {{#popover-component
       class='hidden-sm hidden-md hidden-lg hidden-xl'
       item=certificate
