@@ -6,17 +6,17 @@
   <td class="text-right">
     {{#paper-button
       iconButton=true
+      onClick=(action 'showModal')
     }}
-      <a download href={{imageUrl}}>
-        {{paper-icon 'cloud-download'}}
-      </a>
+      {{paper-icon 'insert-photo'}}
     {{/paper-button}}
 
     {{#paper-button
       iconButton=true
-      onClick=(action 'showModal')
     }}
-      {{paper-icon 'insert-photo'}}
+      <a download href={{imageUrl}}>
+        {{paper-icon 'cloud-download'}}
+      </a>
     {{/paper-button}}
 
     {{#popover-component
