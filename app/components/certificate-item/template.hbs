@@ -4,6 +4,14 @@
   <td>{{expiryDate}}</td>
 
   <td class="text-right">
+    {{#paper-button
+      iconButton=true
+    }}
+      <a download href={{imageUrl}}>
+        {{paper-icon 'cloud-download'}}
+      </a>
+    {{/paper-button}}
+
     {{#popover-component
       class='hidden-sm hidden-md hidden-lg hidden-xl'
       item=certificate

@@ -1,24 +1,4 @@
 <div class="form-horizontal">
-
-  <div class='form-group file-upload'>
-    {{#x-file-input
-      class='custom-class'
-      multiple=false
-      name='files'
-      action=(action 'didSelectImage')
-      accept='image/jpg'
-    }}
-      {{paper-icon 'backup'}}
-      <span>Upload file</span>
-      {{paper-progress-linear value=progressBarValue}}
-    {{/x-file-input}}
-
-    <div class="upload-successful">
-      <span>File succesfully uploaded</span>
-      {{paper-icon 'done'}}
-    </div>
-  </div>
-
   {{#paper-switch
   value=certificate.renewedBasedOnSeaservice
   onChange=(action (mut certificate.renewedBasedOnSeaservice))
@@ -100,6 +80,26 @@
     value=certificate.comment
     onChange=(action (mut certificate.comment))
   }}
+
+  <div class='form-group file-upload'>
+    {{#x-file-input
+      class='custom-class'
+      multiple=false
+      name='files'
+      action=(action 'didSelectImage')
+      accept='image/jpg'
+    }}
+      {{paper-icon 'cloud-upload'}}
+        <span>Upload file</span>
+      {{paper-progress-linear value=progressBarValue}}
+    {{/x-file-input}}
+
+    <div class="upload-successful">
+      <span>File succesfully uploaded</span>
+      {{paper-icon 'done'}}
+    </div>
+  </div>
+
   <div class="form-group">
     {{#paper-button
       iconButton=true

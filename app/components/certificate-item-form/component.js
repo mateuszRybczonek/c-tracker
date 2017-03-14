@@ -1,6 +1,6 @@
 import Ember from 'ember';
 
-const { Component, computed, inject: { service }, $, isPresent } = Ember;
+const { Component, computed, inject: { service }, $ } = Ember;
 
 export default Component.extend({
 
@@ -44,6 +44,6 @@ export default Component.extend({
       }, function() {
         $('.upload-successful').show(1000);
       });
-    }
+    },
   },
 });
