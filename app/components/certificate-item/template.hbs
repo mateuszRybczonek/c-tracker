@@ -5,6 +5,7 @@
 
   <td class="text-right">
     {{#paper-button
+      bind-attr disabled=noScanPresent
       iconButton=true
       onClick=(action 'showModal')
     }}
@@ -12,6 +13,7 @@
     {{/paper-button}}
 
     {{#paper-button
+      bind-attr disabled=noScanPresent
       iconButton=true
     }}
       <a download href={{imageUrl}}>

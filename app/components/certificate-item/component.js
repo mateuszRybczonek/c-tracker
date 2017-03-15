@@ -22,6 +22,8 @@ export default Component.extend({
   expiryDateFormatted: format((momentComputed('certificate.expiryDate')), 'YYYY-MM-DD'),
 
   closeToExpiry: computed.lt('daysToExpiry', 60),
+  
+  noScanPresent: computed.not('imageUrl'),
 
   daysToExpiry: computed('certificate.expiryDate', function() {
     return Math.floor((new Date(this.get('certificate.expiryDate')) - new Date()) / (1000 * 3600 * 24));
@@ -43,8 +45,18 @@ export default Component.extend({
     const path = `${userId}/certificates/${certificateId}.jpg`;
     storageRef.child(path).getDownloadURL().then((url) => {
       this.set('imageUrl', url);
-    }).catch(function (error) {
-      // Handle any errors
+    }).catch((error) => {
+      switch (error.code) {
+        case 'storage/object_not_found':
+          console.log("File doesn't exist");
+          break;
+        case 'storage/unauthorized':
+          break;
+        case 'storage/canceled':
+          break;
+        case 'storage/unknown':
+          break;
+      }
     });
   }),
 
