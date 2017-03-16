@@ -1,4 +1,4 @@
-import { convertToLineBreaks } from 'frontend/utils/html-string-utils';
+import { convertToLineBreaks } from 'library-app/utils/html-string-utils';
 import { module, test } from 'qunit';
 
 module('Unit | Utils | html-string-utils');
