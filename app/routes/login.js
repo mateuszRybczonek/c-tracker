@@ -12,7 +12,6 @@ export default Route.extend({
           let user = this.store.createRecord('user', {
             id: data.currentUser.uid,
             email: data.currentUser.email,
-            certificates: [],
           });
           user.save();
         }

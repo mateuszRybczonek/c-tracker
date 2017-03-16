@@ -18,24 +18,12 @@
       font-size: 18px;
       padding-top: 10px;
       padding-bottom: 5px;
-    }
-  }
-}
 
-@media screen and (max-width: $break-desktop) {
-  .small-value-text {
-    .toolbar-item {
-      .toolbar-item-value {
+      @media screen and (max-width: $break-desktop) {
         font-size: 14px;
       }
-    }
-  }
-}
 
-@media screen and (max-width: $break-phone) {
-  .small-value-text {
-    .toolbar-item {
-      .toolbar-item-value {
+      @media screen and (max-width: $break-phone) {
         font-size: 10px;
       }
     }

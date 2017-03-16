@@ -80,13 +80,35 @@
     value=certificate.comment
     onChange=(action (mut certificate.comment))
   }}
-  <div class="form-group">
-    {{#paper-button
-      iconButton=true
-      onClick=(action 'saveCertificate' certificate)
-      disabled=certificate.isInvalid
-    }}
-      {{paper-icon "save"}}
-    {{/paper-button}}
+
+  <div class='form-group bottom-row'>
+    <div class='file-upload'>
+      {{#x-file-input
+      class='custom-class'
+      multiple=false
+      name='files'
+      action=(action 'didSelectImage')
+      accept='image/jpg'
+      }}
+        {{paper-icon 'cloud-upload'}}
+        <span>Upload file</span>
+        {{paper-progress-linear value=progressBarValue}}
+      {{/x-file-input}}
+
+      <div class='upload-successful'>
+        <span>File succesfully uploaded</span>
+        {{paper-icon 'done'}}
+      </div>
+    </div>
+
+    <div class='save-button'>
+      {{#paper-button
+        iconButton=true
+        onClick=(action 'saveCertificate' certificate)
+        disabled=certificate.isInvalid
+      }}
+        {{paper-icon "save"}}
+      {{/paper-button}}
+    </div>
   </div>
 </div>
