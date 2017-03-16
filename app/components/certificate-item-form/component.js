@@ -29,7 +29,7 @@ export default Component.extend({
       reader.readAsDataURL(files[0]);
       this.set('file', files[0]);
       const file = this.get('file');
-      const fileExtension = file.name.split('.')[1].toLowerCase();
+      const fileExtension = file.name.slice(file.name.lastIndexOf('.') + 1).toLowerCase();
       const metadata = {
         contentType: file.type,
       };
