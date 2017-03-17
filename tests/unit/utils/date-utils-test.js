@@ -1,4 +1,4 @@
-import { calculateDaysLeft, calculateDaysBetweenDates, createFutureDate } from 'library-app/utils/date-utils';
+import { calculateDaysLeft, calculateDaysBetweenDates } from 'library-app/utils/date-utils';
 import { module, test } from 'qunit';
 
 module('Unit | Utils | date-utils');
@@ -52,7 +52,6 @@ test('calculateDaysBetweenDates', function(assert) {
   dataProvider.forEach(testCase => {
     assert.equal(calculateDaysBetweenDates(testCase.finishDate, testCase.startDate),
       testCase.result,
-      testCase.message,
-    );
+      testCase.message);
   });
 });
