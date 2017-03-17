@@ -10,4 +10,9 @@ function calculateDaysBetweenDates(finishDate, startDate) {
   return Math.floor(new Date(finishDate) - new Date(startDate)) / (1000 * 3600 * 24);
 }
 
-export { calculateDaysLeft, calculateDaysBetweenDates };
+function createFutureDate(numberOfDaysToAdd) {
+  let date = new Date();
+  return new Date(date.setDate(date.getDate() + numberOfDaysToAdd));
+}
+
+export { calculateDaysLeft, calculateDaysBetweenDates, createFutureDate };
