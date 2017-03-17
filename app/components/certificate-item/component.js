@@ -27,7 +27,9 @@ export default Component.extend({
   noScanPresent: computed.not('imageUrl'),
 
   daysToExpiry: computed('certificate.expiryDate', function() {
-    calculateDaysLeft(this.get('certificate.expiryDate'));
+    if (this.get('certificate.expiryDate')) {
+      calculateDaysLeft(this.get('certificate.expiryDate'));
+    }
   }),
 
   expiryDate: computed('certificate.expiryDate', function() {

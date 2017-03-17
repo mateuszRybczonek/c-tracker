@@ -16,7 +16,9 @@ export default Component.extend({
   signOffFormatted: format((momentComputed('seaservice.signOff')), 'YYYY-MM-DD'),
 
   daysOfService: computed('seaservice.signOn', 'seaservice.signOff', function() {
-    return calculateDaysBetweenDates(this.get('seaservice.signOff'), this.get('seaservice.signOn'));
+    if (this.get('seaservice.signOn') && this.get('seaservice.signOff')) {
+      return calculateDaysBetweenDates(this.get('seaservice.signOff'), this.get('seaservice.signOn'));
+    }
   }),
 
   actions: {
