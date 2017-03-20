@@ -146,7 +146,7 @@ test('firstExpiringCert', function(assert) {
       Ember.Object.create({
         name: dataSet.fullName,
         expiryDate: '2016-12-31',
-      }),
+      })
     );
 
     assert.equal(component.get('firstExpiringCert'), dataSet.result, dataSet.message);

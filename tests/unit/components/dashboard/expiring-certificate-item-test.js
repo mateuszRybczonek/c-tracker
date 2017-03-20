@@ -1,5 +1,4 @@
 import { test, moduleForComponent } from 'ember-qunit';
-import sinon from 'sinon';
 
 moduleForComponent(
   'dashboard/expiring-certificate-item',
