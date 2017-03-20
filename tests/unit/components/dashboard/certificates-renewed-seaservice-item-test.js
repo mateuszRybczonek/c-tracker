@@ -18,8 +18,7 @@ test('seaserviceSinceIssue', function(assert) {
   const validSeaservice = _createSeaserviceModelStub(new Date(2016, 3, 5), new Date(2016, 3, 15) );
   const invalidSeaservice = _createSeaserviceModelStub(new Date(2015, 2, 5), new Date(2015, 3, 5) );
   const seaserviceDuringIssuance = _createSeaserviceModelStub(new Date(2016, 2, 5), new Date(2016, 3, 10) );
-
-
+  
   const dataProvider = [
     {
       first: validSeaservice,
@@ -71,9 +70,7 @@ test('missingSeaservice', function(assert) {
 
   const validSeaservice = _createSeaserviceModelStub(new Date(2016, 3, 5), new Date(2016, 3, 15) );
   const invalidSeaservice = _createSeaserviceModelStub(new Date(2015, 2, 5), new Date(2015, 3, 5) );
-  const seaserviceDuringIssuance = _createSeaserviceModelStub(new Date(2016, 2, 5), new Date(2016, 3, 10) );
-
-
+  
   const dataProvider = [
     {
       seaservice: validSeaservice,
