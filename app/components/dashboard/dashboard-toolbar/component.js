@@ -1,4 +1,5 @@
 import Ember from 'ember';
+import moment from 'moment';
 import { calculateDaysBetweenDates } from '../../../utils/date-utils';
 
 const { Component, computed } = Ember;
