@@ -1,4 +1,5 @@
 import { test, moduleForComponent } from 'ember-qunit';
+import sinon from 'sinon';
 
 moduleForComponent(
   'certificate-item',
@@ -7,6 +8,66 @@ moduleForComponent(
     unit: true,
   }
 );
+
+test('closeToExpiry', function(assert) {
+  const component = this.subject();
+
+  const dataProvider = [
+    {
+      daysToExpiry: 'Expired',
+      result: false,
+      message: 'returns false when expired',
+    },
+    {
+      daysToExpiry: '59',
+      result: true,
+      message: 'returns true when under 60 days',
+    },
+    {
+      daysToExpiry: '60',
+      result: false,
+      message: 'returns true when 60 days',
+    },
+    {
+      daysToExpiry: '61',
+      result: false,
+      message: 'returns true when more than 60 days',
+    },
+  ];
+
+  dataProvider.forEach(dataSet => {
+    component.setProperties({
+      daysToExpiry: dataSet.daysToExpiry,
+    });
+
+    assert.equal(component.get('closeToExpiry'), dataSet.result, dataSet.message);
+  });
+});
+
+test('expired', function(assert) {
+  const component = this.subject();
+
+  const dataProvider = [
+    {
+      daysToExpiry: 'Expired',
+      result: true,
+      message: 'returns false when expired',
+    },
+    {
+      daysToExpiry: 1,
+      result: false,
+      message: 'returns true when not expired',
+    },
+  ];
+
+  dataProvider.forEach(dataSet => {
+    component.setProperties({
+      daysToExpiry: dataSet.daysToExpiry,
+    });
+
+    assert.equal(component.get('expired'), dataSet.result, dataSet.message);
+  });
+});
 
 test('expiryDate', function(assert) {
   const component = this.subject();
