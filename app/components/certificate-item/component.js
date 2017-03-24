@@ -3,13 +3,13 @@ import momentComputed from 'ember-moment/computeds/moment';
 import format from 'ember-moment/computeds/format';
 import { calculateDaysLeft } from 'library-app/utils/date-utils';
 
-const { Component, computed, inject: { service } } = Ember;
+const { Component, computed, inject: { service }, $ } = Ember;
 
 export default Component.extend({
 
   tagName: 'tr',
   classNames: ['certificate'],
-  classNameBindings: ['closeToExpiry'],
+  classNameBindings: ['closeToExpiry', 'expired'],
 
   firebaseApp: service(),
   storageRef: '',
@@ -24,11 +24,13 @@ export default Component.extend({
 
   closeToExpiry: computed.lt('daysToExpiry', 60),
 
+  expired: computed.equal('daysToExpiry', 'Expired'),
+
   noScanPresent: computed.not('imageUrl'),
 
   daysToExpiry: computed('certificate.expiryDate', function() {
     if (this.get('certificate.expiryDate')) {
-      calculateDaysLeft(this.get('certificate.expiryDate'));
+      return calculateDaysLeft(this.get('certificate.expiryDate'));
     }
   }),
 

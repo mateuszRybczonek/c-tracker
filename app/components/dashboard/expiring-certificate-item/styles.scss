@@ -1,3 +1,4 @@
-.expired > td {
+&.expired > td {
   color: $dark-grey-shade;
+  background-color: transparent;
 }
