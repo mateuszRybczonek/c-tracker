@@ -1,15 +1,13 @@
 import Ember from 'ember';
 import { moduleFor, test } from 'ember-qunit';
 
-const { Object: { create } } = Ember;
 
-moduleFor('controller:certificates/index', 'Unit | Controller | certificates | index', {
-});
+moduleFor('controller:users/certificates/index', 'Unit | Controller | users/certificates | index', {});
 
 test('search by name', function(assert) {
   let controller = this.subject();
 
-  let certificate1 = create({
+  let certificate1 = Ember.Object.create({
     name: 'Jedi master license',
     number: 'GUM-123',
     user: 'test@gmail.com',
@@ -20,7 +18,7 @@ test('search by name', function(assert) {
     comment: 'let the force be with you',
   });
 
-  let certificate2 = create({
+  let certificate2 = Ember.Object.create({
     name: 'Padawan (Jedi Apprentice) certificate',
     number: 'GUM-345',
     user: 'test@gmail.com',
@@ -52,7 +50,6 @@ test('search by name', function(assert) {
       message: 'returns single element for single match',
     },
   ];
-
 
   dataProvider.forEach(testCase => {
     controller.set('searchTerm', testCase.searchTerm);

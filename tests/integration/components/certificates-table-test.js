@@ -20,19 +20,19 @@ test('it renders certificates table', function(assert) {
 
   const dataProvider = [
     {
-      titleMessage: 'certificates present',
+      titleMessage: 'no certificates',
       certificates: [],
       length: 0,
       noCertificateNotice: true,
-      noCertificateNoticeMessage: 'not rendered'
+      noCertificateNoticeMessage: ' rendered'
     },
 
     {
-      titleMessage: 'no certificates',
+      titleMessage: 'certificates present',
       certificates: [ certificate ],
       length: 1,
       noCertificateNotice: false,
-      noCertificateNoticeMessage: ' rendered'
+      noCertificateNoticeMessage: 'not rendered'
     },
   ];
 
@@ -53,7 +53,7 @@ test('it renders certificates table', function(assert) {
       `${testCase.length} certificate is rendered`
     );
     assert.equal(
-      this.$('#jediCerts .no-cert:contains("You have no documents of that type")').length === 1,
+      this.$('#jediCerts .no-data:contains("You have no documents of that type")').length === 1,
       testCase.noCertificateNotice,
       `No certificate notice is ${testCase.noCertificateNoticeMessage}`
     );

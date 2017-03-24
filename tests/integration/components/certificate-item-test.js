@@ -31,5 +31,5 @@ test('it renders certificate properly', function(assert) {
 
   this.render(hbs`{{certificate-item certificate=certificate session=nil}}`);
 
-  assert.equal(this.$('td').length, 4, 'The right amount of cells is rendered');
+  assert.equal(this.$('td').length, 5, 'The right amount of cells is rendered');
 });
