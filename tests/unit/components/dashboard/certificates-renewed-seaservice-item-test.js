@@ -1,5 +1,6 @@
 import Ember from 'ember';
 import { test, moduleForComponent } from 'ember-qunit';
+import { createSeaserviceModelStub } from 'library-app/tests/stubs/test-stubs';
 
 moduleForComponent('dashboard/certificates-renewed-seaservice-item',
   'Unit | Component | certificates-renewed-seaservice-item',
@@ -15,10 +16,10 @@ test('seaserviceSinceIssue', function(assert) {
     issueDate: new Date(2016, 3, 5),
   });
 
-  const validSeaservice = _createSeaserviceModelStub(new Date(2016, 3, 5), new Date(2016, 3, 15) );
-  const invalidSeaservice = _createSeaserviceModelStub(new Date(2015, 2, 5), new Date(2015, 3, 5) );
-  const seaserviceDuringIssuance = _createSeaserviceModelStub(new Date(2016, 2, 5), new Date(2016, 3, 10) );
-  
+  const validSeaservice = createSeaserviceModelStub(new Date(2016, 3, 5), new Date(2016, 3, 15) );
+  const invalidSeaservice = createSeaserviceModelStub(new Date(2015, 2, 5), new Date(2015, 3, 5) );
+  const seaserviceDuringIssuance = createSeaserviceModelStub(new Date(2016, 2, 5), new Date(2016, 3, 10) );
+
   const dataProvider = [
     {
       first: validSeaservice,
@@ -68,9 +69,9 @@ test('missingSeaservice', function(assert) {
     daysOfServiceToRenew: 365,
   });
 
-  const validSeaservice = _createSeaserviceModelStub(new Date(2016, 3, 5), new Date(2016, 3, 15) );
-  const invalidSeaservice = _createSeaserviceModelStub(new Date(2015, 2, 5), new Date(2015, 3, 5) );
-  
+  const validSeaservice = createSeaserviceModelStub(new Date(2016, 3, 5), new Date(2016, 3, 15) );
+  const invalidSeaservice = createSeaserviceModelStub(new Date(2015, 2, 5), new Date(2015, 3, 5) );
+
   const dataProvider = [
     {
       seaservice: validSeaservice,
@@ -93,10 +94,3 @@ test('missingSeaservice', function(assert) {
     assert.equal(component.get('missingSeaservice'), dataSet.result, dataSet.message);
   });
 });
-
-function _createSeaserviceModelStub(signOn, signOff) {
-  return Ember.Object.create({
-    signOn: signOn,
-    signOff: signOff,
-  });
-}

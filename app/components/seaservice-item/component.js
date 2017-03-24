@@ -21,8 +21,9 @@ export default Component.extend({
   daysOfService: computed('signOn', 'signOff', 'validDates', function() {
     if (this.get('validDates')) {
       return calculateDaysBetweenDates(this.get('signOff'), this.get('signOn'));
-    } else
+    } else {
       return 'Invalid dates';
+    }
   }),
 
   validDates: computed('signOff', 'signOn', function() {

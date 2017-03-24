@@ -1,5 +1,4 @@
 import { test, moduleForComponent } from 'ember-qunit';
-import { convertToLineBreaks } from '../utils/html-string-utils-test';
 
 moduleForComponent(
   'vessel-details',
