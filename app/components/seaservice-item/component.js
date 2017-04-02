@@ -12,11 +12,24 @@ export default Component.extend({
 
   moment: service(),
 
-  signOnFormatted: format((momentComputed('seaservice.signOn')), 'YYYY-MM-DD'),
-  signOffFormatted: format((momentComputed('seaservice.signOff')), 'YYYY-MM-DD'),
+  signOn: computed.alias('seaservice.signOn'),
+  signOff: computed.alias('seaservice.signOff'),
 
-  daysOfService: computed('seaservice.signOn', 'seaservice.signOff', function() {
-    return calculateDaysBetweenDates(this.get('seaservice.signOff'), this.get('seaservice.signOn'));
+  signOnFormatted: format((momentComputed('signOn')), 'YYYY-MM-DD'),
+  signOffFormatted: format((momentComputed('signOff')), 'YYYY-MM-DD'),
+
+  daysOfService: computed('signOn', 'signOff', 'validDates', function() {
+    if (this.get('validDates')) {
+      return calculateDaysBetweenDates(this.get('signOff'), this.get('signOn'));
+    } else {
+      return 'Invalid dates';
+    }
+  }),
+
+  validDates: computed('signOff', 'signOn', function() {
+    if (this.get('signOn') && this.get('signOff')) {
+      return (new Date(this.get('signOn')) < new Date(this.get('signOff')));
+    }
   }),
 
   actions: {

@@ -1,3 +1,5 @@
+/* jshint unused: false */
+
 import Ember from 'ember';
 
 const { Component, computed, inject: { service }, $ } = Ember;

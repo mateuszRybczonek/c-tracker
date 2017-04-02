@@ -1,7 +1,15 @@
-.close-to-expiry {
+&.close-to-expiry {
+  td {
+    color: $dark-grey;
+    background-color: $color-warning;
+  }
+}
+
+&.expired {
   td {
     color: $color-brand-alert;
     background-color: $color-brand-alert-light;
+    font-weight: 400;
   }
 }
 

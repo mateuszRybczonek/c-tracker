@@ -8,8 +8,9 @@ export default Component.extend({
   classNames: ['certificate'],
 
   issueDate: computed.alias('certificate.issueDate'),
+  daysOfServiceToRenew: computed.alias('certificate.daysOfServiceToRenew'),
 
-  seaserviceSinceIssue: computed('certificate', 'seaservices', function() {
+  seaserviceSinceIssue: computed('issueDate', 'seaservices', function() {
     let seaserviceSinceIssue = [];
     this.get('seaservices').map((seaservice) => {
       if (new Date(this.get('issueDate')) <= new Date(seaservice.get('signOn'))) {
@@ -21,7 +22,7 @@ export default Component.extend({
     return seaserviceSinceIssue.reduce((a, b) => a + b, 0);
   }),
 
-  missingSeaservice: computed('certificate', 'seaserviceSinceIssue', function() {
-    return this.get('certificate.daysOfServiceToRenew') - this.get('seaserviceSinceIssue');
+  missingSeaservice: computed('daysOfServiceToRenew', 'seaserviceSinceIssue', function() {
+    return this.get('daysOfServiceToRenew') - this.get('seaserviceSinceIssue');
   }),
 });
