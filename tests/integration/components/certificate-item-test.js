@@ -1,4 +1,3 @@
-import Ember from 'ember';
 import { moduleForComponent, test } from 'ember-qunit';
 import hbs from 'htmlbars-inline-precompile';
 import { certificateStub, sessionStub } from '../../stubs/test-stubs';
@@ -13,7 +12,6 @@ moduleForComponent('certificate-item', 'Integration | Component | certificate it
     });
   }
 });
-
 
 test('it renders certificate properly', function(assert) {
   this.render(hbs`{{certificate-item certificate=certificate session=session}}`);

@@ -27,6 +27,25 @@ function certificateStub(expiryDate) {
     renewedBasedOnSeaservice: false,
     daysOfServiceToRenew: null,
   });
+
+}
+
+function seaserviceStub() {
+  return Ember.Object.create({
+    id: 1,
+    employer: 'Ensco plc',
+    vesselName: 'Ensco DS-2',
+    vesselType: 'Drillship',
+    vesselGT: '29677',
+    vesselDetails: 'Drillship',
+    vesselActivities: 'Drilling',
+    dpClass: '2',
+    dpSystem: 'Converteam',
+    timeOnDP: '420',
+    position: '2nd Officer / SDPO',
+    signOn: '2012-11-29',
+    signOff: '2013-01-03',
+  });
 }
 
 function sessionStub() {
@@ -43,5 +62,6 @@ export {
   createExpiringCertificatesModelStub,
   createSeaserviceModelStub,
   certificateStub,
-  sessionStub
+  sessionStub,
+  seaserviceStub
 };

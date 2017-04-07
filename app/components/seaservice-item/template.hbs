@@ -12,15 +12,23 @@
     {{#popover-component
       item=seaservice
       icon='info-outline'
+      class='popover-seaservice-details'
     }}
       {{vessel-details seaservice=seaservice}}
     {{/popover-component}}
 
-    {{#paper-button iconButton=true}}
+    {{#paper-button
+      iconButton=true
+      class='edit-seaservice'
+    }}
       {{#link-to 'users.seaservice.edit' seaservice.id}}{{paper-icon "create"}}{{/link-to}}
     {{/paper-button}}
 
-    {{#paper-button iconButton=true onClick=(action 'showPrompt' seaservice)}}
+    {{#paper-button
+      iconButton=true
+      class='delete-seaservice'
+      onClick=(action 'showPrompt' seaservice)
+    }}
       {{paper-icon "delete"}}
     {{/paper-button}}
 
@@ -44,4 +52,3 @@
       {{/paper-dialog}}
     {{/if}}
   </td>
-
