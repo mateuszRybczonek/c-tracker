@@ -1,8 +1,8 @@
 import { test, moduleForComponent } from 'ember-qunit';
 
 moduleForComponent(
-  'certificate-item',
-  'Unit | Component | certificate-item',
+  'certificates-table/item',
+  'Unit | Component | certificate-table/item',
   {
     unit: true,
   }

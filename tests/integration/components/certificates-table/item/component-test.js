@@ -1,8 +1,8 @@
 import { moduleForComponent, test } from 'ember-qunit';
 import hbs from 'htmlbars-inline-precompile';
-import { certificateStub, sessionStub } from '../../stubs/test-stubs';
+import { certificateStub, sessionStub } from 'library-app/tests/stubs/test-stubs';
 
-moduleForComponent('certificate-item', 'Integration | Component | certificate item', {
+moduleForComponent('certificates-table/item', 'Integration | Component | certificates-table/item', {
   integration: true,
 
   beforeEach() {
@@ -14,7 +14,7 @@ moduleForComponent('certificate-item', 'Integration | Component | certificate it
 });
 
 test('it renders certificate properly', function(assert) {
-  this.render(hbs`{{certificate-item certificate=certificate session=session}}`);
+  this.render(hbs`{{certificates-table/item certificate=certificate session=session}}`);
 
   assert.equal(this.$('td').length, 5, 'The right amount of cells is rendered');
   assert.equal($(this.$('td')[0]).text().trim(), 'Test Cert', 'Certificate name is rendered');
@@ -31,7 +31,7 @@ test('it renders certificate properly', function(assert) {
 test('it renders uploaded scan icons properly', function(assert) {
   this.set('imageUrl', 'http://fakeImageUrl');
 
-  this.render(hbs`{{certificate-item certificate=certificate session=session imageUrl=imageUrl}}`);
+  this.render(hbs`{{certificates-table/item certificate=certificate session=session imageUrl=imageUrl}}`);
 
   assert.equal(this.$('.scan-preview:disabled').length, 0, 'preview button is enabled when scan is uploaded');
   assert.equal(this.$('.scan-download:disabled').length, 0, 'preview button is enabled when scan is uploaded');
@@ -45,7 +45,7 @@ test('it renders uploaded scan icons properly', function(assert) {
 test('it marks certificate', function(assert) {
   this.set('daysToExpiry', null);
 
-  this.render(hbs`{{certificate-item certificate=certificate session=session daysToExpiry=daysToExpiry}}`);
+  this.render(hbs`{{certificates-table/item certificate=certificate session=session daysToExpiry=daysToExpiry}}`);
 
   const dataProvider = [
     {

@@ -2,7 +2,7 @@ import Ember from 'ember';
 import sinon from 'sinon';
 import { test, moduleForComponent } from 'ember-qunit';
 
-moduleForComponent('seaservice-item', 'Unit | Component | seaservice-item',
+moduleForComponent('seaservice-table/item', 'Unit | Component | seaservice-table/item',
   {
     unit: true,
   }

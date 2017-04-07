@@ -1,6 +1,6 @@
 import { moduleForComponent, test } from 'ember-qunit';
 import hbs from 'htmlbars-inline-precompile';
-import { seaserviceStub, sessionStub } from '../../stubs/test-stubs';
+import { seaserviceStub, sessionStub } from 'library-app/tests/stubs/test-stubs';
 
 moduleForComponent('seaservice-item-form', 'Integration | Component | seaservice item form', {
   integration: true,

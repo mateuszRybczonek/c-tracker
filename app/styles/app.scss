@@ -7,13 +7,12 @@
 @import 'app/styles/nav';
 @import 'app/styles/loading';
 @import 'app/styles/toolbar';
-@import 'app/components/certificate-item/styles';
+@import 'app/components/certificates-table/styles';
+@import 'app/components/certificates-table/item/styles';
 @import 'app/components/certificate-item-form/styles';
-@import 'app/components/vessel-details/styles';
 @import 'app/components/popover-component/styles';
 @import 'app/components/ui/search-input/styles';
 @import 'app/components/ui/action-button/styles';
-@import 'app/components/certificates-table/styles';
 @import 'app/components/dashboard/expiring-certificates-table/styles';
 @import 'app/components/dashboard/expiring-certificate-item/styles';
 @import 'app/components/dashboard/certificates-renewed-seaservice-table/styles';

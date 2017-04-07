@@ -1,8 +1,8 @@
 import { moduleForComponent, test } from 'ember-qunit';
 import hbs from 'htmlbars-inline-precompile';
-import { certificateStub, sessionStub } from '../../stubs/test-stubs';
+import { certificateStub, sessionStub } from 'library-app/tests/stubs/test-stubs';
 
-moduleForComponent('certificate-item-details', 'Integration | Component | certificate item details', {
+moduleForComponent('certificates-table/item/details', 'Integration | Component | certificate item details', {
   integration: true,
   beforeEach() {
     this.setProperties({
@@ -13,7 +13,7 @@ moduleForComponent('certificate-item-details', 'Integration | Component | certif
 });
 
 test('it renders certificate-item-details properly', function(assert) {
-  this.render(hbs`{{certificate-item-details certificate=certificate session=session}}`);
+  this.render(hbs`{{certificates-table/item/details certificate=certificate session=session}}`);
 
   assert.equal(this.$('thead tr').length, 3, 'right amount of rows');
   assert.equal(this.$('tbody tr').length, 3, 'right amount of rows');

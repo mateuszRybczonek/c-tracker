@@ -1,8 +1,8 @@
 import { test, moduleForComponent } from 'ember-qunit';
 
 moduleForComponent(
-  'vessel-details',
-  'Unit | Component | vessel-details',
+  'seaservice-table/item/details',
+  'Unit | Component | seaservice-table/item/details',
   {
     unit: true,
   }

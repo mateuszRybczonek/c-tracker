@@ -1,6 +1,6 @@
 import { moduleForComponent, test } from 'ember-qunit';
 import hbs from 'htmlbars-inline-precompile';
-import { certificateStub, sessionStub } from '../../stubs/test-stubs';
+import { certificateStub, sessionStub } from 'library-app/tests/stubs/test-stubs';
 
 moduleForComponent('certificate-item-form', 'Integration | Component | certificate item form', {
   integration: true,

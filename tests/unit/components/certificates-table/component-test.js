@@ -1,5 +1,5 @@
 import { test, moduleForComponent } from 'ember-qunit';
-import { createExpiringCertificatesModelStub } from '../../stubs/test-stubs';
+import { createExpiringCertificatesModelStub } from 'library-app/tests/stubs/test-stubs';
 
 moduleForComponent('certificates-table', 'Unit | Component | certificates-table',
   {

@@ -1,7 +1,7 @@
 import Ember from 'ember';
 import momentComputed from 'ember-moment/computeds/moment';
 import format from 'ember-moment/computeds/format';
-import { calculateDaysBetweenDates } from '../../utils/date-utils';
+import { calculateDaysBetweenDates } from 'library-app/utils/date-utils';
 
 const { Component, computed, inject: { service } } = Ember;
 

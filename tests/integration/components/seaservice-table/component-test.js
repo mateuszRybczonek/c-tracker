@@ -1,8 +1,8 @@
 import { moduleForComponent, test } from 'ember-qunit';
 import hbs from 'htmlbars-inline-precompile';
-import { seaserviceStub } from '../../stubs/test-stubs';
+import { seaserviceStub } from 'library-app/tests/stubs/test-stubs';
 
-moduleForComponent('seaservice-table-form', 'Integration | Component | seaservice table', {
+moduleForComponent('seaservice-table', 'Integration | Component | seaservice table', {
   integration: true
 });
 

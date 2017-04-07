@@ -1,5 +1,5 @@
 import Ember from 'ember';
-import { convertToLineBreaks } from '../../utils/html-string-utils';
+import { convertToLineBreaks } from 'library-app/utils/html-string-utils';
 
 const { Component, computed } = Ember;
 
@@ -13,7 +13,7 @@ export default Component.extend({
       return convertToLineBreaks(this.get('seaservice.vesselDetails')).htmlSafe();
     }
   }),
-  
+
   sanitizedVesselActivities: computed('seaservice.vesselActivities', function() {
     if (this.get('seaservice.vesselActivities')) {
       return convertToLineBreaks(this.get('seaservice.vesselActivities')).htmlSafe();
