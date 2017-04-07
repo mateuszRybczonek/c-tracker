@@ -14,7 +14,7 @@ export default DS.Model.extend({
   daysOfServiceToRenew: DS.attr('number', { defaultValue: null}),
 
   issueDate: DS.attr(),
-  expiryDate: DS.attr({ defaultValue: 'n/a' }),
+  expiryDate: DS.attr(),
   updatedAt: DS.attr('date', { defaultValue: new Date()}),
 
   comment: DS.attr('string'),

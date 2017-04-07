@@ -1,7 +1,8 @@
 <div class="form-horizontal">
   {{#paper-switch
-  value=certificate.renewedBasedOnSeaservice
-  onChange=(action (mut certificate.renewedBasedOnSeaservice))
+    value=certificate.renewedBasedOnSeaservice
+    onChange=(action (mut certificate.renewedBasedOnSeaservice))
+    class='renewed-based-on-seaservice-switch'
   }}
     Renewed based on Seaservice
   {{/paper-switch}}

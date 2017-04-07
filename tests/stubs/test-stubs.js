@@ -24,6 +24,8 @@ function certificateStub(expiryDate) {
     expiryDate,
     updatedAt: new Date(2017, 1, 17),
     comment: 'let the force be with you',
+    renewedBasedOnSeaservice: false,
+    daysOfServiceToRenew: null,
   });
 }
 
