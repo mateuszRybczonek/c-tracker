@@ -12,7 +12,7 @@ moduleForComponent('certificates-table/item/details', 'Integration | Component |
   }
 });
 
-test('it renders certificate-item-details properly', function(assert) {
+test('it renders details properly', function(assert) {
   this.render(hbs`{{certificates-table/item/details certificate=certificate session=session}}`);
 
   assert.equal(this.$('thead tr').length, 3, 'right amount of rows');
