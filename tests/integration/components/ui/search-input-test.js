@@ -6,15 +6,16 @@ moduleForComponent('ui/search-input', 'Integration | Component | ui | search inp
 });
 
 test('it renders', function(assert) {
-  // Set any properties with this.set('myProperty', 'value');
-  // Handle any actions with this.on('myAction', function(val) { ... });
+  this.set('searchTerm', '');
 
   this.render(hbs`
     {{ui/search-input
+      class='toolbar-search'
       value=searchTerm
       onChange=(action (mut searchTerm))
     }}
   `);
 
-  assert.equal(this.$().text().trim(), 'search');
+  assert.equal(this.$().text().trim(), 'search', 'has proper icon');
+  assert.equal(this.get('searchTerm'), '', 'with empty searchTerm');
 });

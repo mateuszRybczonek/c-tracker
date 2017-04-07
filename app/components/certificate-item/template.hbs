@@ -8,6 +8,7 @@
     bind-attr disabled=noScanPresent
     iconButton=true
     onClick=(action 'showModal')
+    class='scan-preview'
   }}
     {{paper-icon 'insert-photo'}}
   {{/paper-button}}
@@ -15,6 +16,7 @@
   {{#paper-button
     bind-attr disabled=noScanPresent
     iconButton=true
+    class='scan-download'
   }}
     <a download href={{imageUrl}}>
       {{paper-icon 'cloud-download'}}
@@ -22,18 +24,22 @@
   {{/paper-button}}
 
   {{#popover-component
-    class='hidden-sm hidden-md hidden-lg hidden-xl'
+    class='hidden-sm hidden-md hidden-lg hidden-xl popover-certificate-details'
     item=certificate
     icon='info-outline'
   }}
     {{certificate-item-details certificate=certificate}}
   {{/popover-component}}
 
-  {{#paper-button iconButton=true}}
+  {{#paper-button iconButton=true class='edit-certificate'}}
     {{#link-to 'users.certificates.edit' certificate.id}}{{paper-icon "create"}}{{/link-to}}
   {{/paper-button}}
 
-  {{#paper-button iconButton=true onClick=(action 'showPrompt' certificate)}}
+  {{#paper-button
+    iconButton=true
+    onClick=(action 'showPrompt' certificate)
+    class='delete-certificate'
+  }}
     {{paper-icon "delete"}}
   {{/paper-button}}
 
@@ -43,6 +49,7 @@
       onClose=(action "closePromptDialog" certificate)
       origin=dialogOrigin
     }}
+      <div id="paper-wormhole"></div>
 
       {{#paper-dialog-content}}
         <h2 class="md-title">Are you sure you want to delete the certificate?</h2>
