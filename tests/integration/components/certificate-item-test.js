@@ -1,35 +1,21 @@
 import Ember from 'ember';
 import { moduleForComponent, test } from 'ember-qunit';
 import hbs from 'htmlbars-inline-precompile';
+import { certificateStub, sessionStub } from '../../stubs/test-stubs';
 
 moduleForComponent('certificate-item', 'Integration | Component | certificate item', {
   integration: true,
-});
 
-let certificate = Ember.Object.create({
-  id: 1,
-  name: 'Test Cert',
-  number: 'GUM-123',
-  user: 'test@gmail.com',
-  type: 'STCW',
-  issueDate: new Date(2017, 1, 17),
-  expiryDate: new Date(2027, 1, 17),
-  updatedAt: new Date(2017, 1, 17),
-  comment: 'let the force be with you',
-});
-
-let session = {
-  session: {
-    currentUser: {
-      email: 'test@gmail.com'
-    }
+  beforeEach() {
+    this.setProperties({
+      certificate: certificateStub(new Date(2027, 1, 17)),
+      session: sessionStub(),
+    });
   }
-};
+});
+
 
 test('it renders certificate properly', function(assert) {
-  this.set('certificate', certificate);
-  this.set('session', session);
-
   this.render(hbs`{{certificate-item certificate=certificate session=session}}`);
 
   assert.equal(this.$('td').length, 5, 'The right amount of cells is rendered');
@@ -45,8 +31,6 @@ test('it renders certificate properly', function(assert) {
 });
 
 test('it renders uploaded scan icons properly', function(assert) {
-  this.set('certificate', certificate);
-  this.set('session', session);
   this.set('imageUrl', 'http://fakeImageUrl');
 
   this.render(hbs`{{certificate-item certificate=certificate session=session imageUrl=imageUrl}}`);
@@ -61,8 +45,6 @@ test('it renders uploaded scan icons properly', function(assert) {
 });
 
 test('it marks certificate', function(assert) {
-  this.set('certificate', certificate);
-  this.set('session', session);
   this.set('daysToExpiry', null);
 
   this.render(hbs`{{certificate-item certificate=certificate session=session daysToExpiry=daysToExpiry}}`);
@@ -85,7 +67,6 @@ test('it marks certificate', function(assert) {
 
   dataProvider.forEach(dataSet => {
     this.set('daysToExpiry', dataSet.daysToExpiry);
-
     assert.ok(this.$('tr').hasClass(dataSet.resultClass), dataSet.message);
   });
 });
