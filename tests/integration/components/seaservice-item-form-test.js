@@ -35,8 +35,8 @@ test('it renders save button', function(assert) {
   this.render(hbs`{{seaservice-item-form seaservice=seaservice session=session}}`);
 
   this.set('seaservice.isInvalid', true);
-  assert.equal(this.$('.save-button > button:disabled').length, 1, 'disabled when certificate data is invalid');
+  assert.equal(this.$('.save-button > button:disabled').length, 1, 'disabled when seaservice data is invalid');
 
   this.set('seaservice.isInvalid', false);
-  assert.equal(this.$('.save-button > button:disabled').length, 0, 'enabled when certificate data is valid');
+  assert.equal(this.$('.save-button > button:disabled').length, 0, 'enabled when seaservice data is valid');
 });
