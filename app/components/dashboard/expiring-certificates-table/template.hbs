@@ -17,7 +17,7 @@
   <table cellpadding="0" cellspacing="0" border="0">
     <tbody>
     {{#each sortedCertificates as |certificate|}}
-      {{dashboard/expiring-certificate-item certificate=certificate session=session}}
+      {{dashboard/expiring-certificates-table/item certificate=certificate session=session}}
     {{else}}
       <p class='no-data'>
         No certificates expires within 60 days.

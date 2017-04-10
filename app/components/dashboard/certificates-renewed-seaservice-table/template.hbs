@@ -31,7 +31,7 @@
   <table cellpadding="0" cellspacing="0" border="0">
     <tbody>
     {{#each sortedCertificates as |certificate|}}
-      {{dashboard/certificates-renewed-seaservice-item certificate=certificate seaservices=seaservices session=session}}
+      {{dashboard/certificates-renewed-seaservice-table/item certificate=certificate seaservices=seaservices session=session}}
     {{else}}
       <p class='no-data'>
         No certificates to be renewed based on seaservice
