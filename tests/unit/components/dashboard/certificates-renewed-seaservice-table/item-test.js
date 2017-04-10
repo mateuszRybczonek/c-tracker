@@ -2,8 +2,8 @@ import Ember from 'ember';
 import { test, moduleForComponent } from 'ember-qunit';
 import { createSeaserviceModelStub } from 'library-app/tests/stubs/test-stubs';
 
-moduleForComponent('dashboard/certificates-renewed-seaservice-item',
-  'Unit | Component | certificates-renewed-seaservice-item',
+moduleForComponent('dashboard/certificates-renewed-seaservice-table/item',
+  'Unit | Component | certificates-renewed-seaservice-table/item',
   {
     unit: true,
   }

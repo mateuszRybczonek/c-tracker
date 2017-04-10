@@ -1,8 +1,8 @@
 import { test, moduleForComponent } from 'ember-qunit';
 
 moduleForComponent(
-  'dashboard/expiring-certificate-item',
-  'Unit | Component | expiring-certificate-item',
+  'dashboard/expiring-certificates-table/item',
+  'Unit | Component | expiring-certificates-table/item',
   {
     unit: true,
   }
