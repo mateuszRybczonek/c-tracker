@@ -26,5 +26,6 @@ test('it renders dashboard toolbar', function(assert) {
   this.render(hbs`
     {{dashboard/dashboard-toolbar dashboardToolbarItems=dashboardToolbarItems}}
   `);
-  assert.equal(this.$('li').length, 2, 'with proper number of items');
+  assert.equal(this.$('li').length, 3, 'with proper number of items');
+  assert.equal($(this.$('li')[1]).hasClass('custom-class'), true, 'with custom class');
 });
