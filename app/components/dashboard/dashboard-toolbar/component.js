@@ -37,8 +37,7 @@ export default Component.extend({
           value: this.get('totalDPHours'),
         },
       ];
-    }) ,
-
+    }),
 
   firstExpiringCertificatePresent: computed.notEmpty('firstExpiringCertificate'),
 

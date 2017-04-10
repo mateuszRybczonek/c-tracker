@@ -3,7 +3,6 @@ import { moduleForComponent, test } from 'ember-qunit';
 import hbs from 'htmlbars-inline-precompile';
 import { seaserviceStub, sessionStub } from 'library-app/tests/stubs/test-stubs';
 
-
 moduleForComponent('dashboard/certificates-renewed-seaservice-table', 'Integration | Component | dashboard/certificates-renewed-seaservice-table', {
   integration: true
 });
