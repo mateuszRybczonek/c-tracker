@@ -1,4 +1,3 @@
-import Ember from 'ember';
 import { moduleForComponent, test } from 'ember-qunit';
 import hbs from 'htmlbars-inline-precompile';
 
@@ -14,7 +13,7 @@ test('it renders dashboard toolbar', function(assert) {
       value: 120,
     },
     {
-      class: 'custom-class',
+      class: '',
       title: 'First expiring certificate',
       value: 'Certificate',
       visible: true,
@@ -26,6 +25,5 @@ test('it renders dashboard toolbar', function(assert) {
   this.render(hbs`
     {{dashboard/dashboard-toolbar dashboardToolbarItems=dashboardToolbarItems}}
   `);
-  assert.equal(this.$('li').length, 3, 'with proper number of items');
-  assert.equal($(this.$('li')[1]).hasClass('custom-class'), true, 'with custom class');
+  assert.equal(this.$('li').length, 2, 'with proper number of items');
 });
