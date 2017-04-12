@@ -1,19 +1,12 @@
 import Ember from 'ember';
-import momentComputed from 'ember-moment/computeds/moment';
-import format from 'ember-moment/computeds/format';
 import { calculateDaysLeft } from 'library-app/utils/date-utils';
 
-const { Component, computed, inject: { service } } = Ember;
+const { Component, computed } = Ember;
 
 export default Component.extend({
-
   tagName: 'tr',
   classNames: ['certificate'],
   classNameBindings: ['expired'],
-
-  moment: service(),
-
-  expiryDateFormatted: format((momentComputed('certificate.expiryDate')), 'YYYY-MM-DD'),
 
   daysLeft: computed('certificate.expiryDate', function () {
     if (this.get('certificate.expiryDate')) {
@@ -21,13 +14,7 @@ export default Component.extend({
     }
   }),
 
-  expiryDate: computed('certificate.expiryDate', function() {
-    if (this.get('certificate.expiryDate') === 'n/a') {
-      return 'n/a';
-    } else {
-      return this.get('expiryDateFormatted');
-    }
-  }),
+  expiryDate: computed.alias('certificate.expiryDate'),
 
   expired: computed.equal('daysLeft', 'Expired'),
 });

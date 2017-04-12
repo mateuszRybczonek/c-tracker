@@ -37,8 +37,8 @@ test('it renders certificates table item', function(assert) {
 
   assert.equal(this.$('td').length, 5, 'with proper number of cells');
   assert.equal($(this.$('td')[0]).text().trim(), 'Jedi master license', 'with proper certifcate name');
-  assert.equal($(this.$('td')[1]).text().trim(), 'Fri Feb 17 2017 00:00:00 GMT+0100 (CET)', 'with proper expiry date name');
-  assert.equal($(this.$('td')[2]).text().trim(), '365', 'with proper daysOfServiceToRenew name');
-  assert.equal($(this.$('td')[3]).text().trim(), '35', 'with proper seaserviceSinceIssue name');
-  assert.equal($(this.$('td')[4]).text().trim(), '330', 'with proper missingSeaservice name');
+  assert.equal($(this.$('td')[1]).text().trim(), 'Fri Feb 17 2017 00:00:00 GMT+0100 (CET)', 'with proper expiry date');
+  assert.equal($(this.$('td')[2]).text().trim(), '365', 'with proper daysOfServiceToRenew');
+  assert.equal($(this.$('td')[3]).text().trim(), '35', 'with proper seaserviceSinceIssue');
+  assert.equal($(this.$('td')[4]).text().trim(), '330', 'with proper missingSeaservice');
 });

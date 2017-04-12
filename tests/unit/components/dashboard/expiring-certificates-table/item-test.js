@@ -11,30 +11,11 @@ moduleForComponent(
 test('expiryDate', function(assert) {
   const component = this.subject();
 
-  const dataProvider = [
-    {
-      certificate: {
-        expiryDate: '2016-10-27T14:26:11.978Z',
-      },
-      result: '2016-10-27',
-      message: 'when expiry date is given returns properly formatted expiry date',
-    },
-    {
-      certificate: {
-        expiryDate: 'n/a',
-      },
-      result: 'n/a',
-      message: 'when expiry date is n/a returns n/a',
-    },
-  ];
-
-  dataProvider.forEach(dataSet => {
-    component.setProperties({
-      certificate: dataSet.certificate,
-    });
-
-    assert.equal(component.get('expiryDate'), dataSet.result, dataSet.message);
+  component.set('certificate', {
+    expiryDate: '2016-10-27T14:26:11.978Z',
   });
+
+  assert.equal(component.get('expiryDate'), '2016-10-27T14:26:11.978Z', 'returns properly formatted expiry date');
 });
 
 test('daysLeft', function(assert) {
