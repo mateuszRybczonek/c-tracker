@@ -34,8 +34,10 @@ test('it does not render last-seaservice-table when no seaservice exists', funct
 });
 
 test('it renders last-seaservice-table when no seaservice exists', function(assert) {
-  this.set('session', sessionStub);
-  this.set('seaservice', seaserviceStub());
+  this.setProperties({
+    session: sessionStub,
+    seaservice: seaserviceStub(),
+  });
 
   this.render(hbs`
     {{dashboard/last-seaservice-table
@@ -43,6 +45,7 @@ test('it renders last-seaservice-table when no seaservice exists', function(asse
       session=session
     }}
   `);
+  
   assert.equal(
     this.$('h3').length > 0, true , 'with table header'
   );

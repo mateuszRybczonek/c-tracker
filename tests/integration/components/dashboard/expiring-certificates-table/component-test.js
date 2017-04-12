@@ -27,9 +27,11 @@ test('it renders certificates table', function(assert) {
   ];
 
   dataProvider.forEach(testCase => {
-    this.set('certificates', testCase.certificates);
-    this.set('session', sessionStub);
-    this.set('sortedCertificates', testCase.certificates);
+    this.setProperties({
+      certificates: testCase.certificates,
+      sortedCertificates: testCase.certificates,
+      session: sessionStub,
+    });
 
     this.render(hbs`
       {{dashboard/expiring-certificates-table

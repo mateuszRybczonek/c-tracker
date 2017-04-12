@@ -28,9 +28,11 @@ test('it renders seaservice table', function(assert) {
   ];
 
   dataProvider.forEach(testCase => {
-    this.set('seaservice', testCase.seaservice);
-    this.set('sortedSeaservice', testCase.seaservice);
-
+    this.setProperties({
+      sortedSeaservice: testCase.seaservice,
+      seaservice: testCase.seaservice,
+    });
+    
     this.render(hbs`
       {{seaservice-table
         seaservice=seaservice

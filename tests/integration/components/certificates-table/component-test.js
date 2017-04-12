@@ -37,8 +37,10 @@ test('it renders certificates table', function(assert) {
   ];
 
   dataProvider.forEach(testCase => {
-    this.set('certificates', testCase.certificates);
-    this.set('sortedCertificates', testCase.certificates);
+    this.setProperties({
+      certificates: testCase.certificates,
+      sortedCertificates: testCase.certificates,
+    });
 
     this.render(hbs`
       {{certificates-table certificates=certificates title='My Jedi Certificates' id='jediCerts'}}

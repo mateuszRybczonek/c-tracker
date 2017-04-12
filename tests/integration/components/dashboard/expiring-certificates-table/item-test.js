@@ -11,12 +11,12 @@ moduleForComponent('dashboard/expiring-certificates-table/item',
 test('it renders expiring certificates table item', function(assert) {
   const expiryDate = (new Date(new Date().setDate(new Date().getDate() + 5)));
 
-  this.set(
-    'certificate',
-    certificateStub()
-  );
+  this.setProperties({
+    certificate: certificateStub(),
+    session: sessionStub,
+  });
+
   this.set('certificate.expiryDate', new Date(new Date().setDate(new Date().getDate() + 5)));
-  this.set('session', sessionStub);
 
   this.render(hbs`
     {{dashboard/expiring-certificates-table/item

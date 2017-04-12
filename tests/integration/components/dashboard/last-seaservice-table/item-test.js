@@ -8,16 +8,17 @@ moduleForComponent('dashboard/last-seaservice-table/item',
 });
 
 test('it renders certificates table item', function(assert) {
-
-  this.set('session', sessionStub);
-  this.set('seaservice', seaserviceStub());
+  this.setProperties({
+    session: sessionStub,
+    seaservice: seaserviceStub(),
+  });
 
   this.render(hbs`
-      {{dashboard/last-seaservice-table/item
-        seaservice=seaservice
-        session=session
-      }}
-    `);
+    {{dashboard/last-seaservice-table/item
+      seaservice=seaservice
+      session=session
+    }}
+  `);
 
   assert.equal(this.$('td').length, 4, 'with proper number of cells');
   assert.equal($(this.$('td')[0]).text().trim(), 'Ensco DS-2', 'with proper vessel name');

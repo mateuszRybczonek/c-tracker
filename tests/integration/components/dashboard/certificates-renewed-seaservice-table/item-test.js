@@ -22,18 +22,20 @@ test('it renders certificates table item', function(assert) {
     renewedBasedOnSeaservice: true,
     daysOfServiceToRenew: 365,
   });
-
-  this.set('certificate', certificate);
-  this.set('session', sessionStub);
-  this.set('seaservices', [ seaserviceStub() ]);
+  
+  this.setProperties({
+    certificate: certificate,
+    session: sessionStub,
+    seaservices: [ seaserviceStub() ],
+  });
 
   this.render(hbs`
-      {{dashboard/certificates-renewed-seaservice-table/item
-        certificate=certificate
-        seaservices=seaservices
-        session=session
-      }}
-    `);
+    {{dashboard/certificates-renewed-seaservice-table/item
+      certificate=certificate
+      seaservices=seaservices
+      session=session
+    }}
+  `);
 
   assert.equal(this.$('td').length, 5, 'with proper number of cells');
   assert.equal($(this.$('td')[0]).text().trim(), 'Jedi master license', 'with proper certifcate name');

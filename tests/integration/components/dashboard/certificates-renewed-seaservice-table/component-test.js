@@ -40,10 +40,12 @@ test('it renders certificates table', function(assert) {
   ];
 
   dataProvider.forEach(testCase => {
-    this.set('certificates', testCase.certificates);
-    this.set('session', sessionStub);
-    this.set('seaservices', [ seaserviceStub() ]);
-    this.set('sortedCertificates', testCase.certificates);
+    this.setProperties({
+      certificates: testCase.certificates,
+      sortedCertificates: testCase.certificates,
+      session: sessionStub,
+      seaservices: [ seaserviceStub() ],
+    });
 
     this.render(hbs`
       {{dashboard/certificates-renewed-seaservice-table
