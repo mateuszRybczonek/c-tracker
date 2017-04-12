@@ -5,11 +5,20 @@ moduleForComponent('ui/link-button', 'Integration | Component | ui | link button
   integration: true
 });
 
-test('it renders', function(assert) {
-  // Set any properties with this.set('myProperty', 'value');
-  // Handle any actions with this.on('myAction', function(val) { ... });
+test('it renders', function (assert) {
+  this.setProperties({
+    icon: 'my-icon',
+  });
 
-  this.render(hbs`{{ui/link-button}}`);
+  this.render(hbs`
+    {{ui/link-button
+      destination='index'
+      iconButton=true
+      icon="list"
+    }}
+  `);
 
-  assert.equal(this.$().text().trim(), '');
+  const $link = this.$('button a');
+  
+  assert.equal($link.text(), 'list', 'has proper icon');
 });

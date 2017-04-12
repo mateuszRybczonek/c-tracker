@@ -19,6 +19,9 @@ export default Component.extend({
 
   actions: {
     saveCertificate(certificate) {
+      if (this.get('certificate.expiryDate') === '') {
+        this.set('certificate.expiryDate', 'n/a');
+      }
       this.sendAction('action', certificate);
     },
 

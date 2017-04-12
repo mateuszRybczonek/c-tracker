@@ -1,6 +1,6 @@
 import Ember from 'ember';
 import moment from 'moment';
-import { calculateDaysBetweenDates } from '../../../utils/date-utils';
+import { calculateDaysBetweenDates } from 'library-app/utils/date-utils';
 
 const { Component, computed } = Ember;
 
@@ -37,8 +37,7 @@ export default Component.extend({
           value: this.get('totalDPHours'),
         },
       ];
-    }) ,
-
+    }),
 
   firstExpiringCertificatePresent: computed.notEmpty('firstExpiringCertificate'),
 
