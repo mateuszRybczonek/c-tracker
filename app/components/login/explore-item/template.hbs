@@ -1,2 +1,7 @@
 {{paper-icon icon class='explore-icon'}}
-{{yield}}
+<h2 class="title">{{title}}</h2>
+<div class="description">
+  {{#each descriptionItems as |descriptionItem|}}
+    <p>{{descriptionItem}}</p>
+  {{/each}}
+</div>
