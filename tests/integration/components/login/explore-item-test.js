@@ -8,12 +8,26 @@ moduleForComponent('login/explore-item', 'Integration | Component | login/explor
 test('it renders explore-item properly', function(assert) {
   this.setProperties({
     icon: 'backup',
+    title: 'Access',
+    descriptionItems: [
+      'Have access to your data anywhere you are.',
+      'Use your mobile or desktop to access the data.'
+    ],
   });
 
   this.render(hbs`
-    {{#login/explore-item icon='backup'}}<h2 class='title'>Title</h2>{{/login/explore-item}}
-    `);
+    {{login/explore-item
+      icon=icon
+      title=title
+      descriptionItems=descriptionItems
+    }}
+   `);
 
   assert.equal(this.$('.explore-icon').length, 1, 'with explore-icon');
-  assert.equal(this.$('.title').length, 1, 'with yielded content');
+  assert.equal(this.$('.title:contains("Access")').length, 1, 'with proper title');
+  assert.equal(
+    this.$('.description > p').length,
+    2,
+    'with proper number of description paragraphs'
+  );
 });

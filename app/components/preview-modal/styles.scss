@@ -1,0 +1,8 @@
+&.certificate-title {
+    @include font(12px, 500);
+    display: inline;
+}
+
+.modal-header {
+  text-align: center;
+}

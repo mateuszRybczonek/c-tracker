@@ -82,8 +82,10 @@ export default Component.extend({
     },
 
     showModal() {
+      let certificateName = this.get('certificate.name');
       let imagePath = this.get('imageUrl');
       $('.image-preview').attr('src', imagePath);
+      $('.certificate-title')[0].innerText = `${certificateName}`;
       $('#previewModal').modal('show');
     }
   }

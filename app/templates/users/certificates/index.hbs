@@ -14,52 +14,16 @@
     {{/toolbar.tools}}
   {{/sticky-container}}
 {{/paper-toolbar}}
-<h1>Certificates</h1>
-{{certificates-table
-  certificates=stcwCertificates
-  title='STCW certificates'
-  id='stcwCerts'
-  session=session
-}}
-{{certificates-table
-  certificates=passports
-  title="Passports and Seaman's books"
-  id='passports'
-  session=session
-}}
-{{certificates-table
-  certificates=medicalCertificates
-  title='Medical certificates'
-  id='medicalCerts'
-  session=session
-}}
-{{certificates-table
-  certificates=endorsements
-  title='Endorsements'
-  id='endorsements'
-  session=session
-}}
-{{certificates-table
-  certificates=other
-  title='Other'
-  id='other'
-  session=session
-}}
 
-<div class="modal fade"
-     id="previewModal"
-     tabindex="-1"
-     role="dialog"
-     aria-labelledby="myModalLabel"
-     aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-      </div>
-      <div class="modal-body">
-        <img class='image-preview' src=''>
-      </div>
-    </div>
-  </div>
-</div>
+<h1>Certificates</h1>
+
+{{#each certificatesTables as |certificateTable|}}
+  {{certificates-table
+    certificates=certificateTable.certificates
+    title=certificateTable.title
+    id=certificateTable.id
+    session=session
+  }}
+{{/each}}
+
+{{preview-modal}}
