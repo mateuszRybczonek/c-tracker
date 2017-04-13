@@ -40,6 +40,7 @@ export default Controller.extend({
           certificates: this.get('stcwCertificates'),
           title: 'STCW certificates',
           id: 'stcwCerts',
+          class: '',
         }, {
           certificates: this.get('passports'),
           title: "Passports and Seaman's books",
