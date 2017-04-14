@@ -1,13 +1,13 @@
 <h1 class="flex-100">Dashboard</h1>
 
-<div class="dashboard-toolbar">
+<div class="dashboard-toolbar dashboard-item">
   {{dashboard/dashboard-toolbar
     seaservices=seaservices
     firstExpiringCertificate=firstExpiringCertificate
   }}
 </div>
 
-<div class="flex-container dashboard-main">
+<div class="flex-container dashboard-main dashboard-item">
   <ul class="flex-xs-100 flex-sm-100 flex-60 dashboard-table">
     <li class="dashboard-table-item">
       {{dashboard/certificates-renewed-seaservice-table
@@ -38,4 +38,8 @@
       }}
     </li>
   </ul>
+</div>
+
+<div class="statistics dashboard-item">
+  {{dashboard/days-on-board-per-year seaservices=seaservices class='statistics-item'}}
 </div>
