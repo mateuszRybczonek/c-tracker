@@ -12,41 +12,11 @@ export default Component.extend({
     let seaserviceStats = [];
     let thisYear = new Date().getFullYear();
 
-    this._createSeaserviceStatsForYear(thisYear-5, seaserviceStats);
-    this._createSeaserviceStatsForYear(thisYear-4, seaserviceStats);
-    this._createSeaserviceStatsForYear(thisYear-3, seaserviceStats);
-    this._createSeaserviceStatsForYear(thisYear-2, seaserviceStats);
-    this._createSeaserviceStatsForYear(thisYear-1, seaserviceStats);
-    this._createSeaserviceStatsForYear(thisYear, seaserviceStats);
+    for (var i = 5; i > 0; i--) {
+      this._createSeaserviceStatsForYear(thisYear-i, seaserviceStats);
+    }
     return seaserviceStats;
   }),
-
-  _createSeaserviceStatsForYear(year, seaserviceStats) {
-    let seaserviceGivenYear = [];
-    this.get('seaservices').map((seaservice) => {
-      const signOn = new Date(seaservice.get('signOn'));
-      const signOff = new Date(seaservice.get('signOff'));
-      const firstDayOfTheYear = new Date(year,0,1);
-      const lastDayOfTheYear = new Date(year,11,31);
-
-      if ((signOn.getFullYear() === year) && (signOff.getFullYear() === year)) {
-        seaserviceGivenYear.push(
-          calculateDaysBetweenDates(signOff, signOn)
-        );
-      } else if ((signOn.getFullYear() !== year) && (signOff.getFullYear() === year)) {
-        seaserviceGivenYear.push(
-          calculateDaysBetweenDates(signOff, firstDayOfTheYear)
-        );
-      } else if ((signOn.getFullYear() === year) && (signOff.getFullYear() !== year)) {
-        seaserviceGivenYear.push(
-          calculateDaysBetweenDates(lastDayOfTheYear, signOn)
-        );
-      }
-    });
-    let result = Math.ceil(seaserviceGivenYear.reduce((a, b) => a + b, 0));
-    seaserviceStats.push([year, result]);
-    console.log(seaserviceStats);
-  },
 
   enoughStats: computed('seaserviceDaysPerYear', function() {
     return this.get('seaserviceDaysPerYear').length > 2;
@@ -139,5 +109,32 @@ export default Component.extend({
     return this.get('lazyLoader').loadD3().then(() => {
       return this.get('lazyLoader').loadNv();;
     });
+  },
+
+  _createSeaserviceStatsForYear(year, seaserviceStats) {
+    let seaserviceGivenYear = [];
+    this.get('seaservices').map((seaservice) => {
+      const signOn = new Date(seaservice.get('signOn'));
+      const signOff = new Date(seaservice.get('signOff'));
+      const firstDayOfTheYear = new Date(year,0,1);
+      const lastDayOfTheYear = new Date(year,11,31);
+
+      if ((signOn.getFullYear() === year) && (signOff.getFullYear() === year)) {
+        seaserviceGivenYear.push(
+          calculateDaysBetweenDates(signOff, signOn)
+        );
+      } else if ((signOn.getFullYear() !== year) && (signOff.getFullYear() === year)) {
+        seaserviceGivenYear.push(
+          calculateDaysBetweenDates(signOff, firstDayOfTheYear)
+        );
+      } else if ((signOn.getFullYear() === year) && (signOff.getFullYear() !== year)) {
+        seaserviceGivenYear.push(
+          calculateDaysBetweenDates(lastDayOfTheYear, signOn)
+        );
+      }
+    });
+    let result = Math.ceil(seaserviceGivenYear.reduce((a, b) => a + b, 0));
+    seaserviceStats.push([year, result]);
+    console.log(seaserviceStats);
   },
 });
