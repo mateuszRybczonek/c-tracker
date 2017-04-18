@@ -15,11 +15,9 @@ export default Component.extend({
     for (var i = 4; i >= 0; i--) {
       this._createSeaserviceStatsForYear(thisYear-i, seaserviceStats);
     }
-    return seaserviceStats;
-  }),
 
-  enoughStats: computed('seaserviceDaysPerYear', function() {
-    return this.get('seaserviceDaysPerYear').length > 2;
+    console.log(seaserviceStats);
+    return seaserviceStats;
   }),
 
   graphLoading: computed('graph.{loaded,error}', function() {
@@ -72,11 +70,11 @@ export default Component.extend({
 
       chart.tooltip.enabled(false);
       chart.duration(2000);
-      chart.xAxis.tickPadding(18).tickFormat(d3.format('d'));
+      chart.xAxis.tickPadding(18).tickFormat(window.d3.format('d'));
       chart.yAxis.axisLabel('Days')
-        .tickFormat((d) => `${d3.format(',f')(d)} days`);
+        .tickFormat((d) => `${window.d3.format(',f')(d)} days`);
 
-      chart.valueFormat((d) => `${d3.format()(d)} days`);
+      chart.valueFormat((d) => `${window.d3.format()(d)} days`);
       window.d3.select('#yearly-days-chart svg').datum([{
         values: seaserviceDaysPerYear,
         key: 'Days',

@@ -1,16 +1,14 @@
-{{#if enoughStats}}
-  <div class="yearly-chart">
-    <div class="description graph_error {{unless graph.error "hidden"}}">
-      We could not load your statistics.
-    </div>
-    <div class="loading {{unless graphLoading "hidden"}}">
-      {{paper-progress-circular primary=true diameter=96 class='spinner'}}
-    </div>
-    <div class="graph {{unless showGraph "hidden"}}">
-      <div class="description">Days on board per year</div>
-      <div id="yearly-days-chart">
-        <svg height="215"></svg>
-      </div>
+<div class="yearly-chart">
+  <div class="description graph_error {{unless graph.error "hidden"}}">
+    We could not load your statistics.
+  </div>
+  <div class="loading {{unless graphLoading "hidden"}}">
+    {{paper-progress-circular primary=true diameter=96 class='spinner'}}
+  </div>
+  <div class="graph {{unless showGraph "hidden"}}">
+    <div class="description">Days on board per year</div>
+    <div id="yearly-days-chart">
+      <svg height="215"></svg>
     </div>
   </div>
-{{/if}}
+</div>
