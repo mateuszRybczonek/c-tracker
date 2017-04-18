@@ -2,7 +2,9 @@ import Ember from 'ember';
 import sinon from 'sinon';
 import { test, moduleForComponent } from 'ember-qunit';
 
-moduleForComponent('dashboard/dashboard-toolbar', 'Unit | Component | dashboard-toolbar',
+moduleForComponent(
+  'dashboard/dashboard-toolbar',
+  'Unit | Component | dashboard-toolbar',
   {
     unit: true,
   }

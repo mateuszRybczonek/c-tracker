@@ -10,9 +10,9 @@ export default Component.extend({
 
   seaserviceDaysPerYear: computed('seaservices', function() {
     let seaserviceStats = [];
-    let thisYear = new Date().getFullYear();
+    const thisYear = new Date().getFullYear();
 
-    for (var i = 5; i > 0; i--) {
+    for (var i = 4; i >= 0; i--) {
       this._createSeaserviceStatsForYear(thisYear-i, seaserviceStats);
     }
     return seaserviceStats;
@@ -107,7 +107,7 @@ export default Component.extend({
 
   _loadDependencies() {
     return this.get('lazyLoader').loadD3().then(() => {
-      return this.get('lazyLoader').loadNv();;
+      return this.get('lazyLoader').loadNv();
     });
   },
 
@@ -135,6 +135,5 @@ export default Component.extend({
     });
     let result = Math.ceil(seaserviceGivenYear.reduce((a, b) => a + b, 0));
     seaserviceStats.push([year, result]);
-    console.log(seaserviceStats);
   },
 });
