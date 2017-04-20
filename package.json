@@ -44,6 +44,7 @@
     "ember-cli-uglify": "^1.2.0",
     "ember-component-css": "0.2.11",
     "ember-composability": "0.3.7",
+    "ember-concurrency": "0.8.1",
     "ember-data": "^2.9.0",
     "ember-export-application-global": "^1.0.5",
     "ember-font-awesome": "3.0.3",

@@ -1,6 +1,7 @@
 import Ember from 'ember';
 import colorPalette from 'library-app/consts/color-palette';
 import { calculateDaysBetweenDates } from 'library-app/utils/date-utils';
+import { task } from 'ember-concurrency';
 
 const { DARK_GREY } = colorPalette;
 const { Component, computed, observer, inject: { service } } = Ember;
@@ -97,10 +98,7 @@ export default Component.extend({
   },
 
   prepareChart() {
-    this._loadDependencies().then(
-      this.onGraphLibrariesLoaded.bind(this),
-      this.onGraphLibrariesLoadError.bind(this)
-    );
+    this.get('_prepareChartTask').perform();
   },
 
   _loadDependencies() {
@@ -134,4 +132,14 @@ export default Component.extend({
     let result = Math.ceil(seaserviceGivenYear.reduce((a, b) => a + b, 0));
     seaserviceStats.push([year, result]);
   },
+
+  _prepareChartTask: task(function * () {
+    try {
+      yield this.get('lazyLoader').loadD3();
+      yield this.get('lazyLoader').loadNv();
+      this.onGraphLibrariesLoaded();
+    } catch (e) {
+      this.onGraphLibrariesLoadError();
+    }
+  }),
 });

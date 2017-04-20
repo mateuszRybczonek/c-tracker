@@ -21,16 +21,16 @@ export default Service.extend({
       timeout: this.get('timeout'),
       cache: true,
     })
-    .then(function() {
+    .then(() => {
       if (!loadPredicate) {
         return RSVP.Promise.resolve(true);
       }
 
       return this._waitForLoadPredicate(loadPredicate);
-    }.bind(this))
-    .then(function() {
+    })
+    .then(() => {
       this.get('loadedScripts')[scriptUrl] = true;
-    }.bind(this));
+    });
   },
   
   loadD3() {
