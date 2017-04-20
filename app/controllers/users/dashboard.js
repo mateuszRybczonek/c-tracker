@@ -1,4 +1,5 @@
 import Ember from 'ember';
+import { calculateDaysBetweenDates } from 'library-app/utils/date-utils';
 
 const { Controller, computed } = Ember;
 
@@ -41,4 +42,41 @@ export default Controller.extend({
   lastSeaservice: computed('sortedSeaservices', function() {
     return this.get('sortedSeaservices')[0];
   }),
+
+  workHomeRatioPerYear: computed('seaservices', function() {
+    let workHomeRatioStats = [];
+    const thisYear = new Date().getFullYear();
+
+    for (var i = 4; i >= 0; i--) {
+      this._createWorkHomeRatioStatsForYear(thisYear-i, workHomeRatioStats);
+    }
+
+    return workHomeRatioStats;
+  }),
+
+  _createWorkHomeRatioStatsForYear(year, workHomeRatioStats) {
+    let seaserviceGivenYear = [];
+    this.get('seaservices').map((seaservice) => {
+      const signOn = new Date(seaservice.get('signOn'));
+      const signOff = new Date(seaservice.get('signOff'));
+      const firstDayOfTheYear = new Date(year,0,1);
+      const lastDayOfTheYear = new Date(year,11,31);
+
+      if ((signOn.getFullYear() === year) && (signOff.getFullYear() === year)) {
+        seaserviceGivenYear.push(
+          calculateDaysBetweenDates(signOff, signOn)
+        );
+      } else if ((signOn.getFullYear() !== year) && (signOff.getFullYear() === year)) {
+        seaserviceGivenYear.push(
+          calculateDaysBetweenDates(signOff, firstDayOfTheYear)
+        );
+      } else if ((signOn.getFullYear() === year) && (signOff.getFullYear() !== year)) {
+        seaserviceGivenYear.push(
+          calculateDaysBetweenDates(lastDayOfTheYear, signOn)
+        );
+      }
+    });
+    let result = Math.ceil(seaserviceGivenYear.reduce((a, b) => a + b, 0) / 3.65);
+    workHomeRatioStats.push([year, result]);
+  },
 });

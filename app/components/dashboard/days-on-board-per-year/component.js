@@ -17,7 +17,6 @@ export default Component.extend({
       this._createSeaserviceStatsForYear(thisYear-i, seaserviceStats);
     }
 
-    console.log(seaserviceStats);
     return seaserviceStats;
   }),
 
