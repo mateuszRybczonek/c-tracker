@@ -15,6 +15,10 @@
   }
 }
 
+.dashboard-item {
+  margin: 60px auto;
+}
+
 .dashboard-table-item {
   list-style-type: none;
   padding: 10px;
@@ -27,10 +31,24 @@
   margin: 15px;
 }
 
+.statistics {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 0 30px;
+
+  .statistics-item {
+    flex-grow: 1;
+  }
+}
+
 @media screen and (max-width: $break-tablet) {
   .dashboard-toolbar-item {
     width: 40%;
     margin: 15px;
+  }
+
+  .dashboard-item {
+    margin: 30px auto;
   }
 }
 

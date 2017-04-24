@@ -6,6 +6,7 @@
 .toolbar-item-title {
   padding: 5px 5px;
   @include font(12px, 100);
+  text-transform: uppercase;
 }
 
 .toolbar-item-value {

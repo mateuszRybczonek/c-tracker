@@ -1,0 +1,57 @@
+.description {
+  text-align: left;
+  color: $dark-grey;
+  @include font(15px, 300);
+  margin-top: 5px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  padding-left: 30px;
+}
+
+#yearly-days-chart {
+  margin-top: 25px;
+
+  svg {
+    width: 100%;
+
+    text {
+      color: $dark-grey;
+      @include font(11px, 200);
+    }
+  }
+}
+
+.yearly-chart {
+  text-align: center;
+
+  .nvd3 .nv-bar rect {
+    fill-opacity: 0.5;
+    fill: #FFF;
+    stroke: $dark-grey;
+    stroke-width: 1px;
+    stroke-opacity: 0.5;
+  }
+
+  .nvd3 .nv-bar text {
+    margin-bottom: 50px;
+    fill: $dark-grey;
+    stroke: $dark-grey;
+    stroke-opacity: 0.4;
+  }
+
+  .nvd3 .nv-axis line {
+    stroke: transparent;
+  }
+
+  .nvd3 .nv-axis text {
+    fill: $dark-grey;
+    stroke: $dark-grey;
+    stroke-opacity: 0.4;
+  }
+}
+
+@media screen and (max-width: $break-desktop) {
+  .description {
+    padding-left: 0;
+  }
+}
