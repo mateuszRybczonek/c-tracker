@@ -1,6 +1,5 @@
 import Ember from 'ember';
 import colorPalette from 'library-app/consts/color-palette';
-import { calculateDaysBetweenDates } from 'library-app/utils/date-utils';
 import { task } from 'ember-concurrency';
 
 const { GREY, LIGHT_GREY } = colorPalette;
@@ -61,7 +60,7 @@ export default Component.extend({
         label: 'Home',
         value: 100 - ratioPerYear[1],
       }
-    ]
+    ];
 
     if (!this.chartElementPresent()) {
       return;
@@ -75,7 +74,7 @@ export default Component.extend({
         .labelType('percent')
         .showLegend(false)
         .color([GREY, LIGHT_GREY])
-        .growOnHover(true)
+        .growOnHover(true);
 
       window.d3.select(`#${chartId} svg`)
         .datum(data)
@@ -86,7 +85,7 @@ export default Component.extend({
         .attr("transform", function(d){
           d.innerRadius = -450;
           d.outerRadius = 520;
-          return "translate(" + d3.svg.arc().outerRadius(520).centroid(d) + ")";}
+          return "translate(" + window.d3.svg.arc().outerRadius(520).centroid(d) + ")";}
         )
         .attr("text-anchor", "middle")
         .style({"font-size": "12px"})
