@@ -1,0 +1,22 @@
+md-progress-linear {
+  .md-container.md-mode-determinate {
+    border: 1px solid $dark-grey;
+
+    .md-bar.md-bar2 {
+      background-color: $grey;
+    }
+  }
+}
+
+&.done {
+  td {
+    md-progress-linear {
+      .md-container.md-mode-determinate {
+
+        .md-bar.md-bar2 {
+          background-color: $color-brand-success;
+        }
+      }
+    }
+  }
+}
