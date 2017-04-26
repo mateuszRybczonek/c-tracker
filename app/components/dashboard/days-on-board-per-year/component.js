@@ -1,6 +1,5 @@
 import Ember from 'ember';
 import colorPalette from 'library-app/consts/color-palette';
-import { calculateDaysBetweenDates } from 'library-app/utils/date-utils';
 import { task } from 'ember-concurrency';
 
 const { DARK_GREY } = colorPalette;
@@ -8,16 +7,11 @@ const { Component, computed, observer, inject: { service } } = Ember;
 
 export default Component.extend({
   lazyLoader: service(),
+  statsGenerator: service(),
 
-  seaserviceDaysPerYear: computed('seaservices', function() {
-    let seaserviceStats = [];
-    const thisYear = new Date().getFullYear();
-
-    for (var i = 4; i >= 0; i--) {
-      this._createSeaserviceStatsForYear(thisYear-i, seaserviceStats);
-    }
-
-    return seaserviceStats;
+  seaserviceDaysPerYear: computed('statsGenerator', function() {
+    return this.get('statsGenerator')
+      .seaserviceDaysPerYear(this.get('seaservices'));
   }),
 
   graphLoading: computed('graph.{loaded,error}', function() {
@@ -104,32 +98,6 @@ export default Component.extend({
     return this.get('lazyLoader').loadD3().then(() => {
       return this.get('lazyLoader').loadNv();
     });
-  },
-
-  _createSeaserviceStatsForYear(year, seaserviceStats) {
-    let seaserviceGivenYear = [];
-    this.get('seaservices').map((seaservice) => {
-      const signOn = new Date(seaservice.get('signOn'));
-      const signOff = new Date(seaservice.get('signOff'));
-      const firstDayOfTheYear = new Date(year,0,1);
-      const lastDayOfTheYear = new Date(year,11,31);
-
-      if ((signOn.getFullYear() === year) && (signOff.getFullYear() === year)) {
-        seaserviceGivenYear.push(
-          calculateDaysBetweenDates(signOff, signOn)
-        );
-      } else if ((signOn.getFullYear() !== year) && (signOff.getFullYear() === year)) {
-        seaserviceGivenYear.push(
-          calculateDaysBetweenDates(signOff, firstDayOfTheYear)
-        );
-      } else if ((signOn.getFullYear() === year) && (signOff.getFullYear() !== year)) {
-        seaserviceGivenYear.push(
-          calculateDaysBetweenDates(lastDayOfTheYear, signOn)
-        );
-      }
-    });
-    let result = Math.ceil(seaserviceGivenYear.reduce((a, b) => a + b, 0));
-    seaserviceStats.push([year, result]);
   },
 
   _prepareChartTask: task(function * () {
