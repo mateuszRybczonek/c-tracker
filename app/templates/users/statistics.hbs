@@ -1,12 +1,13 @@
-<h1 class="flex-100">Statistics</h1>
+<div class="statistics">
+  <h1 class="statistics-header">Statistics</h1>
 
-<div class="statistics statistics-item">
-  {{statistics/days-on-board-per-year
-    seaserviceDaysPerYear=seaserviceDaysPerYear
-    class='statistics-item'
-  }}
-</div>
+  <div class="statistics-item">
+    {{statistics/days-on-board-per-year
+      seaserviceDaysPerYear=seaserviceDaysPerYear
+    }}
+  </div>
 
-<div class="statistics statistics-item">
-  {{statistics/work-home-ratio-charts workHomeRatioPerYear=workHomeRatioPerYear}}
+  <div class="statistics-item">
+    {{statistics/work-home-ratio-charts workHomeRatioPerYear=workHomeRatioPerYear}}
+  </div>
 </div>

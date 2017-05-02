@@ -1,0 +1,24 @@
+@import "app/styles/values_importer";
+
+.statistics {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 0 30px;
+
+  &:first-child :nth-child(2) {
+    border-top: 0;
+  }
+
+  .statistics-header {
+    flex-grow: 1;
+    width: 100%;
+    padding: 35px 10px;
+  }
+
+  .statistics-item {
+    flex-grow: 1;
+    width: 100%;
+    padding: 35px 10px;
+    border-top: solid 1px $grey;
+  }
+}
