@@ -17,8 +17,8 @@ const lazyLoaderStub = Service.extend({
 });
 
 moduleForComponent(
-  'dashboard/work-home-ratio-chart',
-  'Integration | Component | dashboard/work home ratio chart',
+  'statistics/work-home-ratio-chart',
+  'Integration | Component | statistics/work home ratio chart',
   {
     integration: true,
 
@@ -49,7 +49,7 @@ test('it renders', function(assert) {
   this.set('ratioPerYear', [2014, 30]);
   this.stubNvGlobal(false);
 
-  this.render(hbs `{{dashboard/work-home-ratio-chart ratioPerYear=ratioPerYear}}`);
+  this.render(hbs `{{statistics/work-home-ratio-chart ratioPerYear=ratioPerYear}}`);
 
   assert.equal(
     this.$('.year-title').text().trim(),

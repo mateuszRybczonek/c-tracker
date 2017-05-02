@@ -1,38 +1,22 @@
 import Ember from 'ember';
-import sinon from 'sinon';
 import { test, moduleForComponent } from 'ember-qunit';
+import { createSeaserviceModelStub } from 'library-app/tests/stubs/test-stubs';
 
 moduleForComponent(
-  'dashboard/work-home-ratio-chart',
-  'Unit | Component | dashboard/work-home-ratio-chart',
-  {
+  'statistics/days-on-board-per-year',
+  'Unit | Component | statistics/days-on-board-per-year', {
     unit: true,
   }
 );
 
-test('chartId returns properly formatted id', function (assert) {
-  const component = this.subject({
-    idIndex: 1,
-  });
-
-  sinon.stub(component, 'chartElementPresent', false);
-
-  assert.equal(component.get('chartId'), 'work-home-ratio-chart-1');
-});
-
-test('year returns proper year', function (assert) {
-  const component = this.subject({
-    ratioPerYear: [2016, 30],
-  });
-
-  sinon.stub(component, 'chartElementPresent', false);
-
-  assert.equal(component.get('year'), 2016);
-});
+const seaservice1 = createSeaserviceModelStub(new Date(2017, 0, 1), new Date(2017, 1, 1));
+const seaservice2 = createSeaserviceModelStub(new Date(2017, 2, 1), new Date(2017, 3, 1));
+const seaservice3 = createSeaserviceModelStub(new Date(2016, 1, 1), new Date(2016, 2, 1));
+const seaservice4 = createSeaserviceModelStub(new Date(2015, 0, 1), new Date(2015, 2, 1));
 
 test('graphLoading returns', function (assert) {
   const component = this.subject({
-    ratioPerYear: [2016, 30],
+    seaservices: [ seaservice1, seaservice2, seaservice3, seaservice4 ]
   });
 
   const dataProvider = [
@@ -71,7 +55,7 @@ test('graphLoading returns', function (assert) {
 
 test('showGraph returns', function (assert) {
   const component = this.subject({
-    ratioPerYear: [2016, 30],
+    seaservices: [ seaservice1, seaservice2, seaservice3, seaservice4 ]
   });
   const dataProvider = [
     {
