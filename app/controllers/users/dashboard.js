@@ -43,8 +43,8 @@ export default Controller.extend({
     return this.get('sortedSeaservices')[0];
   }),
 
-  workHomeRatioPerYear: computed('statsGenerator', function() {
+  seaserviceDaysPerYear: computed('statsGenerator', function() {
     return this.get('statsGenerator')
-      .generateWorkHomeRatioPerYearStats(this.get('seaservices'));
+      .seaserviceDaysPerYear(this.get('seaservices'));
   }),
 });
