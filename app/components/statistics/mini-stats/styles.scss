@@ -1,0 +1,9 @@
+& {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+
+  .mini-stats-item {
+    padding: 20px 20px 0;
+  }
+}
