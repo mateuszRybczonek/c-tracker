@@ -28,7 +28,7 @@ test('seaserviceDaysPerYear returns properly formatted and sorted data', functio
   const component = this.subject({
     seaservices: [ seaservice1, seaservice2, seaservice3, seaservice4 ]
   });
-  
+
   assert.deepEqual(
     component.get('seaserviceDaysPerYear'),
     [ [2013, 0], [2014, 0], [2015, 59], [2016, 29], [2017, 62] ]

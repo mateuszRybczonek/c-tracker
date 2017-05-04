@@ -41,10 +41,10 @@ export default Service.extend({
     let averageStay = totalStay / seaserviceDays.length;
 
     return stayOnBoardStats = {
-      longestStay: Math.max.apply(this, seaserviceDays),
-      shortestStay:  Math.min.apply(this, seaserviceDays),
+      longestStay: Math.max.apply(this, seaserviceDays).toFixed(0),
+      shortestStay:  Math.min.apply(this, seaserviceDays).toFixed(0),
       averageStay: averageStay.toFixed(0),
-      totalStay: totalStay,
+      totalStay: totalStay.toFixed(0),
     };
   },
 
