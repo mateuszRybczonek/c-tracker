@@ -1,6 +1,10 @@
 & {
   display: flex;
   flex-wrap: wrap;
+
+  @media screen and (max-width: $break-tablet) {
+    flex-direction: column;
+  }
 }
 
 .description {
