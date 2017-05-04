@@ -5,25 +5,27 @@ const { Controller, computed, inject: { service } } = Ember;
 export default Controller.extend({
   statsGenerator: service(),
 
-  miniStatsItems: [
-    {
-      icon: 'ship',
-      header: '28 days',
-      description: 'longest stay on board',
-    }, {
-      icon: 'ship',
-      header: '28 days',
-      description: 'longest stay on board',
-    }, {
-      icon: 'ship',
-      header: '28 days',
-      description: 'longest stay on board',
-    }, {
-      icon: 'ship',
-      header: '28 days',
-      description: 'longest stay on board',
-    }
-  ],
+  miniStatsItems: computed('longestStayOnBoard', function() {
+    return [
+      {
+        icon: 'ship',
+        header: `${this.get('stayOnBoardStats.totalStay')} days`,
+        description: 'total days on board',
+      }, {
+        icon: 'hourglass',
+        header: `${this.get('stayOnBoardStats.longestStay')} days`,
+        description: 'longest stay',
+      }, {
+        icon: 'hourglass-o',
+        header: `${this.get('stayOnBoardStats.shortestStay')} days`,
+        description: 'shortest stay',
+      }, {
+        icon: 'hourglass-half',
+        header: `${this.get('stayOnBoardStats.averageStay')} days`,
+        description: 'average stay',
+      }
+    ];
+  }),
 
   seaserviceDaysPerYear: computed('statsGenerator', function() {
     return this.get('statsGenerator')
@@ -33,5 +35,10 @@ export default Controller.extend({
   workHomeRatioPerYear: computed('statsGenerator', function() {
     return this.get('statsGenerator')
       .generateWorkHomeRatioPerYearStats(this.get('seaservices'));
+  }),
+
+  stayOnBoardStats: computed('statsGenerator', function() {
+    return this.get('statsGenerator')
+      .generateStayOnBoardStats(this.get('seaservices'));
   }),
 });

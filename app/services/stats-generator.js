@@ -27,6 +27,27 @@ export default Service.extend({
     return seaserviceStats;
   },
 
+  generateStayOnBoardStats(seaservices) {
+    let seaserviceDays = [];
+    let stayOnBoardStats = {};
+
+    seaservices.map((seaservice) => {
+      const signOn = new Date(seaservice.get('signOn'));
+      const signOff = new Date(seaservice.get('signOff'));
+      seaserviceDays.push(calculateDaysBetweenDates(signOff, signOn));
+    });
+
+    let totalStay = seaserviceDays.reduce(function(a, b) { return a + b; });
+    let averageStay = totalStay / seaserviceDays.length;
+
+    return stayOnBoardStats = {
+      longestStay: Math.max.apply(this, seaserviceDays),
+      shortestStay:  Math.min.apply(this, seaserviceDays),
+      averageStay: averageStay.toFixed(0),
+      totalStay: totalStay,
+    };
+  },
+
   _createWorkHomeRatioStatsForYear(year, workHomeRatioStats, seaservices) {
     let seaserviceGivenYear = [];
     seaservices.map((seaservice) => {
