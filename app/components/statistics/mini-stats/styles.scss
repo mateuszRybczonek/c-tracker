@@ -1,0 +1,17 @@
+& {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+
+  @media screen and (max-width: $break-tablet) {
+    flex-direction: column;
+  }
+
+  .mini-stats-item {
+    padding: 20px 20px 0;
+
+    @media screen and (max-width: $break-tablet) {
+      padding: 0;
+    }
+  }
+}

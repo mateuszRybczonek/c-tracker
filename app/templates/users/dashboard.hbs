@@ -41,10 +41,9 @@
 </div>
 
 <div class="statistics dashboard-item">
-  {{dashboard/days-on-board-per-year seaservices=seaservices class='statistics-item'}}
+  <h3 class="go-to-statistics-link">{{#link-to 'users.statistics' class='zoom-in-icon'}}(go to statistics){{/link-to}}</h3>
+  {{statistics/days-on-board-per-year
+    seaserviceDaysPerYear=seaserviceDaysPerYear
+    class='statistics-item'
+  }}
 </div>
-
-<div class="statistics dashboard-item">
-  {{dashboard/work-home-ratio-charts workHomeRatioPerYear=workHomeRatioPerYear}}
-</div>
-

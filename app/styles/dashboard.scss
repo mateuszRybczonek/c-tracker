@@ -41,6 +41,12 @@
   }
 }
 
+.go-to-statistics-link {
+  position: relative;
+  top: 105px;
+  left: 35px;
+}
+
 @media screen and (max-width: $break-tablet) {
   .dashboard-toolbar-item {
     width: 40%;
@@ -49,6 +55,10 @@
 
   .dashboard-item {
     margin: 30px auto;
+  }
+
+  .go-to-statistics-link {
+    left: 5px;
   }
 }
 

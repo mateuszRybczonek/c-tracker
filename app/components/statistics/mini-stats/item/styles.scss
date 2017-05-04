@@ -1,0 +1,29 @@
+& {
+  .custom-icon {
+    color: $dark-grey;
+    font-size: 24px;
+    display: inline-block;
+    margin: 0 20px 0 0;
+    position: relative;
+    top: -5px;
+  }
+
+  .description {
+    display: inline-block;
+
+    .header {
+      @include font(20px, 400);
+      color: $dark-grey;
+      display: block;
+    }
+
+    .text {
+      color: $dark-grey;
+      @include font(12px, 300);
+      margin-top: 5px;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      display: block;
+    }
+  }
+}

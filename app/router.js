@@ -18,6 +18,7 @@ Router.map(function() {
     });
     this.route('dashboard');
 
+    this.route('statistics');
   });
   this.route('login');
 });

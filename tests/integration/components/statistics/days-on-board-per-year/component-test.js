@@ -23,8 +23,8 @@ const seaservice3 = createSeaserviceModelStub(new Date(2016, 1, 1), new Date(201
 const seaservice4 = createSeaserviceModelStub(new Date(2015, 0, 1), new Date(2015, 2, 1));
 
 moduleForComponent(
-  'dashboard/days-on-board-per-year',
-  'Integration | Component | dashboard/days-on-board-per-year',
+  'statistics/days-on-board-per-year',
+  'Integration | Component | statistics/days-on-board-per-year',
   {
     integration: true,
 
@@ -54,7 +54,7 @@ moduleForComponent(
 test('it renders', function(assert) {
   this.stubNvGlobal(false);
 
-  this.render(hbs `{{dashboard/days-on-board-per-year seaservices=seaservices}}`);
+  this.render(hbs `{{statistics/days-on-board-per-year seaservices=seaservices}}`);
 
   assert.equal(
     this.$('#yearly-days-chart').length,
@@ -74,7 +74,7 @@ test('it renders correctly when graph.error is set to true', function(assert) {
   this.stubNvGlobal(graph.loaded);
   this.set('graph', graph);
   this.render(hbs `
-    {{dashboard/days-on-board-per-year
+    {{statistics/days-on-board-per-year
       seaservices=seaservices
       graph=graph
     }}
@@ -96,7 +96,7 @@ test('it renders correctly when graph.loaded is set to true', function(assert) {
   this.stubNvGlobal(graph.loaded);
   this.set('graph', graph);
   this.render(hbs `
-    {{dashboard/days-on-board-per-year
+    {{statistics/days-on-board-per-year
       seaservices=seaservices
       graph=graph
       enoughStats=true
@@ -120,7 +120,7 @@ test('it renders correctly when all values are set to false', function(assert) {
 
   this.render(
     hbs `
-      {{dashboard/days-on-board-per-year
+      {{statistics/days-on-board-per-year
         seaservices=seaservices
         graph=graph
         enoughStats=true

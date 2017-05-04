@@ -3,8 +3,8 @@ import sinon from 'sinon';
 import { test, moduleForComponent } from 'ember-qunit';
 
 moduleForComponent(
-  'dashboard/work-home-ratio-chart',
-  'Unit | Component | dashboard/work-home-ratio-chart',
+  'statistics/work-home-ratio-chart',
+  'Unit | Component | statistics/work-home-ratio-chart',
   {
     unit: true,
   }

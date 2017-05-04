@@ -9,11 +9,6 @@ export default Component.extend({
   lazyLoader: service(),
   statsGenerator: service(),
 
-  seaserviceDaysPerYear: computed('statsGenerator', function() {
-    return this.get('statsGenerator')
-      .seaserviceDaysPerYear(this.get('seaservices'));
-  }),
-
   graphLoading: computed('graph.{loaded,error}', function() {
     return !(this.get('graph.loaded') || this.get('graph.error'));
   }),
