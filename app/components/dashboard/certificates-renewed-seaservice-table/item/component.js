@@ -10,9 +10,9 @@ export default Component.extend({
 
   issueDate: computed.alias('certificate.issueDate'),
   daysOfServiceToRenew: computed.alias('certificate.daysOfServiceToRenew'),
-  done: computed.equal('progressRatio', 100),
+  done: computed.gte('progressRatio', 100),
 
-  seaserviceSinceIssue: computed('issueDate', 'seaservices', function() {
+  seaserviceSinceIssue: computed('issueDate', 'seaservices', 'daysOfServiceToRenew', function() {
     let seaserviceSinceIssue = [];
     this.get('seaservices').map((seaservice) => {
       if (new Date(this.get('issueDate')) <= new Date(seaservice.get('signOn'))) {
@@ -21,7 +21,11 @@ export default Component.extend({
         );
       }
     });
-    return seaserviceSinceIssue.reduce((a, b) => a + b, 0);
+    let daysSinceIssued = seaserviceSinceIssue.reduce((a, b) => a + b, 0);
+    if (daysSinceIssued >= this.get('daysOfServiceToRenew')) {
+      return this.get('daysOfServiceToRenew');
+    };
+    return daysSinceIssued;
   }),
 
   progressRatio: computed('seaserviceSinceIssue', 'daysOfServiceToRenew', function() {
@@ -29,6 +33,10 @@ export default Component.extend({
   }),
 
   missingSeaservice: computed('daysOfServiceToRenew', 'seaserviceSinceIssue', function() {
-    return this.get('daysOfServiceToRenew') - this.get('seaserviceSinceIssue');
+    let missingDays = this.get('daysOfServiceToRenew') - this.get('seaserviceSinceIssue');
+    if (missingDays < 0) {
+      return 0;
+    };
+    return missingDays;
   }),
 });
