@@ -8,6 +8,7 @@
     </p>
     {{#unless session.isAuthenticated}}
       {{#paper-button
+        id='login-btn'
         class='login-btn'
         raised=true
         onClick=(route-action 'signIn' 'google')
