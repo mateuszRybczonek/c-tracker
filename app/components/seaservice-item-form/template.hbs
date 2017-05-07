@@ -121,10 +121,12 @@
   <div class="form-group save-button">
     {{#paper-button
       iconButton=true
+      raised=true
       onClick=(action 'saveSeaservice' seaservice)
       disabled=seaservice.isInvalid
     }}
       {{paper-icon "save"}}
+      <span>Save</span>
     {{/paper-button}}
   </div>
 </div>

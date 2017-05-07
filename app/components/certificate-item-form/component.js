@@ -15,7 +15,10 @@ export default Component.extend({
   types: ['STCW', 'Passport', 'Medical', 'Endorsement', 'Other'],
 
   progress: 0,
-  progressBarValue: computed.alias('progress'),
+  progressValue: computed.alias('progress'),
+  formattedProgressValue: computed('progressValue', function() {
+    return `${(this.get('progressValue') * 100).toFixed(0)}%`
+  }),
 
   actions: {
     saveCertificate(certificate) {
@@ -30,6 +33,8 @@ export default Component.extend({
       const certificateId = certificate.get('id');
       const userId = this.get('session.currentUser.uid');
       const reader = new FileReader();
+      const component = this;
+      component.set('uploadInProgress', true);
 
       reader.readAsDataURL(files[0]);
       this.set('file', files[0]);
@@ -44,9 +49,10 @@ export default Component.extend({
       const uploadTask = storageRef.child(path).put(file, metadata);
 
       uploadTask.on('state_changed', (snapshot) => {
-        this.set('progress', (snapshot.bytesTransferred / snapshot.totalBytes) * 100);
+        component.set('progress', (snapshot.bytesTransferred / snapshot.totalBytes));
       }, function(error) {
       }, function() {
+        component.set('uploadInProgress', false);
         $('.upload-successful').show(1000);
       });
     },

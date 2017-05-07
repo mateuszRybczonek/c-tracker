@@ -3,10 +3,6 @@
   display: none;
 }
 
-md-progress-linear.md-default-theme .md-container, md-progress-linear .md-container {
-  background-color: transparent;
-}
-
 .bottom-row {
   display: flex;
   justify-content: space-between;
@@ -19,4 +15,10 @@ md-progress-linear.md-default-theme .md-container, md-progress-linear .md-contai
 .save-button {
   flex-basis: 48%;
   text-align: right;
+}
+
+.md-button.md-icon-button {
+  width: auto;
+  text-transform: none;
+  border-radius: 3%;
 }
