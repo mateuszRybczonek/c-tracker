@@ -17,9 +17,8 @@ export default Route.extend({
   setupController: function (controller, model) {
     this._super(controller, model);
 
-    controller.set('title', 'Add a new certificate');
+    controller.set('title', 'Add new certificate');
     controller.set('certificate', model.newCertificate);
-
   },
 
   renderTemplate() {
