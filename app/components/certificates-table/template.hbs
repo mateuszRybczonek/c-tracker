@@ -1,16 +1,4 @@
-<h2>
-  {{title}}
-  {{#if sortedCertificates}}
-    {{#paper-button
-      iconButton=true
-      class='add-new-certificate zoom-in-rotate90-icon'
-    }}
-      {{#link-to 'users.certificates.new'}}{{paper-icon "add"}}{{/link-to}}
-      {{tooltip-on-component delay=500 effect='slide' text='Add new certificate'}}
-    {{/paper-button}}
-  {{/if}}
-</h2>
-
+<h2>{{title}}</h2>
 <div class="tbl-header">
   <table cellpadding="0" cellspacing="0" border="0">
     <thead>

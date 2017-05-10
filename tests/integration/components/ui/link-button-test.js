@@ -15,6 +15,7 @@ test('it renders', function (assert) {
       destination='index'
       iconButton=true
       icon="list"
+      tooltipText='List all'
     }}
   `);
 
