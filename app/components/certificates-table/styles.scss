@@ -1,0 +1,14 @@
+h2 {
+  display: flex;
+  align-items: center;
+}
+
+.zoom-in-rotate90-icon > button {
+  @include transitions-all;
+  transform: scale(1.0) rotate(0deg);
+
+  :hover {
+    @include transitions-all;
+    transform: scale(1.1) rotate(90deg);
+  }
+}
