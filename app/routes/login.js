@@ -22,8 +22,8 @@ export default Route.extend({
             email: data.currentUser.email,
           });
           user.save();
+          this.transitionTo('users.dashboard');
         }
-        this.transitionTo('users.dashboard');
       });
     },
   },
