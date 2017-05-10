@@ -24,7 +24,6 @@ export default Component.extend({
           class: 'small-value-text',
           title: 'First expiring certificate',
           value: this.get('firstExpiringCert'),
-          visible: this.get('firstExpiringCertificatePresent'),
         },
         {
           class: '',
@@ -38,8 +37,6 @@ export default Component.extend({
         },
       ];
     }),
-
-  firstExpiringCertificatePresent: computed.notEmpty('firstExpiringCertificate'),
 
   seaserviceLast12Months: computed('seaservices', function() {
     let seaserviceLast12Months = [];
@@ -85,6 +82,8 @@ export default Component.extend({
       })();
 
       return `${this.get('firstExpiringCertificate.expiryDate')} (${truncatedName})`;
+    } else {
+      return 'You have no certificates yet';
     }
   }),
 });
