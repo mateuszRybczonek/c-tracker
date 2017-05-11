@@ -21,8 +21,10 @@ export default DS.Model.extend({
 
   isNameValid: computed.notEmpty('name'),
   isNumberValid: computed.notEmpty('number'),
-  isIssueDateValid: computed.notEmpty('issueDate'),
+  isIssueDateValid: computed.match(
+    'issueDate',
+    /(19[5-9]\d|20[0-9]\d|2090)[/\-][0-9]{2}[/\-][0-9]{2}/
+  ),
   isTypeValid: computed.notEmpty('type'),
   isValid: computed.and('isNameValid', 'isNumberValid', 'isIssueDateValid', 'isTypeValid'),
-  isInvalid: computed.not('isValid'),
 });

@@ -50,15 +50,16 @@
 
   {{paper-input
     flex=true
-    label="Issue Date"
+    label="Issue Date (dd/mm/yyyy)"
     type="date"
     value=certificate.issueDate
+    customValidations=dateValidation
     onChange=(action (mut certificate.issueDate))
   }}
 
   {{paper-input
     flex=true
-    label="Expiry Date"
+    label="Expiry Date (dd/mm/yyyy)"
     type="date"
     value=certificate.expiryDate
     onChange=(action (mut certificate.expiryDate))
@@ -117,7 +118,7 @@
         raised=true
         iconButton=true
         onClick=(action 'saveCertificate' certificate)
-        disabled=certificate.isInvalid
+        disabled=isInvalid
       }}
         {{paper-icon "save"}}
         <span>Save</span>

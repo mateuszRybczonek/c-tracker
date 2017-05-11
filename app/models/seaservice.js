@@ -27,9 +27,15 @@ export default DS.Model.extend({
   isVesselTypeValid: computed.notEmpty('vesselType'),
   isVesselGTValid: computed.notEmpty('vesselGT'),
   isPositionValid: computed.notEmpty('position'),
-  isSignOnValid: computed.notEmpty('signOn'),
-  isSignOffValid: computed.notEmpty('signOff'),
-  isValid: computed.and(
+  isSignOnValid: computed.match(
+    'signOn',
+    /(19[5-9]\d|20[0-9]\d|2090)[/\-][0-9]{2}[/\-][0-9]{2}/
+  ),
+  isSignOffValid: computed.match(
+    'signOff',
+    /(19[5-9]\d|20[0-9]\d|2090)[/\-][0-9]{2}[/\-][0-9]{2}/
+  ),
+  isModelValid: computed.and(
     'isEmployerValid',
     'isVesselNameValid',
     'isVesselTypeValid',
@@ -37,5 +43,4 @@ export default DS.Model.extend({
     'isPositionValid',
     'isSignOnValid',
     'isSignOffValid'),
-  isInvalid: computed.not('isValid'),
 });

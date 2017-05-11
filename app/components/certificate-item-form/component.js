@@ -17,8 +17,46 @@ export default Component.extend({
   progress: 0,
   progressValue: computed.alias('progress'),
   formattedProgressValue: computed('progressValue', function() {
-    return `${(this.get('progressValue') * 100).toFixed(0)}%`
+    return `${(this.get('progressValue') * 100).toFixed(0)}%`;
   }),
+
+  expiryDateAfterIssueDate: computed('certificate.issueDate', 'certificate.expiryDate', function() {
+    if (this.get('certificate.expiryDate') === '' || this.get('certificate.expiryDate') === 'n/a') {
+      return true;
+    } else {
+      return (this._toJSDate(this.get('certificate.issueDate')) <
+      this._toJSDate(this.get('certificate.expiryDate')));
+    }
+  }),
+
+  correctDates: computed('certificate.issueDate', 'certificate.expiryDate', function() {
+    const issueDateYear = this.get('certificate.issueDate').split("-")[0];
+
+    if (this.get('certificate.expiryDate') === '' || this.get('certificate.expiryDate') === 'n/a') {
+      return (issueDateYear <= 2100 && issueDateYear >= 1900);
+    } else {
+      const expiryDateYear = this.get('certificate.expiryDate').split("-")[0];
+      return (
+        issueDateYear <= 2100 && issueDateYear >= 1900 &&
+        expiryDateYear <=2100 && expiryDateYear >= 1900
+      );
+    }
+
+  }),
+
+  datesValid: computed.and('expiryDateAfterIssueDate', 'correctDates'),
+
+  dateValidation: [{
+    message: 'Please provide date in a valid format (years range 1950-2099)',
+    validate: (inputValue) => {
+      let datePattern = /(19[5-9]\d|20[0-9]\d|2090)[/\-][0-9]{2}[/\-][0-9]{2}/;
+      return datePattern.test(inputValue);
+    }
+  }],
+
+  isValid: computed.and('certificate.isValid', 'datesValid'),
+
+  isInvalid: computed.not('isValid'),
 
   actions: {
     saveCertificate(certificate) {
@@ -56,5 +94,10 @@ export default Component.extend({
         $('.upload-successful').show(1000);
       });
     },
+  },
+
+  _toJSDate(dateString) {
+    const [year, month, day] = dateString.split("-");
+    return new Date(year, month - 1, day);
   },
 });

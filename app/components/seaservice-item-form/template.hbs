@@ -71,21 +71,23 @@
 
   {{paper-input
     flex=true
-    label="Sign on"
+    label="Sign on (dd/mm/yyyy)"
     type="date"
     value=seaservice.signOn
     onChange=(action (mut seaservice.signOn))
     required=true
+    customValidations=dateValidation
     errorMessages=(hash required="Sign on date is required.")
   }}
 
   {{paper-input
     flex=true
-    label="Sign off"
+    label="Sign off (dd/mm/yyyy)"
     type="date"
     value=seaservice.signOff
     onChange=(action (mut seaservice.signOff))
     required=true
+    customValidations=dateValidation
     errorMessages=(hash required="Sign off date is required.")
   }}
 
@@ -123,7 +125,7 @@
       iconButton=true
       raised=true
       onClick=(action 'saveSeaservice' seaservice)
-      disabled=seaservice.isInvalid
+      disabled=isInvalid
     }}
       {{paper-icon "save"}}
       <span>Save</span>
