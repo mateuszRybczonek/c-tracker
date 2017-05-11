@@ -13,6 +13,7 @@ test('it renders details-item properly', function(assert) {
 
   this.render(hbs`{{details-item title=title content=content}}`);
 
-  assert.equal(this.$('thead > tr').text().trim(), "Title example", 'with Title example');
-  assert.equal(this.$('tbody > tr').text().trim(), "Content example", 'with Content example');
+  assert.ok($(this.$('.details-item:contains("Title example")')), 'with Title example');
+  assert.ok($(this.$('.details-item:contains("Content example")')), 'with Content example');
+
 });
