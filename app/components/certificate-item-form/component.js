@@ -15,7 +15,9 @@ export default Component.extend({
   types: ['STCW', 'Passport', 'Medical', 'Endorsement', 'Other'],
 
   progress: 0,
+
   progressValue: computed.alias('progress'),
+
   formattedProgressValue: computed('progressValue', function() {
     return `${(this.get('progressValue') * 100).toFixed(0)}%`;
   }),
@@ -33,15 +35,11 @@ export default Component.extend({
     const issueDateYear = this.get('certificate.issueDate').split("-")[0];
 
     if (this.get('certificate.expiryDate') === '' || this.get('certificate.expiryDate') === 'n/a') {
-      return (issueDateYear <= 2100 && issueDateYear >= 1900);
+      return this._yearWithinRange(issueDateYear);
     } else {
       const expiryDateYear = this.get('certificate.expiryDate').split("-")[0];
-      return (
-        issueDateYear <= 2100 && issueDateYear >= 1900 &&
-        expiryDateYear <=2100 && expiryDateYear >= 1900
-      );
+      return (this._yearWithinRange(issueDateYear) && this._yearWithinRange(expiryDateYear));
     }
-
   }),
 
   datesValid: computed.and('expiryDateAfterIssueDate', 'correctDates'),
@@ -100,4 +98,8 @@ export default Component.extend({
     const [year, month, day] = dateString.split("-");
     return new Date(year, month - 1, day);
   },
+
+  _yearWithinRange(year) {
+    return (year <= 2100 && year >= 1900);
+  }
 });

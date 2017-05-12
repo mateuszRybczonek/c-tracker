@@ -15,10 +15,10 @@ moduleForComponent('seaservice-table/item/details', 'Integration | Component | s
 test('it renders details properly', function(assert) {
 
   this.render(hbs`{{
-  seaservice-table/item/details
-    seaservice=seaservice
-    daysOfService=35
-    session=session
+    seaservice-table/item/details
+      seaservice=seaservice
+      daysOfService=35
+      session=session
   }}`);
 
   assert.ok($(this.$('.vessel-details:contains("Ensco plc")')), 'employer');
