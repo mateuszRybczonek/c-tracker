@@ -23,7 +23,7 @@ test('it renders certificate properly', function(assert) {
   assert.equal($(this.$('td')[3]).text().trim(), '2027-02-17', 'Certificate expiry date is rendered');
   assert.equal(this.$('.scan-preview').length, 1, 'scan preview icon is rendered');
   assert.equal(this.$('.scan-download').length, 1, 'scan download icon is rendered');
-  assert.equal(this.$('.popover-certificate-details').length, 1, 'info icon is rendered');
+  assert.equal(this.$('.certificate-details').length, 1, 'info icon is rendered');
   assert.equal(this.$('.edit-certificate').length, 1, 'edit icon is rendered');
   assert.equal(this.$('.delete-certificate').length, 1, 'delete icon is rendered');
 });

@@ -29,11 +29,11 @@ export default DS.Model.extend({
   isPositionValid: computed.notEmpty('position'),
   isSignOnValid: computed.match(
     'signOn',
-    /(19[5-9]\d|20[0-9]\d|2090)[/\-][0-9]{2}[/\-][0-9]{2}/
+    /(19[5-9]\d|20[0-9]\d|2090)[/\-][0-1][1-2][/\-][0-2]?[0-9]|[3]?[0-1]/
   ),
   isSignOffValid: computed.match(
     'signOff',
-    /(19[5-9]\d|20[0-9]\d|2090)[/\-][0-9]{2}[/\-][0-9]{2}/
+    /(19[5-9]\d|20[0-9]\d|2090)[/\-][0-1][1-2][/\-][0-2]?[0-9]|[3]?[0-1]/
   ),
   isModelValid: computed.and(
     'isEmployerValid',

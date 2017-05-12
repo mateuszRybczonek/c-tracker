@@ -1,4 +1,6 @@
-{{#paper-button iconButton=iconButton}}
-  {{#link-to destination}}{{paper-icon icon}}{{/link-to}}
-  {{tooltip-on-component delay=500 effect='slide' text=tooltipText}}
-{{/paper-button}}
+{{#link-to destination}}
+  {{#paper-button iconButton=iconButton}}
+    {{paper-icon icon}}
+    {{tooltip-on-component delay=500 effect='slide' text=tooltipText}}
+  {{/paper-button}}
+{{/link-to}}

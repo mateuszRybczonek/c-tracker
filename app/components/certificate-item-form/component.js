@@ -47,7 +47,7 @@ export default Component.extend({
   dateValidation: [{
     message: 'Please provide date in a valid format (years range 1950-2099)',
     validate: (inputValue) => {
-      let datePattern = /(19[5-9]\d|20[0-9]\d|2090)[/\-][0-9]{2}[/\-][0-9]{2}/;
+      let datePattern = /(19[5-9]\d|20[0-9]\d|2090)[/\-][0-1][1-2][/\-][0-2]?[0-9]|[3]?[0-1]/;
       return datePattern.test(inputValue);
     }
   }],
