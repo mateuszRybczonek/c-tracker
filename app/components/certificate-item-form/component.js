@@ -100,6 +100,6 @@ export default Component.extend({
   },
 
   _yearWithinRange(year) {
-    return (year <= 2100 && year >= 1900);
+    return (year <= 2100 && year >= 1950);
   }
 });

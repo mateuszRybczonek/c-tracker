@@ -89,7 +89,7 @@ test('correctDates', function(assert) {
       issueDate: '1949-01-15',
       expiryDate: '2015-01-30',
       result: false,
-      message: 'returns false if issueDate year <1900',
+      message: 'returns false if issueDate year <1950',
     }, {
       issueDate: '2101-01-15',
       expiryDate: '2015-01-15',
@@ -99,7 +99,7 @@ test('correctDates', function(assert) {
       issueDate: '2015-01-15',
       expiryDate: '1949-01-30',
       result: false,
-      message: 'returns false if expiryDate year <1900',
+      message: 'returns false if expiryDate year <1950',
     }, {
       issueDate: '2015-01-15',
       expiryDate: '2101-01-15',
@@ -119,12 +119,12 @@ test('correctDates', function(assert) {
       issueDate: '1949-01-15',
       expiryDate: 'n/a',
       result: false,
-      message: 'returns true if expiryDate "n/a" and issueDate year <1900',
+      message: 'returns true if expiryDate "n/a" and issueDate year <1950',
     }, {
       issueDate: '1949-01-15',
       expiryDate: 'n/a',
       result: false,
-      message: 'returns true if expiryDate "n/a" and issueDate year <1900',
+      message: 'returns true if expiryDate "n/a" and issueDate year <1950',
     },   {
       issueDate: '2101-01-15',
       expiryDate: 'n/a',

@@ -51,7 +51,7 @@ test('correctDates', function(assert) {
       signOn: '1949-01-15',
       signOff: '2015-01-30',
       result: false,
-      message: 'returns false if issueDate year <1900',
+      message: 'returns false if issueDate year <1950',
     }, {
       signOn: '2101-01-15',
       signOff: '2015-01-15',
@@ -61,7 +61,7 @@ test('correctDates', function(assert) {
       signOn: '2015-01-15',
       signOff: '1949-01-30',
       result: false,
-      message: 'returns false if expiryDate year <1900',
+      message: 'returns false if expiryDate year <1950',
     }, {
       signOn: '2015-01-15',
       signOff: '2101-01-15',
