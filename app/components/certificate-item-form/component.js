@@ -15,7 +15,46 @@ export default Component.extend({
   types: ['STCW', 'Passport', 'Medical', 'Endorsement', 'Other'],
 
   progress: 0,
-  progressBarValue: computed.alias('progress'),
+
+  progressValue: computed.alias('progress'),
+
+  formattedProgressValue: computed('progressValue', function() {
+    return `${(this.get('progressValue') * 100).toFixed(0)}%`;
+  }),
+
+  expiryDateAfterIssueDate: computed('certificate.issueDate', 'certificate.expiryDate', function() {
+    if (this.get('certificate.expiryDate') === '' || this.get('certificate.expiryDate') === 'n/a') {
+      return true;
+    } else {
+      return (this._toJSDate(this.get('certificate.issueDate')) <
+      this._toJSDate(this.get('certificate.expiryDate')));
+    }
+  }),
+
+  correctDates: computed('certificate.issueDate', 'certificate.expiryDate', function() {
+    const issueDateYear = this.get('certificate.issueDate').split("-")[0];
+
+    if (this.get('certificate.expiryDate') === '' || this.get('certificate.expiryDate') === 'n/a') {
+      return this._yearWithinRange(issueDateYear);
+    } else {
+      const expiryDateYear = this.get('certificate.expiryDate').split("-")[0];
+      return (this._yearWithinRange(issueDateYear) && this._yearWithinRange(expiryDateYear));
+    }
+  }),
+
+  datesValid: computed.and('expiryDateAfterIssueDate', 'correctDates'),
+
+  dateValidation: [{
+    message: 'Please provide date in a valid format (years range 1950-2099)',
+    validate: (inputValue) => {
+      let datePattern = /(19[5-9]\d|20[0-9]\d|2090)[/\-][0-9]{2}[/\-][0-9]{2}/;
+      return datePattern.test(inputValue);
+    }
+  }],
+
+  isValid: computed.and('certificate.isValid', 'datesValid'),
+
+  isInvalid: computed.not('isValid'),
 
   actions: {
     saveCertificate(certificate) {
@@ -30,6 +69,8 @@ export default Component.extend({
       const certificateId = certificate.get('id');
       const userId = this.get('session.currentUser.uid');
       const reader = new FileReader();
+      const component = this;
+      component.set('uploadInProgress', true);
 
       reader.readAsDataURL(files[0]);
       this.set('file', files[0]);
@@ -44,11 +85,21 @@ export default Component.extend({
       const uploadTask = storageRef.child(path).put(file, metadata);
 
       uploadTask.on('state_changed', (snapshot) => {
-        this.set('progress', (snapshot.bytesTransferred / snapshot.totalBytes) * 100);
+        component.set('progress', (snapshot.bytesTransferred / snapshot.totalBytes));
       }, function(error) {
       }, function() {
+        component.set('uploadInProgress', false);
         $('.upload-successful').show(1000);
       });
     },
   },
+
+  _toJSDate(dateString) {
+    const [year, month, day] = dateString.split("-");
+    return new Date(year, month - 1, day);
+  },
+
+  _yearWithinRange(year) {
+    return (year <= 2100 && year >= 1950);
+  }
 });

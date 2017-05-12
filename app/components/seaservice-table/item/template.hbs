@@ -9,19 +9,22 @@
   <td class='hidden-xs'>{{daysOfService}} days<br>{{seaservice.timeOnDP}} hrs</td>
   <td class='hidden-xs'>{{seaservice.dpClass}}</td>
   <td>
-    {{#popover-component
-      item=seaservice
-      icon='info-outline'
-      class='popover-seaservice-details'
+    {{#paper-button
+      iconButton=true
+      class='hidden-sm hidden-md hidden-lg hidden-xl popover-seaservice-details'
     }}
-      {{seaservice-table/item/details seaservice=seaservice}}
-    {{/popover-component}}
+      {{paper-icon "info"}}
+      {{#tooltip-on-component delay=100 effect='slide' side='left' event='click'}}
+        {{seaservice-table/item/details seaservice=seaservice}}
+      {{/tooltip-on-component}}
+      {{/paper-button}}
 
     {{#paper-button
       iconButton=true
       class='edit-seaservice'
     }}
       {{#link-to 'users.seaservice.edit' seaservice.id}}{{paper-icon "create"}}{{/link-to}}
+      {{tooltip-on-component delay=500 effect='slide' text='Edit'}}
     {{/paper-button}}
 
     {{#paper-button
@@ -30,6 +33,7 @@
       onClick=(action 'showPrompt' seaservice)
     }}
       {{paper-icon "delete"}}
+      {{tooltip-on-component delay=500 effect='slide' text='Delete'}}
     {{/paper-button}}
 
     {{#if showPromptDialog}}

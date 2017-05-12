@@ -14,6 +14,8 @@ export default Route.extend({
   },
 
   setupController(controller, model) {
+    this._super(controller, model);
+
     controller.set('certificates', model.certificates);
     controller.set('seaservices', model.seaservices);
   }

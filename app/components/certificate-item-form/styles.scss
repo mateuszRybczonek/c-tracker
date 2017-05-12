@@ -1,22 +1,30 @@
-.upload-successful {
-  color: $color-brand-success;
-  display: none;
-}
+&.new-form {
+  @media screen and (max-width: $break-tablet) {
+    margin: 0;
+  }
 
-md-progress-linear.md-default-theme .md-container, md-progress-linear .md-container {
-  background-color: transparent;
-}
+  .upload-successful {
+    color: $color-brand-success;
+    display: none;
+  }
 
-.bottom-row {
-  display: flex;
-  justify-content: space-between;
-}
+  .bottom-row {
+    display: flex;
+    justify-content: space-between;
+  }
 
-.file-upload {
-  flex-basis: 48%;
-}
+  .file-upload {
+    flex-basis: 48%;
+  }
 
-.save-button {
-  flex-basis: 48%;
-  text-align: right;
+  .save-button {
+    flex-basis: 48%;
+    text-align: right;
+  }
+
+  .md-button.md-icon-button {
+    width: auto;
+    text-transform: none;
+    border-radius: 3%;
+  }
 }

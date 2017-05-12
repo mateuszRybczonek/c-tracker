@@ -41,7 +41,7 @@
 
 .zoom-in-rotate90-icon {
   @include transitions-all;
-  transform: scale(1.0) rotatee(0deg);
+  transform: scale(1.0) rotate(0deg);
   &:hover {
     @include transitions-all;
     transform: scale(1.1) rotate(90deg);

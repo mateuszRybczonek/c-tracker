@@ -4,5 +4,5 @@ const { Component} = Ember;
 
 export default Component.extend({
   tagName: 'table',
-  classNames: ['vessel-details'],
+  classNames: ['certificate-details'],
 });

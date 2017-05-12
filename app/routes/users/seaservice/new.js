@@ -16,7 +16,6 @@ export default Route.extend({
 
     controller.set('title', 'Add a new entry');
     controller.set('seaservice', model.newSeaservice);
-
   },
 
   renderTemplate() {

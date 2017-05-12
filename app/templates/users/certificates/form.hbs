@@ -1,10 +1,12 @@
-<h4 class='text-center'>{{title}}</h4>
+<div class="wrapper">
+  <h2 class='text-center'>{{title}}</h2>
 
-<div class="new-certificate-form">
-  {{certificate-item-form
-    certificate=certificate
-    session=session
-    buttonLabel=buttonLabel
-    action='saveCertificate'
-  }}
+  <div class="new-certificate-form">
+    {{certificate-item-form
+      certificate=certificate
+      session=session
+      buttonLabel=buttonLabel
+      action='saveCertificate'
+    }}
+  </div>
 </div>

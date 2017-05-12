@@ -24,7 +24,7 @@ export default Component.extend({
     let daysSinceIssued = seaserviceSinceIssue.reduce((a, b) => a + b, 0);
     if (daysSinceIssued >= this.get('daysOfServiceToRenew')) {
       return this.get('daysOfServiceToRenew');
-    };
+    }
     return daysSinceIssued;
   }),
 
@@ -36,7 +36,7 @@ export default Component.extend({
     let missingDays = this.get('daysOfServiceToRenew') - this.get('seaserviceSinceIssue');
     if (missingDays < 0) {
       return 0;
-    };
+    }
     return missingDays;
   }),
 });
