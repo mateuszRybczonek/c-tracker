@@ -2,7 +2,7 @@ import Ember from 'ember';
 import { moduleForComponent, test } from 'ember-qunit';
 import hbs from 'htmlbars-inline-precompile';
 
-moduleForComponent('certificates-table', 'Integration | Component | certificates table', {
+moduleForComponent('certificates-table', 'Integration | Component | certificates-table', {
   integration: true
 });
 

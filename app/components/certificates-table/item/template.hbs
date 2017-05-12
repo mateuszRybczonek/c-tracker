@@ -14,20 +14,20 @@
     {{tooltip-on-component delay=500 effect='slide' text='Preview'}}
   {{/paper-button}}
 
-  {{#paper-button
-    bind-attr disabled=noScanPresent
-    iconButton=true
-    class='scan-download'
-  }}
-    <a download href={{imageUrl}}>
-      {{paper-icon 'cloud-download'}}
-      {{tooltip-on-component delay=500 effect='slide' text='Download'}}
-    </a>
-  {{/paper-button}}
+  <a download href={{imageUrl}}>
+    {{#paper-button
+      bind-attr disabled=noScanPresent
+      iconButton=true
+      class='scan-download'
+    }}
+        {{paper-icon 'cloud-download'}}
+        {{tooltip-on-component delay=500 effect='slide' text='Download'}}
+    {{/paper-button}}
+  </a>
 
   {{#paper-button
     iconButton=true
-    class='hidden-sm hidden-md hidden-lg hidden-xl popover-certificate-details'
+    class='hidden-sm hidden-md hidden-lg hidden-xl certificate-details'
   }}
     {{paper-icon "info"}}
     {{#tooltip-on-component delay=500 effect='slide' side='left' event='click'}}
@@ -35,13 +35,15 @@
     {{/tooltip-on-component}}
   {{/paper-button}}
 
-  {{#paper-button
-    iconButton=true
-    class='edit-certificate'
-  }}
-    {{#link-to 'users.certificates.edit' certificate.id}}{{paper-icon "create"}}{{/link-to}}
-    {{tooltip-on-component delay=500 effect='slide' text='Edit'}}
-  {{/paper-button}}
+  {{#link-to 'users.certificates.edit' certificate.id}}
+    {{#paper-button
+      iconButton=true
+      class='edit-certificate'
+    }}
+      {{paper-icon "create"}}
+      {{tooltip-on-component delay=500 effect='slide' text='Edit'}}
+    {{/paper-button}}
+  {{/link-to}}
 
   {{#paper-button
     iconButton=true

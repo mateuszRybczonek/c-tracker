@@ -19,7 +19,7 @@ test('it renders', function (assert) {
     }}
   `);
 
-  const $link = this.$('button a');
-  
-  assert.equal($link.text(), 'list', 'has proper icon');
+  const $link = this.$('a button');
+
+  assert.equal($link.text().trim(), 'list', 'has proper icon');
 });

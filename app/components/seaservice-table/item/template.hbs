@@ -19,13 +19,15 @@
       {{/tooltip-on-component}}
       {{/paper-button}}
 
-    {{#paper-button
-      iconButton=true
-      class='edit-seaservice'
-    }}
-      {{#link-to 'users.seaservice.edit' seaservice.id}}{{paper-icon "create"}}{{/link-to}}
-      {{tooltip-on-component delay=500 effect='slide' text='Edit'}}
-    {{/paper-button}}
+    {{#link-to 'users.seaservice.edit' seaservice.id}}
+      {{#paper-button
+        iconButton=true
+        class='edit-seaservice'
+      }}
+        {{paper-icon "create"}}
+        {{tooltip-on-component delay=500 effect='slide' text='Edit'}}
+      {{/paper-button}}
+    {{/link-to}}
 
     {{#paper-button
       iconButton=true
