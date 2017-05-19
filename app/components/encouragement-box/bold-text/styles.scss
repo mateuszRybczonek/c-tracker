@@ -1,0 +1,9 @@
+& {
+  margin: 10px 0;
+  font-weight: 500;
+
+  @media screen and (max-width: $break-tablet) {
+    font-weight: 300;
+    display: inline;
+  }
+}

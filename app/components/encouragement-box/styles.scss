@@ -1,0 +1,58 @@
+.wrapper {
+  padding: 35px 0;
+  border: 1px solid $dark-grey;
+  text-align: center;
+  color: $grey;
+
+  @media screen and (max-width: $break-tablet) {
+    padding: 10px 0 25px;
+  }
+
+  .ah-icon {
+    color: $grey;
+    font-size: 95px;
+    margin-bottom: 5px;
+
+    @media screen and (max-width: $break-tablet) {
+      display: none;
+    }
+  }
+
+  h1 {
+    @include font(13px, 300, 1);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin: 0 0 30px;
+    color: $grey;
+
+    @media screen and (max-width: $break-tablet) {
+      margin: 20px 0;
+    }
+  }
+
+  .description {
+    margin: 20px 25px 0;
+    @include font(16px, 400, 30px);
+
+    @media screen and (max-width: $break-tablet) {
+      @include font(14px, 300, 24px);
+      color: $grey;
+    }
+  }
+
+  a {
+    padding: 13px;
+    margin-top: 25px;
+    min-width: 230px;
+    @include font(12px, 300);
+    color: #FFF;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    border: solid 1px $dark-grey;
+    background: $grey;
+
+    &:hover, &:focus {
+      color: #FFF;
+    }
+  }
+}
