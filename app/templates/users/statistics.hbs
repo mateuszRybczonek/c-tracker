@@ -1,30 +1,32 @@
 <div class="statistics">
   <h1 class="statistics-header">Statistics</h1>
 
-  {{#encouragement-box
+  {{#if noStats}}
+    {{#encouragement-box
     icon='bar-chart-o'
     header='No stats available'
     as |fragments|
-  }}
-    {{fragments.text text='Apparently you have no seaservices added.'}}
-    {{fragments.boldText text='Go to seaservices and add seaservice to see your statistics.'}}
-    {{ui/link-button-big
+    }}
+      {{fragments.text text='Apparently you have no seaservices added.'}}
+      {{fragments.boldText text='Go to seaservices and add seaservice to see your statistics.'}}
+      {{ui/link-button-big
       destination='users.seaservice.index'
       description='Go to seaservices'
-    }}
-  {{/encouragement-box}}
+      }}
+    {{/encouragement-box}}
+  {{else}}
+    <div class="statistics-item">
+      {{statistics/mini-stats miniStatsItems=miniStatsItems}}
+    </div>
 
-  <div class="statistics-item">
-    {{statistics/mini-stats miniStatsItems=miniStatsItems}}
-  </div>
-
-  <div class="statistics-item">
-    {{statistics/days-on-board-per-year
+    <div class="statistics-item">
+      {{statistics/days-on-board-per-year
       seaserviceDaysPerYear=seaserviceDaysPerYear
-    }}
-  </div>
+      }}
+    </div>
 
-  <div class="statistics-item">
-    {{statistics/work-home-ratio-charts workHomeRatioPerYear=workHomeRatioPerYear}}
-  </div>
+    <div class="statistics-item">
+      {{statistics/work-home-ratio-charts workHomeRatioPerYear=workHomeRatioPerYear}}
+    </div>
+  {{/if}}
 </div>

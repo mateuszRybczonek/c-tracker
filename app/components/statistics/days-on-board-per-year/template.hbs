@@ -6,7 +6,10 @@
     {{paper-progress-circular primary=true diameter=96 class='spinner'}}
   </div>
   <div class="graph {{unless showGraph "hidden"}}">
-    <div class="description">Days on board per year</div>
+    <h3 class="description">
+      Days on board per year
+      {{#link-to 'users.statistics'}}(go to statistics){{/link-to}}
+    </h3>
     <div id="yearly-days-chart">
       <svg height="215"></svg>
     </div>

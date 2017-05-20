@@ -3,6 +3,8 @@ import Ember from 'ember';
 const { Controller, computed, inject: { service } } = Ember;
 
 export default Controller.extend({
+  noStats: computed.empty('seaservices'),
+
   statsGenerator: service(),
 
   miniStatsItems: computed('longestStayOnBoard', function() {
