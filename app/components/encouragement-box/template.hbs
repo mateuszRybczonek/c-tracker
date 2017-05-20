@@ -1,0 +1,12 @@
+<div class="container">
+  <div class="wrapper">
+    {{ui/custom-icon icon=icon}}
+    <h1>{{header}}</h1>
+    <div class="description">
+      {{yield (hash
+        boldText=(component "encouragement-box/bold-text")
+        text=(component "encouragement-box/text")
+      )}}
+    </div>
+  </div>
+</div>

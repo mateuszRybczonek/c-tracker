@@ -1,5 +1,6 @@
 import Ember from 'ember';
 
 export default Ember.LinkComponent.extend({
-  tagName: 'li'
+  tagName: 'li',
+  classNames: ['nav-bar-link'],
 });

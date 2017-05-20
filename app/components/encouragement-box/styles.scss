@@ -1,0 +1,42 @@
+.wrapper {
+  padding: 35px 0;
+  border: 1px solid $grey;
+  text-align: center;
+  color: $grey;
+
+  @media screen and (max-width: $break-tablet) {
+    padding: 15px 0px;
+  }
+
+  .custom-icon {
+    color: $grey;
+    font-size: 60px;
+    margin-bottom: 10px;
+
+    @media screen and (max-width: $break-tablet) {
+      display: none;
+    }
+  }
+
+  h1 {
+    @include font(13px, 300, 1);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin: 0 0 30px;
+    color: $dark-grey;
+
+    @media screen and (max-width: $break-tablet) {
+      margin: 20px 0;
+    }
+  }
+
+  .description {
+    margin: 20px 25px 0;
+    @include font(16px, 400, 30px);
+
+    @media screen and (max-width: $break-tablet) {
+      @include font(14px, 300, 24px);
+      color: $dark-grey;
+    }
+  }
+}
