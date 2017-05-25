@@ -21,7 +21,10 @@ Router.map(function() {
     this.route('statistics');
   });
   this.route('login');
-  this.route('shared-cv', { path: '/:user_id/shared-cv'});
+  this.route('shared-cv', { path: '/:user_id/shared-cv'}, function() {
+    this.route('certificates');
+    this.route('seaservice');
+  });
 });
 
 export default Router;
