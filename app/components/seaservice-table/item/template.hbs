@@ -19,42 +19,44 @@
       {{/tooltip-on-component}}
       {{/paper-button}}
 
-    {{#link-to 'users.seaservice.edit' seaservice.id}}
-      {{#paper-button
+    {{#if session.isAuthenticated}}
+      {{#link-to 'users.seaservice.edit' seaservice.id}}
+        {{#paper-button
         iconButton=true
         class='edit-seaservice'
-      }}
-        {{paper-icon "create"}}
-        {{tooltip-on-component delay=500 effect='slide' text='Edit'}}
-      {{/paper-button}}
-    {{/link-to}}
+        }}
+          {{paper-icon "create"}}
+          {{tooltip-on-component delay=500 effect='slide' text='Edit'}}
+        {{/paper-button}}
+      {{/link-to}}
 
-    {{#paper-button
+      {{#paper-button
       iconButton=true
       class='delete-seaservice'
       onClick=(action 'showPrompt' seaservice)
-    }}
-      {{paper-icon "delete"}}
-      {{tooltip-on-component delay=500 effect='slide' text='Delete'}}
-    {{/paper-button}}
+      }}
+        {{paper-icon "delete"}}
+        {{tooltip-on-component delay=500 effect='slide' text='Delete'}}
+      {{/paper-button}}
 
-    {{#if showPromptDialog}}
-      {{#paper-dialog
+      {{#if showPromptDialog}}
+        {{#paper-dialog
         fullscreen=fullscreen
         onClose=(action "closePromptDialog" seaservice)
         origin=dialogOrigin
-      }}
+        }}
 
-        {{#paper-dialog-content}}
-          <h2 class="md-title">Are you sure you want to delete the seaservice?</h2>
-        {{/paper-dialog-content}}
+          {{#paper-dialog-content}}
+            <h2 class="md-title">Are you sure you want to delete the seaservice?</h2>
+          {{/paper-dialog-content}}
 
-        {{#paper-dialog-actions class="layout-row"}}
-          <span class="flex"></span>
-          {{#paper-button primary=true onClick=(action "closePromptDialog" "cancel")}}Cancel{{/paper-button}}
-          {{#paper-button primary=true onClick=(action "deleteSeaservice" seaservice)}}Delete{{/paper-button}}
-        {{/paper-dialog-actions}}
+          {{#paper-dialog-actions class="layout-row"}}
+            <span class="flex"></span>
+            {{#paper-button primary=true onClick=(action "closePromptDialog" "cancel")}}Cancel{{/paper-button}}
+            {{#paper-button primary=true onClick=(action "deleteSeaservice" seaservice)}}Delete{{/paper-button}}
+          {{/paper-dialog-actions}}
 
-      {{/paper-dialog}}
+        {{/paper-dialog}}
+      {{/if}}
     {{/if}}
   </td>
