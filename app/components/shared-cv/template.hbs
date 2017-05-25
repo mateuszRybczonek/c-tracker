@@ -1,1 +1,12 @@
-<p>Shared CV mock</p>
+<h1>Certificates</h1>
+
+{{#each certificatesTables as |certificateTable|}}
+  {{certificates-table
+    certificates=certificateTable.certificates
+    title=certificateTable.title
+    id=certificateTable.id
+    session=session
+  }}
+{{/each}}
+
+{{preview-modal}}
