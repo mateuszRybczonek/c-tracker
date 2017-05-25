@@ -21,6 +21,7 @@ Router.map(function() {
     this.route('statistics');
   });
   this.route('login');
+  this.route('shared-cv', { path: '/:user_id/shared-cv'});
 });
 
 export default Router;
