@@ -11,7 +11,7 @@ export default Route.extend({
     this._super(controller, model);
 
     controller.set('certificates', model.get('certificates'));
-    controller.set('userId', model.get('id'));
     controller.set('seaservices', model.get('seaservices'));
+    controller.set('userId', model.get('id'));
   }
 });
