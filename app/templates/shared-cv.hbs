@@ -1,11 +1,12 @@
 {{#paper-toolbar as |toolbar|}}
   {{#sticky-container
-  options=stickyOptions
-  class='sticky-container'
+    options=stickyOptions
+    class='sticky-container'
   }}
     {{#toolbar.tools
     class='toolbar-tools'
     }}
+      {{#nav-link-to 'shared-cv.summary'}}Summary{{/nav-link-to}}
       {{#nav-link-to 'shared-cv.certificates'}}Certificates{{/nav-link-to}}
       {{#nav-link-to 'shared-cv.seaservice'}}Seaservice{{/nav-link-to}}
     {{/toolbar.tools}}

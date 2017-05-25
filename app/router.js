@@ -24,6 +24,7 @@ Router.map(function() {
   this.route('shared-cv', { path: '/:user_id/shared-cv'}, function() {
     this.route('certificates');
     this.route('seaservice');
+    this.route('summary');
   });
 });
 
