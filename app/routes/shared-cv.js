@@ -1,6 +1,6 @@
 import Ember from 'ember';
 
-const { Route, RSVP } = Ember;
+const { Route } = Ember;
 
 export default Route.extend({
   model( {user_id} ) {
