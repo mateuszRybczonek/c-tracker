@@ -7,7 +7,7 @@ export default Route.extend({
     return this.store.findRecord('user', user_id);
   },
 
-  afterModel(model) {
+  afterModel() {
     this.transitionTo('shared-cv.summary');
   },
 

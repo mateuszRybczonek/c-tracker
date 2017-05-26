@@ -68,19 +68,6 @@ export default Component.extend({
   }),
 
   actions: {
-
-    showPrompt() {
-      this.set('showPromptDialog', true);
-    },
-
-    deleteCertificate(certificate) {
-      certificate.destroyRecord();
-    },
-
-    closePromptDialog() {
-      this.set('showPromptDialog', false);
-    },
-
     showModal() {
       let certificateName = this.get('certificate.name');
       let imagePath = this.get('imageUrl');
