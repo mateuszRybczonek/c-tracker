@@ -1,4 +1,4 @@
-<h3>Experience by position</h3>
+<h3>Experience by DP Class</h3>
 <div class="tbl-header">
   <table cellpadding="0" cellspacing="0" border="0">
     <thead>
@@ -12,8 +12,8 @@
 <div class="tbl-content">
   <table cellpadding="0" cellspacing="0" border="0">
     <tbody>
-    {{#each experienceByPosition as |experience|}}
-      {{statistics/experience-by-position/item experience=experience}}
+    {{#each experienceByDPClass as |experience|}}
+      {{statistics/experience-by-dp-class/item experience=experience}}
     {{/each}}
     </tbody>
   </table>
