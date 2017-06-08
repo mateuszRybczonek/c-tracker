@@ -4,6 +4,57 @@ import { calculateDaysBetweenDates } from 'library-app/utils/date-utils';
 const { Service } = Ember;
 
 export default Service.extend({
+  generateExperienceByPosition(seaservices) {
+    let experienceByPositionArray = [];
+    const positions = this._getPositionsFromSeaservice(seaservices);
+    positions.forEach((position) => {
+      let dpTimeArray = [];
+      let daysArray = [];
+      seaservices.forEach((seaservice) => {
+        if(seaservice.get('position') === position) {
+          const signOn = new Date(seaservice.get('signOn'));
+          const signOff = new Date(seaservice.get('signOff'));
+          dpTimeArray.push(seaservice.get('timeOnDP'));
+          daysArray.push(calculateDaysBetweenDates(signOff, signOn));
+        }
+      });
+      const totalDpTime = dpTimeArray.reduce((a, b) => a + b, 0);
+      const totalDaysTime = daysArray.reduce((a, b) => a + b, 0);
+      const experienceByPosition = {
+        position: position,
+        dpTime: totalDpTime,
+        days: totalDaysTime,
+      };
+      experienceByPositionArray.push(experienceByPosition);
+    });
+    return experienceByPositionArray;
+  },
+
+  generateExperienceByDPClass(seaservices) {
+    let experienceByDPClassArray = [];
+    const dpClasses = [1,2,3];
+    dpClasses.forEach((dpClass) => {
+      let dpTimeArray = [];
+      let daysArray = [];
+      seaservices.forEach((seaservice) => {
+        if(seaservice.get('dpClass') === dpClass) {
+          const signOn = new Date(seaservice.get('signOn'));
+          const signOff = new Date(seaservice.get('signOff'));
+          dpTimeArray.push(seaservice.get('timeOnDP'));
+          daysArray.push(calculateDaysBetweenDates(signOff, signOn));
+        }
+      });
+      const totalDpTime = dpTimeArray.reduce((a, b) => a + b, 0);
+      const totalDaysTime = daysArray.reduce((a, b) => a + b, 0);
+      const experienceByDPClass = {
+        dpClass: dpClass,
+        dpTime: totalDpTime,
+        days: totalDaysTime,
+      };
+      experienceByDPClassArray.push(experienceByDPClass);
+    });
+    return experienceByDPClassArray;
+  },
 
   generateWorkHomeRatioPerYearStats(seaservices) {
     let workHomeRatioStats = [];
@@ -46,6 +97,16 @@ export default Service.extend({
       averageStay: averageStay.toFixed(0),
       totalStay: totalStay.toFixed(0),
     };
+  },
+  
+  _getPositionsFromSeaservice(seaservices) {
+    let positions = [];
+    seaservices.forEach((seaservice) => {
+      if (positions.indexOf(seaservice.get('position')) === -1) {
+        positions.push(seaservice.get('position'));
+      }
+    });
+    return positions;
   },
 
   _createWorkHomeRatioStatsForYear(year, workHomeRatioStats, seaservices) {

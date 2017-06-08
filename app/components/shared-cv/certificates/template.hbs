@@ -1,0 +1,14 @@
+<h1>Certificates</h1>
+
+{{#each certificatesTables as |certificateTable|}}
+  {{#if certificateTable.certificates}}
+    {{shared-cv/certificates/certificates-table
+      certificates=certificateTable.certificates
+      title=certificateTable.title
+      id=certificateTable.id
+      userId=userId
+    }}
+  {{/if}}
+{{/each}}
+
+{{preview-modal}}

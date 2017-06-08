@@ -7,7 +7,6 @@ const { Component, computed, observer, inject: { service } } = Ember;
 
 export default Component.extend({
   lazyLoader: service(),
-  statsGenerator: service(),
 
   graphLoading: computed('graph.{loaded,error}', function() {
     return !(this.get('graph.loaded') || this.get('graph.error'));

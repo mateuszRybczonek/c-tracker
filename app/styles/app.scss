@@ -19,8 +19,10 @@
 @import 'app/components/dashboard/dashboard-toolbar/styles';
 @import 'app/components/dashboard/dashboard-toolbar/item/styles';
 @import 'app/components/login/explore-item/styles';
+@import 'app/components/shared-cv/styles';
 @import 'app/styles/certificates';
 @import 'app/styles/dashboard';
+@import 'app/styles/shared-cv';
 @import 'app/styles/statistics';
 @import 'app/styles/mixins/common-tables-mixin';
 
@@ -124,5 +126,9 @@ h3 {
     a {
       display: block;
     }
+  }
+
+  .mobile-vertical {
+    flex-direction: column;
   }
 }

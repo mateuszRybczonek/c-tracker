@@ -1,0 +1,20 @@
+<h3>Experience by DP Class</h3>
+<div class="tbl-header">
+  <table cellpadding="0" cellspacing="0" border="0">
+    <thead>
+    <tr class='header-row'>
+      <th>DP Class</th>
+      <th>Experience (DP hours / days)</th>
+    </tr>
+    </thead>
+  </table>
+</div>
+<div class="tbl-content">
+  <table cellpadding="0" cellspacing="0" border="0">
+    <tbody>
+    {{#each experienceByDPClass as |experience|}}
+      {{statistics/experience-by-dp-class/item experience=experience}}
+    {{/each}}
+    </tbody>
+  </table>
+</div>

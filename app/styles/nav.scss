@@ -49,6 +49,21 @@
   }
 }
 
+.toolbar-tools > .nav-bar-link {
+  height: 40px;
+  padding: 12px;
+  list-style-type: none;
+  color: $dark-grey;
+  border-left: solid 1px transparent;
+  border-right: solid 1px transparent;
+  @include transitions-all;
+  &:hover {
+    text-decoration: none;
+    color: $color-snow;
+    border-color: rgba(9, 9, 9, 0.15);
+  }
+}
+
 .user-name {
   padding-left: 10px;
   text-transform: uppercase;

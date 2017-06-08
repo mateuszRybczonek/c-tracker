@@ -1,0 +1,38 @@
+<td>{{certificate.name}}</td>
+<td class='hidden-xs'>{{certificate.number}}</td>
+<td class='hidden-xs'>{{issueDateFormatted}}</td>
+<td>{{expiryDate}}</td>
+
+<td class="text-right">
+  {{#paper-button
+    bind-attr disabled=noScanPresent
+    iconButton=true
+    onClick=(action 'showModal')
+    class='scan-preview'
+  }}
+    {{paper-icon 'insert-photo'}}
+    {{tooltip-on-component delay=500 effect='slide' text='Preview'}}
+  {{/paper-button}}
+
+  <a download href={{imageUrl}}>
+    {{#paper-button
+      bind-attr disabled=noScanPresent
+      iconButton=true
+      class='scan-download'
+    }}
+      {{paper-icon 'cloud-download'}}
+      {{tooltip-on-component delay=500 effect='slide' text='Download'}}
+    {{/paper-button}}
+  </a>
+
+  {{#paper-button
+    iconButton=true
+    class='hidden-sm hidden-md hidden-lg hidden-xl certificate-details'
+  }}
+    {{paper-icon "info"}}
+    {{#tooltip-on-component delay=500 effect='slide' side='left' event='click'}}
+      {{certificates-table/item/details certificate=certificate}}
+    {{/tooltip-on-component}}
+  {{/paper-button}}
+</td>
+
