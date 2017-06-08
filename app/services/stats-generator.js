@@ -11,7 +11,7 @@ export default Service.extend({
       let dpTimeArray = [];
       let daysArray = [];
       seaservices.forEach((seaservice) => {
-        if(seaservice.get('position') == position) {
+        if(seaservice.get('position') === position) {
           const signOn = new Date(seaservice.get('signOn'));
           const signOff = new Date(seaservice.get('signOff'));
           dpTimeArray.push(seaservice.get('timeOnDP'));
@@ -37,7 +37,7 @@ export default Service.extend({
       let dpTimeArray = [];
       let daysArray = [];
       seaservices.forEach((seaservice) => {
-        if(seaservice.get('dpClass') == dpClass) {
+        if(seaservice.get('dpClass') === dpClass) {
           const signOn = new Date(seaservice.get('signOn'));
           const signOff = new Date(seaservice.get('signOff'));
           dpTimeArray.push(seaservice.get('timeOnDP'));

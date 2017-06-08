@@ -1,5 +1,4 @@
 import Ember from 'ember';
-import { calculateDaysLeft } from 'library-app/utils/date-utils';
 
 const { Component, computed } = Ember;
 
