@@ -1,8 +1,13 @@
 <h1>Summary</h1>
-<div class="container">
+<div class="container mobile-vertical">
   {{shared-cv/summary/certificates-table
     certificates=certificates
   }}
 
-  {{seaservice-table seaservice=seaservices session=session}}
+  <div class="vertical">
+    {{statistics/experience-by-position seaservices=seaservices}}
+    {{statistics/experience-by-dp-class seaservices=seaservices}}
+  </div>
 </div>
+
+{{seaservice-table seaservice=seaservices session=session}}

@@ -2,4 +2,8 @@
   .container {
     display: flex;
   }
+
+  .vertical {
+    flex-direction: column;
+  }
 }
