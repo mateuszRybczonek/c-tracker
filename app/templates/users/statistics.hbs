@@ -3,15 +3,15 @@
 
   {{#if noStats}}
     {{#encouragement-box
-    icon='bar-chart-o'
-    header='No stats available'
+      icon='bar-chart-o'
+      header='No stats available'
     as |fragments|
     }}
       {{fragments.text text='Apparently you have no seaservices added.'}}
       {{fragments.boldText text='Go to seaservices and add seaservice to see your statistics.'}}
       {{ui/link-button-big
-      destination='users.seaservice.index'
-      description='Go to seaservices'
+        destination='users.seaservice.index'
+        description='Go to seaservices'
       }}
     {{/encouragement-box}}
   {{else}}
