@@ -66,11 +66,11 @@
     "ember-tooltips": "2.9.0-beta.0",
     "ember-truth-helpers": "1.2.0",
     "ember-validations": "2.0.0-alpha.5",
-    "emberfire": "2.0.5",
+    "emberfire": "2.0.7",
     "emberx-file-input": "1.1.1",
     "loader.js": "^4.2.3",
     "node-sass": "3.4.2",
     "showdown": "1.5.3",
-    "torii": "0.8.1"
+    "torii": "0.9.1"
   }
 }
