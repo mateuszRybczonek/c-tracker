@@ -10,7 +10,7 @@ module.exports = {
   },
   rules: {
   },
-  global: {
+  globals: {
     '$': true,
   }
 };

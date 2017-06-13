@@ -80,7 +80,6 @@ export default Service.extend({
 
   generateStayOnBoardStats(seaservices) {
     let seaserviceDays = [];
-    let stayOnBoardStats = {};
 
     seaservices.map((seaservice) => {
       const signOn = new Date(seaservice.get('signOn'));
@@ -91,7 +90,7 @@ export default Service.extend({
     let totalStay = seaserviceDays.reduce(function(a, b) { return a + b; });
     let averageStay = totalStay / seaserviceDays.length;
 
-    return stayOnBoardStats = {
+    return {
       longestStay: Math.max.apply(this, seaserviceDays).toFixed(0),
       shortestStay:  Math.min.apply(this, seaserviceDays).toFixed(0),
       averageStay: averageStay.toFixed(0),
