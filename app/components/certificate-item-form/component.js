@@ -1,5 +1,3 @@
-/* jshint unused: false */
-
 import Ember from 'ember';
 
 const { Component, computed, inject: { service }, $ } = Ember;
@@ -86,7 +84,7 @@ export default Component.extend({
 
       uploadTask.on('state_changed', (snapshot) => {
         component.set('progress', (snapshot.bytesTransferred / snapshot.totalBytes));
-      }, function(error) {
+      }, function() {
       }, function() {
         component.set('uploadInProgress', false);
         $('.upload-successful').show(1000);

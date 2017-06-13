@@ -2,9 +2,10 @@ import { test, moduleForComponent } from 'ember-qunit';
 
 moduleForComponent(
   'certificates-table/item',
-  'Unit | Component | certificate-table/item',
+  'Unit | Component | certificates-table/item',
   {
     unit: true,
+    needs: ['service:firebaseApp', 'service:moment']
   }
 );
 

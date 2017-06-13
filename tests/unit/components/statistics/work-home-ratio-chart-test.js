@@ -7,6 +7,7 @@ moduleForComponent(
   'Unit | Component | statistics/work-home-ratio-chart',
   {
     unit: true,
+    needs: ['service:lazyLoader']
   }
 );
 

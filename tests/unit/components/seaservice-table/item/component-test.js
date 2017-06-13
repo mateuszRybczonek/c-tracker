@@ -5,6 +5,7 @@ import { test, moduleForComponent } from 'ember-qunit';
 moduleForComponent('seaservice-table/item', 'Unit | Component | seaservice-table/item',
   {
     unit: true,
+    needs: ['service:moment']
   }
 );
 

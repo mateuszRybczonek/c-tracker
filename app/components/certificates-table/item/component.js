@@ -55,7 +55,6 @@ export default Component.extend({
     }).catch((error) => {
       switch (error.code) {
         case 'storage/object_not_found':
-          console.log("File doesn't exist");
           break;
         case 'storage/unauthorized':
           break;

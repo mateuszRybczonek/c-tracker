@@ -13,13 +13,4 @@ test('it renders', function(assert) {
   this.render(hbs`{{shared-cv}}`);
 
   assert.equal(this.$().text().trim(), '');
-
-  // Template block usage:
-  this.render(hbs`
-    {{#shared-cv}}
-      template block text
-    {{/shared-cv}}
-  `);
-
-  assert.equal(this.$().text().trim(), 'Shared CV mock');
 });
