@@ -28,6 +28,4 @@ test('it renders seaservice properly', function(assert) {
   assert.ok(this.$('td:contains("35 days")'), 'days on board is rendered');
   assert.ok(this.$('td:contains("420 hours")'), 'dp hours are rendered');
   assert.equal(this.$('.popover-seaservice-details').length, 1, 'info icon is rendered');
-  assert.equal(this.$('.edit-seaservice').length, 1, 'edit icon is rendered');
-  assert.equal(this.$('.delete-seaservice').length, 1, 'delete icon is rendered');
 });

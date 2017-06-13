@@ -6,6 +6,7 @@ moduleForComponent(
   'statistics/days-on-board-per-year',
   'Unit | Component | statistics/days-on-board-per-year', {
     unit: true,
+    needs: ['service:lazyLoader']
   }
 );
 

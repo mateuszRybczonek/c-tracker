@@ -1,7 +1,8 @@
 import { moduleForComponent, test } from 'ember-qunit';
 
 moduleForComponent('certificate-item-form', 'Unit | Component | certificate-item-form', {
-  unit: true
+  unit: true,
+  needs: ['service:firebaseApp']
 });
 
 test('formattedProgressValue', function(assert) {
