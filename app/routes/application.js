@@ -4,6 +4,7 @@ const { Route } = Ember;
 
 export default Route.extend({
   beforeModel() {
+    $('.first-meaningful-paint').hide();
     return this.get('session').fetch().catch(function() {});
   },
 
